@@ -1,0 +1,98 @@
+[gd_scene load_steps=8 format=3 uid="uid://cv6pc1vgfsp5o"]
+
+[ext_resource type="PackedScene" uid="uid://c48qhqr3ud1fh" path="res://room1/school_desk_and_chair.glb" id="1_03sbn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n502b"]
+albedo_color = Color(0.07683582, 0.07683582, 0.07683582, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_03sbn"]
+material = SubResource("StandardMaterial3D_n502b")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_03sbn"]
+albedo_color = Color(0.099985994, 0.099985994, 0.099985994, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_23v6p"]
+material = SubResource("StandardMaterial3D_03sbn")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_23v6p"]
+albedo_color = Color(0.09803922, 0.09803922, 0.09803922, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8e036"]
+material = SubResource("StandardMaterial3D_23v6p")
+
+[node name="room" type="Node3D"]
+
+[node name="floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(8.668518, 0, 0, 0, -0.020028353, 0, 0, 0, 7.846375, 0, 0, 0)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_03sbn")
+
+[node name="wall1" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.04646969, 0, 0, 0, 6.950762, 0, 0, 0, 8.050067, -4.3594017, 2.9276657, 0)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_23v6p")
+
+[node name="wall2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.04646969, 0, 0, 0, 6.950762, 0, 0, 0, 8.050067, 4.238184, 2.9276657, 0)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_23v6p")
+
+[node name="wall3" type="MeshInstance3D" parent="."]
+transform = Transform3D(9.006356, 0, 0, 0, 9.090252, 0, 0, 0, 0.09675646, 0, 1.463881, 3.4066424)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_8e036")
+
+[node name="wall4" type="MeshInstance3D" parent="."]
+transform = Transform3D(4.003478, 0, 0, 0, 9.090252, 0, 0, 0, 0.09675646, -2.6995785, 1.463881, -3.8266206)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_8e036")
+
+[node name="wall5" type="MeshInstance3D" parent="."]
+transform = Transform3D(4.003478, 0, 0, 0, 9.090252, 0, 0, 0, 0.09675646, 2.949983, 1.463881, -3.8266206)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_8e036")
+
+[node name="wall6" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.7499758e-07, -9.090252, 0, 4.003478, -3.9734752e-07, 0, 0, 0, 0.09675646, -0.021680355, 4.5926156, -3.8266206)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_8e036")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.38248038, -0.34560984, 0.8568912, -0.0519465, 0.9339847, 0.35351717, -0.9225024, 0.09070091, -0.37518394, 3.7487242, 3.1842568, -2.6174078)
+
+[node name="desks" type="Node3D" parent="."]
+
+[node name="row1" type="Node3D" parent="desks"]
+
+[node name="Sketchfab_Scene" parent="desks/row1" instance=ExtResource("1_03sbn")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 3.0551414, 0, 2.4790087)
+
+[node name="Sketchfab_Scene2" parent="desks/row1" instance=ExtResource("1_03sbn")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 3.0551414, 0, 4.3350997)
+
+[node name="Sketchfab_Scene3" parent="desks/row1" instance=ExtResource("1_03sbn")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 3.055, 0, 6.1907334)
+
+[node name="row2" type="Node3D" parent="desks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.098702, 0, 0)
+
+[node name="Sketchfab_Scene" parent="desks/row2" instance=ExtResource("1_03sbn")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 3.0551414, 0, 2.4790087)
+
+[node name="Sketchfab_Scene2" parent="desks/row2" instance=ExtResource("1_03sbn")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 3.0551414, 0, 4.3350997)
+
+[node name="Sketchfab_Scene3" parent="desks/row2" instance=ExtResource("1_03sbn")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 3.055, 0, 6.1907334)
+
+[node name="row3" type="Node3D" parent="desks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.198, 0, 0)
+
+[node name="Sketchfab_Scene" parent="desks/row3" instance=ExtResource("1_03sbn")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 3.0551414, 0, 2.4790087)
+
+[node name="Sketchfab_Scene2" parent="desks/row3" instance=ExtResource("1_03sbn")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 3.0551414, 0, 4.3350997)
+
+[node name="Sketchfab_Scene3" parent="desks/row3" instance=ExtResource("1_03sbn")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 3.055, 0, 6.1907334)

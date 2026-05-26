@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://pigfb45lfdm0"]
+[gd_scene load_steps=27 format=3 uid="uid://pigfb45lfdm0"]
 
 [ext_resource type="Script" uid="uid://com4mk7x4gvc1" path="res://camera.gd" id="1_g3mwp"]
 [ext_resource type="Script" uid="uid://ckjr1dj5iune1" path="res://game_manager.gd" id="1_lcwox"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://b3fv7mgwvg4fn" path="res://coffee_mug_-_caneca_de_cafe.glb" id="7_lcwox"]
 [ext_resource type="PackedScene" uid="uid://djsf5lgkf53t" path="res://desktop.glb" id="8_wruqr"]
 [ext_resource type="Script" uid="uid://cv66srj7sm6pl" path="res://usage_bar_manager.gd" id="10_3xqf3"]
+[ext_resource type="PackedScene" uid="uid://cv6pc1vgfsp5o" path="res://room1.tscn" id="11_70x1r"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g3mwp"]
 albedo_color = Color(0.37036502, 0.37036428, 0.37036443, 1)
@@ -56,6 +57,12 @@ glow_enabled = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_lcnwv"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3xqf3"]
+albedo_color = Color(0.0885599, 0.0885599, 0.0885599, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_70x1r"]
+material = SubResource("StandardMaterial3D_3xqf3")
+
 [node name="Node3D" type="Node3D"]
 
 [node name="game_manager" type="Node3D" parent="."]
@@ -73,7 +80,7 @@ transform = Transform3D(1, 0, 0, 0, 0.9982129, 0.059759356, 0, -0.059759356, 0.9
 script = ExtResource("1_g3mwp")
 
 [node name="wall_front" type="MeshInstance3D" parent="."]
-transform = Transform3D(-1.9576007e-08, 0, 14.093472, 0, 15.790982, 0, -0.44784683, 0, -6.160452e-07, 0.6730037, 0, -2.379583)
+transform = Transform3D(-1.9576007e-08, 0, 8.55517, 0, 15.790982, 0, -0.44784683, 0, -3.7395836e-07, 0.6730037, 0, -2.379583)
 cast_shadow = 0
 mesh = SubResource("BoxMesh_ei2s5")
 
@@ -81,7 +88,7 @@ mesh = SubResource("BoxMesh_ei2s5")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.571704, 0, 0)
 
 [node name="left_of_door" type="MeshInstance3D" parent="wall_left"]
-transform = Transform3D(0.44784677, 0, 0, 0, 15.790982, 0, 0, 0, 8.1006365, 5.029, 0, -2.129)
+transform = Transform3D(0.44784677, 0, 0, 0, 15.790982, 0, 0, 0, 1.5178366, 4.880362, -0.14659977, 1.149101)
 cast_shadow = 0
 mesh = SubResource("BoxMesh_ei2s5")
 skeleton = NodePath("../..")
@@ -126,30 +133,27 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.022277832, 0.012207031, -0.0033035278)
 shape = SubResource("BoxShape3D_ei2s5")
 
-[node name="Sketchfab_Scene" parent="wall_left" instance=ExtResource("4_wruqr")]
-transform = Transform3D(0.018638946, 0, 0.14883746, 0, 0.14999999, 0, -0.14883746, 0, 0.018638946, 7.2613506, 0.43607903, 0.3265369)
+[node name="right_window" type="MeshInstance3D" parent="wall_left"]
+transform = Transform3D(0.44784677, 0, 0, 0, 15.790982, 0, 0, 0, 1.5178366, 4.880362, -0.14659977, -1.809499)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_ei2s5")
+skeleton = NodePath("../..")
+
+[node name="bottom_window" type="MeshInstance3D" parent="wall_left"]
+transform = Transform3D(0.44784677, 0, 0, 0, -1.8369051, 0, 0, 0, 3.8826637, 4.880362, -0.14659977, -0.49078882)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_ei2s5")
+skeleton = NodePath("../..")
+
+[node name="top_window" type="MeshInstance3D" parent="wall_left"]
+transform = Transform3D(0.44784677, 0, 0, 0, -1.8369051, 0, 0, 0, 3.8826637, 4.880362, 3.8332152, -0.49078882)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_ei2s5")
+skeleton = NodePath("../..")
 
 [node name="wall_right" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.023573875, 0, 0)
 metadata/_edit_group_ = true
-
-[node name="left_of_door" type="MeshInstance3D" parent="wall_right"]
-transform = Transform3D(0.44784677, 0, 0, 0, 15.790982, 0, 0, 0, 8.1006365, 5.029, 0, -2.129)
-cast_shadow = 0
-mesh = SubResource("BoxMesh_ei2s5")
-skeleton = NodePath("../..")
-
-[node name="right_of_door" type="MeshInstance3D" parent="wall_right"]
-transform = Transform3D(0.44784677, 0, 0, 0, 15.790982, 0, 0, 0, 7.0341344, 5.029207, 0, 7.5512905)
-cast_shadow = 0
-mesh = SubResource("BoxMesh_ei2s5")
-skeleton = NodePath("../..")
-
-[node name="top_of_door" type="MeshInstance3D" parent="wall_right"]
-transform = Transform3D(0.44784677, 0, 0, 0, -6.9024577e-07, 7.034135, 0, -15.790982, -3.074718e-07, 5.029, 7.486057, 3.47)
-cast_shadow = 0
-mesh = SubResource("BoxMesh_ei2s5")
-skeleton = NodePath("../..")
 
 [node name="toggle_light" type="StaticBody3D" parent="wall_right"]
 transform = Transform3D(-0.3, 0, 0, 0, -0.3, 0, 0, 0, -0.3, 4.780608, 1.69, 1.489)
@@ -179,6 +183,42 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.022277832, 0.012207031, -0.0033035278)
 shape = SubResource("BoxShape3D_ei2s5")
 
+[node name="left_of_door" type="MeshInstance3D" parent="wall_right"]
+transform = Transform3D(0.44784677, 0, 0, 0, 15.790982, 0, 0, 0, 1.5178366, 5.0669947, -0.14659977, 1.149101)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_ei2s5")
+skeleton = NodePath("../..")
+
+[node name="right_of_door" type="MeshInstance3D" parent="wall_right"]
+transform = Transform3D(0.44784677, 0, 0, 0, 15.790982, 0, 0, 0, 7.0341344, 5.21584, 0, 7.5512905)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_ei2s5")
+skeleton = NodePath("../..")
+
+[node name="top_of_door" type="MeshInstance3D" parent="wall_right"]
+transform = Transform3D(0.44784677, 0, 0, 0, -6.9024577e-07, 7.034135, 0, -15.790982, -3.074718e-07, 5.2156324, 7.486057, 3.47)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_ei2s5")
+skeleton = NodePath("../..")
+
+[node name="right_window" type="MeshInstance3D" parent="wall_right"]
+transform = Transform3D(0.44784677, 0, 0, 0, 15.790982, 0, 0, 0, 1.5178366, 5.0669947, -0.14659977, -1.809499)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_ei2s5")
+skeleton = NodePath("../..")
+
+[node name="bottom_window" type="MeshInstance3D" parent="wall_right"]
+transform = Transform3D(0.44784677, 0, 0, 0, -1.8369051, 0, 0, 0, 3.8826637, 5.0669947, -0.14659977, -0.49078882)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_ei2s5")
+skeleton = NodePath("../..")
+
+[node name="top_window" type="MeshInstance3D" parent="wall_right"]
+transform = Transform3D(0.44784677, 0, 0, 0, -1.8369051, 0, 0, 0, 3.8826637, 5.0669947, 3.8332152, -0.49078882)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_ei2s5")
+skeleton = NodePath("../..")
+
 [node name="floor" type="MeshInstance3D" parent="."]
 transform = Transform3D(18.158773, 0, 0, 0, -0.1, -1.6280559e-06, 0, 8.742278e-09, -18.622787, 1.638, -0.53822154, 4.794)
 mesh = SubResource("BoxMesh_u8nhc")
@@ -196,37 +236,18 @@ mesh = SubResource("BoxMesh_g3mwp")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_hsito")
 
-[node name="door_light_left" type="SpotLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -2.8732636, 3.947266, 2.9120543)
-visible = false
-light_color = Color(0.949943, 0.9663443, 0.84396166, 1)
-light_energy = 10.0
-light_indirect_energy = 20.0
-light_size = 1.0
-shadow_enabled = true
-spot_attenuation = -0.55
-spot_angle = 22.16
-
-[node name="door_light_right" type="SpotLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 5.510046, 3.947266, 2.9120543)
-visible = false
-light_color = Color(0.949943, 0.9663443, 0.84396166, 1)
-light_energy = 10.0
-light_indirect_energy = 20.0
-light_size = 1.0
-shadow_enabled = true
-spot_attenuation = -0.55
-spot_angle = 22.16
-
 [node name="feddy_fangbear" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.5259625, 0, 0, 0, 2.767939, 0, 0, 0, 0.90001243, -3.78062, 0.5425849, 2.980141)
+transform = Transform3D(0.5259625, 0, 0, 0, 2.767939, 0, 0, 0, 0.90001243, -3.78062, 0.5425849, 2.5206857)
 mesh = SubResource("BoxMesh_lcnwv")
-
-[node name="Sketchfab_Scene" parent="." instance=ExtResource("7_lcwox")]
-transform = Transform3D(0.008968728, 0, 0.028627995, 0, 0.03, 0, -0.028627995, 0, 0.008968728, 0.15645602, 0.42499572, 0.29920185)
 
 [node name="desk" parent="." instance=ExtResource("8_wruqr")]
 transform = Transform3D(-1.0927848e-09, 0, 0.025, 0, 0.025, 0, -0.025, 0, -1.0927848e-09, 1.15, -1.7732626, -0.19370902)
+
+[node name="mug" parent="desk" instance=ExtResource("7_lcwox")]
+transform = Transform3D(1.1451198, 0, -0.35874915, 0, 1.1999999, 0, 0.35874915, 0, 1.1451198, -19.716433, 87.93033, -39.74176)
+
+[node name="snoopy" parent="desk" instance=ExtResource("4_wruqr")]
+transform = Transform3D(5.9534984, 0, -0.7455581, 0, 5.9999995, 0, 0.7455581, 0, 5.9534984, -20.809834, 88.373665, -58.41413)
 
 [node name="desk_light" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 1.123553, 3.4662106, 0)
@@ -283,6 +304,101 @@ script = ExtResource("10_3xqf3")
 [node name="usage_bar" type="ColorRect" parent="gui/usage_bar_container"]
 layout_mode = 0
 offset_bottom = 40.0
+
+[node name="door_light_left" type="Node3D" parent="."]
+visible = false
+
+[node name="SpotLight3D" type="SpotLight3D" parent="door_light_left"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -3.8225434, 3.7098184, 2.0188072)
+light_energy = 30.0
+shadow_enabled = true
+spot_range = 4.947322
+spot_angle = 33.26355
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="door_light_left"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -4.3783245, 3.8214364, -0.016069233)
+light_energy = 30.0
+shadow_enabled = true
+spot_range = 4.947322
+spot_angle = 33.26355
+
+[node name="door_light_right" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.496609, 0, 0)
+visible = false
+
+[node name="SpotLight3D" type="SpotLight3D" parent="door_light_right"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -3.8225434, 3.7098184, 2.0188072)
+light_energy = 30.0
+shadow_enabled = true
+spot_range = 4.947322
+spot_angle = 33.26355
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="door_light_right"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -4.3783245, 3.8214364, -0.016069233)
+light_energy = 30.0
+shadow_enabled = true
+spot_range = 4.947322
+spot_angle = 33.26355
+
+[node name="left_hallway" type="Node3D" parent="."]
+
+[node name="hall" type="MeshInstance3D" parent="left_hallway"]
+transform = Transform3D(-1.9576007e-08, 0, 3.5576625, 0, 15.790982, 0, -0.44784683, 0, -1.5551036e-07, -4.4514623, 4.7683716e-07, 4.463328)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_ei2s5")
+skeleton = NodePath("../..")
+
+[node name="long_wall" type="MeshInstance3D" parent="left_hallway"]
+transform = Transform3D(-0.44784695, 0, 2.4042863e-06, 0, 15.790982, 0, -3.9152024e-08, 0, -27.501827, -6.09479, 0, -8.957501)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_ei2s5")
+skeleton = NodePath("../..")
+
+[node name="long_wall2" type="MeshInstance3D" parent="left_hallway"]
+transform = Transform3D(-0.44784695, 0, 1.7809958e-06, 0, 15.790982, 0, -3.9152024e-08, 0, -20.372215, -2.6920428, 0, -12.380021)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_ei2s5")
+skeleton = NodePath("../..")
+
+[node name="right_hallway" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.406612, 0, 0)
+
+[node name="hall" type="MeshInstance3D" parent="right_hallway"]
+transform = Transform3D(-1.9576007e-08, 0, 3.5576625, 0, 15.790982, 0, -0.44784683, 0, -1.5551036e-07, -9.2343235, 4.7683716e-07, 4.463328)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_ei2s5")
+skeleton = NodePath("../..")
+
+[node name="long_wall" type="MeshInstance3D" parent="right_hallway"]
+transform = Transform3D(-0.44784695, 0, 2.4042863e-06, 0, 15.790982, 0, -3.9152024e-08, 0, -27.501827, -7.722004, 0, -8.957501)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_ei2s5")
+skeleton = NodePath("../..")
+
+[node name="long_wall2" type="MeshInstance3D" parent="right_hallway"]
+transform = Transform3D(-0.44784695, 0, 1.8751759e-06, 0, 15.790982, 0, -3.9152024e-08, 0, -21.44951, -11.609605, 0, -13.100048)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_ei2s5")
+skeleton = NodePath("../..")
+
+[node name="outside_front_wall" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.9576014e-08, 0, -7.705006, 0, 15.790984, 0, 0.447847, 0, -3.367965e-07, 1.16507, 0, -22.431679)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_ei2s5")
+skeleton = NodePath("../..")
+
+[node name="back_wall" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.9576014e-08, 0, -8.785941, 0, 15.790984, 0, 0.447847, 0, -3.8404568e-07, 1.16507, 0, 7.964823)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_ei2s5")
+skeleton = NodePath("../..")
+
+[node name="roof" type="MeshInstance3D" parent="."]
+transform = Transform3D(21.137314, 0, 0, 0, -0.025786722, 0, 0, 0, 46.54424, 0, 8.518635, -7.763641)
+mesh = SubResource("BoxMesh_70x1r")
+
+[node name="room" parent="." instance=ExtResource("11_70x1r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.176916, 0, 10.05156)
 
 [connection signal="timeout" from="game_manager/hour" to="game_manager" method="_next_hour"]
 [connection signal="timeout" from="game_manager/power" to="game_manager" method="_timeout_counter"]
