@@ -26,18 +26,14 @@ func _process(delta: float) -> void:
 		if cursor_x >= screen_x-100 and cursor_x <= screen_x and !is_on_right: #sliddee to the right
 			if is_on_left:
 				target=0.0
-				print_debug("on a side")
 			else:
 				target=-75.3
-				print_debug("not on a side")
 			
 		elif cursor_x <= 100 and cursor_x >= 0 and !is_on_left: #slidee to the left
 			if is_on_right:
 				target=0.0
-				print_debug("on a side")
 			else:
 				target=75.3
-				print_debug("not on a side")
 			
 		else:
 			if !is_on_left and !is_on_right:

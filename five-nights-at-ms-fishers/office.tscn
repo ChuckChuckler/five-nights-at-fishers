@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://pigfb45lfdm0"]
+[gd_scene load_steps=20 format=3 uid="uid://pigfb45lfdm0"]
 
 [ext_resource type="Script" uid="uid://com4mk7x4gvc1" path="res://camera.gd" id="1_g3mwp"]
+[ext_resource type="Script" uid="uid://dwq40el1f4rml" path="res://toggle_light_left.gd" id="2_ei2s5"]
+[ext_resource type="Script" uid="uid://8st75x30xko4" path="res://toggle_door_left.gd" id="3_u8nhc"]
+[ext_resource type="Script" uid="uid://npb2r6scrfk8" path="res://toggle_light_right.gd" id="4_43ocd"]
+[ext_resource type="Script" uid="uid://b80qfredxfx21" path="res://toggle_door_right.gd" id="5_hsito"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_8yeiw"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_g3mwp"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g3mwp"]
 albedo_color = Color(0.37036502, 0.37036428, 0.37036443, 1)
@@ -12,11 +14,44 @@ albedo_color = Color(0.37036502, 0.37036428, 0.37036443, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_ei2s5"]
 material = SubResource("StandardMaterial3D_g3mwp")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u8nhc"]
+albedo_color = Color(0.7683605, 0.9162795, 0.60035366, 1)
+emission_enabled = true
+emission = Color(0.26857805, 0.55622643, 3.85046e-07, 1)
+emission_energy_multiplier = 5.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_43ocd"]
+material = SubResource("StandardMaterial3D_u8nhc")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_u8nhc"]
+size = Vector3(0.78125, 1.1674805, 1.2523804)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_43ocd"]
+albedo_color = Color(1, 0.50297093, 0.42989147, 1)
+emission_enabled = true
+emission = Color(0.820227, 0.06604314, 0, 1)
+emission_energy_multiplier = 5.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_hsito"]
+material = SubResource("StandardMaterial3D_43ocd")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ei2s5"]
+size = Vector3(0.09387207, 0.4267578, 0.42070007)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ei2s5"]
 albedo_color = Color(0.0142752165, 0.014275218, 0.014275218, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_u8nhc"]
 material = SubResource("StandardMaterial3D_ei2s5")
+
+[sub_resource type="BoxMesh" id="BoxMesh_g3mwp"]
+
+[sub_resource type="Environment" id="Environment_hsito"]
+background_mode = 1
+background_color = Color(0.0885599, 0.0885599, 0.0885599, 1)
+glow_enabled = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_lcnwv"]
 
 [node name="Node3D" type="Node3D"]
 
@@ -25,39 +60,15 @@ transform = Transform3D(3.3658843, 0, 0, 0, 1, 0, 0, 0, 1, 1.1764652, 0, 0)
 cast_shadow = 0
 mesh = SubResource("BoxMesh_8yeiw")
 
+[node name="OmniLight3D" type="OmniLight3D" parent="desk"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1861395, 0)
+light_energy = 5.0
+light_size = 1.0
+omni_range = 2.694379
+
 [node name="camera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.9982129, 0.059759356, 0, -0.059759356, 0.9982129, 1.1559151, 1.118759, 1.857029)
 script = ExtResource("1_g3mwp")
-
-[node name="door_right" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 4.0464573, 0, 0, 0, 2.8925831, 5.050861, 4.910427, 2.8256717)
-cast_shadow = 0
-mesh = SubResource("BoxMesh_g3mwp")
-
-[node name="door_left" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 4.0464573, 0, 0, 0, 2.23691, -2.665, 4.91, 2.9385183)
-cast_shadow = 0
-mesh = SubResource("BoxMesh_g3mwp")
-
-[node name="wall_right" type="Node3D" parent="."]
-
-[node name="left_of_door" type="MeshInstance3D" parent="wall_right"]
-transform = Transform3D(0.44784677, 0, 0, 0, 15.790982, 0, 0, 0, 7.0341344, 5.029207, 0, -2.1286404)
-cast_shadow = 0
-mesh = SubResource("BoxMesh_ei2s5")
-skeleton = NodePath("../..")
-
-[node name="right_of_door" type="MeshInstance3D" parent="wall_right"]
-transform = Transform3D(0.44784677, 0, 0, 0, 15.790982, 0, 0, 0, 7.0341344, 5.029207, 0, 7.7644253)
-cast_shadow = 0
-mesh = SubResource("BoxMesh_ei2s5")
-skeleton = NodePath("../..")
-
-[node name="top_of_door" type="MeshInstance3D" parent="wall_right"]
-transform = Transform3D(0.44784677, 0, 0, 0, -6.9024577e-07, 7.034135, 0, -15.790982, -3.074718e-07, 5.029, 6.32, 3.47)
-cast_shadow = 0
-mesh = SubResource("BoxMesh_ei2s5")
-skeleton = NodePath("../..")
 
 [node name="wall_front" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1.9576007e-08, 0, 14.093472, 0, 15.790982, 0, -0.44784683, 0, -6.160452e-07, 0.6730037, 0, -3.8635097)
@@ -85,6 +96,128 @@ cast_shadow = 0
 mesh = SubResource("BoxMesh_ei2s5")
 skeleton = NodePath("../..")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="toggle_light" type="StaticBody3D" parent="wall_left"]
+transform = Transform3D(-0.3, 0, 0, 0, -0.3, 0, 0, 0, -0.3, 5.246, 1.69, 1.489)
+script = ExtResource("2_ei2s5")
+
+[node name="button" type="MeshInstance3D" parent="wall_left/toggle_light"]
+transform = Transform3D(0.10143279, 0, 0, 0, -1.4026036, 1.1340008e-07, 0, -1.2261951e-07, -1.2971456, 0.00030374527, -7.247925e-05, -0.0013132095)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_43ocd")
+skeleton = NodePath("../..")
+
+[node name="collision" type="CollisionShape3D" parent="wall_left/toggle_light"]
+transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0.10937548, -0.08373976, 0.04464674)
+shape = SubResource("BoxShape3D_u8nhc")
+
+[node name="toggle_door" type="StaticBody3D" parent="wall_left"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.246, 1.084, 1.489)
+script = ExtResource("3_u8nhc")
+
+[node name="button" type="MeshInstance3D" parent="wall_left/toggle_door"]
+transform = Transform3D(-0.03042984, 0, 0, 0, 0.42078114, 0, 0, 0, 0.38914374, -9.10759e-05, -0.00030124187, 0.0003938675)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_hsito")
+skeleton = NodePath("../..")
+
+[node name="collision" type="CollisionShape3D" parent="wall_left/toggle_door"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.022277832, 0.012207031, -0.0033035278)
+shape = SubResource("BoxShape3D_ei2s5")
+
+[node name="wall_right" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.023573875, 0, 0)
+metadata/_edit_group_ = true
+
+[node name="left_of_door" type="MeshInstance3D" parent="wall_right"]
+transform = Transform3D(0.44784677, 0, 0, 0, 15.790982, 0, 0, 0, 8.1006365, 5.029, 0, -2.129)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_ei2s5")
+skeleton = NodePath("../..")
+
+[node name="right_of_door" type="MeshInstance3D" parent="wall_right"]
+transform = Transform3D(0.44784677, 0, 0, 0, 15.790982, 0, 0, 0, 7.0341344, 5.029207, 0, 7.5512905)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_ei2s5")
+skeleton = NodePath("../..")
+
+[node name="top_of_door" type="MeshInstance3D" parent="wall_right"]
+transform = Transform3D(0.44784677, 0, 0, 0, -6.9024577e-07, 7.034135, 0, -15.790982, -3.074718e-07, 5.029, 7.486057, 3.47)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_ei2s5")
+skeleton = NodePath("../..")
+
+[node name="toggle_light" type="StaticBody3D" parent="wall_right"]
+transform = Transform3D(-0.3, 0, 0, 0, -0.3, 0, 0, 0, -0.3, 4.780608, 1.69, 1.489)
+script = ExtResource("4_43ocd")
+
+[node name="button" type="MeshInstance3D" parent="wall_right/toggle_light"]
+transform = Transform3D(0.10143279, 0, 0, 0, -1.4026036, 1.1340008e-07, 0, -1.2261951e-07, -1.2971456, 0.00030374527, -7.247925e-05, -0.0013132095)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_43ocd")
+skeleton = NodePath("../..")
+
+[node name="collision" type="CollisionShape3D" parent="wall_right/toggle_light"]
+transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, -0.265625, -0.08373976, 0.04464674)
+shape = SubResource("BoxShape3D_u8nhc")
+
+[node name="toggle_door" type="StaticBody3D" parent="wall_right"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.780608, 1.084, 1.489)
+script = ExtResource("5_hsito")
+
+[node name="button" type="MeshInstance3D" parent="wall_right/toggle_door"]
+transform = Transform3D(-0.03042984, 0, 0, 0, 0.42078114, 0, 0, 0, 0.38914374, -9.10759e-05, -0.00030124187, 0.0003938675)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_hsito")
+skeleton = NodePath("../..")
+
+[node name="collision" type="CollisionShape3D" parent="wall_right/toggle_door"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.022277832, 0.012207031, -0.0033035278)
+shape = SubResource("BoxShape3D_ei2s5")
+
+[node name="floor" type="MeshInstance3D" parent="."]
 transform = Transform3D(18.158773, 0, 0, 0, -0.1, -1.6280559e-06, 0, 8.742278e-09, -18.622787, 1.638, -0.53822154, 4.794)
 mesh = SubResource("BoxMesh_u8nhc")
+
+[node name="door_left" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 4.9315786, 0, 0, 0, 2.23691, -2.665, 6.588523, 2.939)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_g3mwp")
+
+[node name="door_right" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 4.9315786, 0, 0, 0, 2.23691, 5.1916747, 6.588523, 2.939)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_g3mwp")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_hsito")
+
+[node name="door_light_left" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -2.8732636, 3.947266, 2.9120543)
+visible = false
+light_color = Color(0.949943, 0.9663443, 0.84396166, 1)
+light_energy = 10.0
+light_indirect_energy = 20.0
+light_size = 1.0
+shadow_enabled = true
+spot_attenuation = -0.55
+spot_angle = 22.16
+
+[node name="door_light_right" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 5.510046, 3.947266, 2.9120543)
+visible = false
+light_color = Color(0.949943, 0.9663443, 0.84396166, 1)
+light_energy = 10.0
+light_indirect_energy = 20.0
+light_size = 1.0
+shadow_enabled = true
+spot_attenuation = -0.55
+spot_angle = 22.16
+
+[node name="feddy_fangbear" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5259625, 0, 0, 0, 2.767939, 0, 0, 0, 0.90001243, -3.78062, 0.5425849, 2.980141)
+mesh = SubResource("BoxMesh_lcnwv")
+
+[connection signal="input_event" from="wall_left/toggle_light" to="wall_left/toggle_light" method="_toggle_light_on_off"]
+[connection signal="input_event" from="wall_left/toggle_door" to="wall_left/toggle_door" method="_toggle_door_open_closed"]
+[connection signal="input_event" from="wall_right/toggle_light" to="wall_right/toggle_light" method="_toggle_light_on_off"]
+[connection signal="input_event" from="wall_right/toggle_door" to="wall_right/toggle_door" method="_toggle_door_open_closed"]
