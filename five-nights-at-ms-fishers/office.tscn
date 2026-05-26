@@ -1,12 +1,15 @@
-[gd_scene load_steps=20 format=3 uid="uid://pigfb45lfdm0"]
+[gd_scene load_steps=24 format=3 uid="uid://pigfb45lfdm0"]
 
 [ext_resource type="Script" uid="uid://com4mk7x4gvc1" path="res://camera.gd" id="1_g3mwp"]
+[ext_resource type="Script" uid="uid://ckjr1dj5iune1" path="res://game_manager.gd" id="1_lcwox"]
 [ext_resource type="Script" uid="uid://dwq40el1f4rml" path="res://toggle_light_left.gd" id="2_ei2s5"]
 [ext_resource type="Script" uid="uid://8st75x30xko4" path="res://toggle_door_left.gd" id="3_u8nhc"]
 [ext_resource type="Script" uid="uid://npb2r6scrfk8" path="res://toggle_light_right.gd" id="4_43ocd"]
+[ext_resource type="PackedScene" uid="uid://dq06oqegsrfbc" path="res://snoopy..glb" id="4_wruqr"]
 [ext_resource type="Script" uid="uid://b80qfredxfx21" path="res://toggle_door_right.gd" id="5_hsito"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_8yeiw"]
+[ext_resource type="PackedScene" uid="uid://b3fv7mgwvg4fn" path="res://coffee_mug_-_caneca_de_cafe.glb" id="7_lcwox"]
+[ext_resource type="PackedScene" uid="uid://djsf5lgkf53t" path="res://desktop.glb" id="8_wruqr"]
+[ext_resource type="Script" uid="uid://cv66srj7sm6pl" path="res://usage_bar_manager.gd" id="10_3xqf3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g3mwp"]
 albedo_color = Color(0.37036502, 0.37036428, 0.37036443, 1)
@@ -55,23 +58,22 @@ glow_enabled = true
 
 [node name="Node3D" type="Node3D"]
 
-[node name="desk" type="MeshInstance3D" parent="."]
-transform = Transform3D(3.3658843, 0, 0, 0, 1, 0, 0, 0, 1, 1.1764652, 0, 0)
-cast_shadow = 0
-mesh = SubResource("BoxMesh_8yeiw")
+[node name="game_manager" type="Node3D" parent="."]
+script = ExtResource("1_lcwox")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="desk"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1861395, 0)
-light_energy = 5.0
-light_size = 1.0
-omni_range = 2.694379
+[node name="hour" type="Timer" parent="game_manager"]
+wait_time = 60.0
+autostart = true
+
+[node name="power" type="Timer" parent="game_manager"]
+autostart = true
 
 [node name="camera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.9982129, 0.059759356, 0, -0.059759356, 0.9982129, 1.1559151, 1.118759, 1.857029)
 script = ExtResource("1_g3mwp")
 
 [node name="wall_front" type="MeshInstance3D" parent="."]
-transform = Transform3D(-1.9576007e-08, 0, 14.093472, 0, 15.790982, 0, -0.44784683, 0, -6.160452e-07, 0.6730037, 0, -3.8635097)
+transform = Transform3D(-1.9576007e-08, 0, 14.093472, 0, 15.790982, 0, -0.44784683, 0, -6.160452e-07, 0.6730037, 0, -2.379583)
 cast_shadow = 0
 mesh = SubResource("BoxMesh_ei2s5")
 
@@ -123,6 +125,9 @@ skeleton = NodePath("../..")
 [node name="collision" type="CollisionShape3D" parent="wall_left/toggle_door"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.022277832, 0.012207031, -0.0033035278)
 shape = SubResource("BoxShape3D_ei2s5")
+
+[node name="Sketchfab_Scene" parent="wall_left" instance=ExtResource("4_wruqr")]
+transform = Transform3D(0.018638946, 0, 0.14883746, 0, 0.14999999, 0, -0.14883746, 0, 0.018638946, 7.2613506, 0.43607903, 0.3265369)
 
 [node name="wall_right" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.023573875, 0, 0)
@@ -217,6 +222,70 @@ spot_angle = 22.16
 transform = Transform3D(0.5259625, 0, 0, 0, 2.767939, 0, 0, 0, 0.90001243, -3.78062, 0.5425849, 2.980141)
 mesh = SubResource("BoxMesh_lcnwv")
 
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("7_lcwox")]
+transform = Transform3D(0.008968728, 0, 0.028627995, 0, 0.03, 0, -0.028627995, 0, 0.008968728, 0.15645602, 0.42499572, 0.29920185)
+
+[node name="desk" parent="." instance=ExtResource("8_wruqr")]
+transform = Transform3D(-1.0927848e-09, 0, 0.025, 0, 0.025, 0, -0.025, 0, -1.0927848e-09, 1.15, -1.7732626, -0.19370902)
+
+[node name="desk_light" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 1.123553, 3.4662106, 0)
+light_color = Color(0.8851736, 0.87716717, 0.75766146, 1)
+light_energy = 10.0
+light_indirect_energy = 5.0
+shadow_enabled = true
+spot_angle = 30.409227
+
+[node name="gui" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1160.0
+offset_bottom = 657.0
+mouse_filter = 2
+
+[node name="time" type="RichTextLabel" parent="gui"]
+layout_mode = 0
+offset_left = 836.0
+offset_top = 16.0
+offset_right = 1123.0
+offset_bottom = 77.0
+theme_override_font_sizes/normal_font_size = 30
+text = "12 AM"
+horizontal_alignment = 2
+
+[node name="power_left" type="RichTextLabel" parent="gui"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 518.0
+offset_right = 243.0
+offset_bottom = 582.0
+theme_override_font_sizes/normal_font_size = 25
+text = "Power left: 100%"
+
+[node name="power_usage" type="RichTextLabel" parent="gui"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 569.0
+offset_right = 283.0
+offset_bottom = 639.0
+theme_override_font_sizes/normal_font_size = 25
+text = "Usage:"
+
+[node name="usage_bar_container" type="ColorRect" parent="gui"]
+layout_mode = 0
+offset_left = 109.0
+offset_top = 568.0
+offset_right = 237.0
+offset_bottom = 608.0
+color = Color(1, 1, 1, 0.19607843)
+script = ExtResource("10_3xqf3")
+
+[node name="usage_bar" type="ColorRect" parent="gui/usage_bar_container"]
+layout_mode = 0
+offset_bottom = 40.0
+
+[connection signal="timeout" from="game_manager/hour" to="game_manager" method="_next_hour"]
+[connection signal="timeout" from="game_manager/power" to="game_manager" method="_timeout_counter"]
 [connection signal="input_event" from="wall_left/toggle_light" to="wall_left/toggle_light" method="_toggle_light_on_off"]
 [connection signal="input_event" from="wall_left/toggle_door" to="wall_left/toggle_door" method="_toggle_door_open_closed"]
 [connection signal="input_event" from="wall_right/toggle_light" to="wall_right/toggle_light" method="_toggle_light_on_off"]
