@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://pigfb45lfdm0"]
+[gd_scene load_steps=28 format=3 uid="uid://pigfb45lfdm0"]
 
 [ext_resource type="Script" uid="uid://com4mk7x4gvc1" path="res://camera.gd" id="1_g3mwp"]
 [ext_resource type="Script" uid="uid://ckjr1dj5iune1" path="res://game_manager.gd" id="1_lcwox"]
@@ -52,10 +52,17 @@ material = SubResource("StandardMaterial3D_ei2s5")
 
 [sub_resource type="Environment" id="Environment_hsito"]
 background_mode = 1
-background_color = Color(0.0885599, 0.0885599, 0.0885599, 1)
+background_color = Color(0.15487596, 0.154876, 0.1548759, 1)
 glow_enabled = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_lcnwv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_70x1r"]
+bg_color = Color(0.8696731, 0.3982218, 0.34311143, 0.49019608)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3xqf3"]
 albedo_color = Color(0.0885599, 0.0885599, 0.0885599, 1)
@@ -257,6 +264,20 @@ light_indirect_energy = 5.0
 shadow_enabled = true
 spot_angle = 30.409227
 
+[node name="cameras" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="cameras"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 16.0
+offset_right = 1122.0
+offset_bottom = 624.0
+
 [node name="gui" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -304,6 +325,27 @@ script = ExtResource("10_3xqf3")
 [node name="usage_bar" type="ColorRect" parent="gui/usage_bar_container"]
 layout_mode = 0
 offset_bottom = 40.0
+
+[node name="camera_toggle" type="Panel" parent="gui"]
+layout_mode = 0
+offset_left = 290.0
+offset_top = 535.0
+offset_right = 803.0
+offset_bottom = 609.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_70x1r")
+
+[node name="Node2D" type="Node2D" parent="gui/camera_toggle"]
+position = Vector2(0, -3)
+
+[node name="Line2D" type="Line2D" parent="gui/camera_toggle/Node2D"]
+position = Vector2(5, 0)
+points = PackedVector2Array(30, 20, 250, 44, 480, 20)
+width = 5.0
+
+[node name="Line2D2" type="Line2D" parent="gui/camera_toggle/Node2D"]
+position = Vector2(5, 0)
+points = PackedVector2Array(30, 35, 250, 59, 480, 35)
+width = 5.0
 
 [node name="door_light_left" type="Node3D" parent="."]
 visible = false
@@ -406,3 +448,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.176916, 0, 10.05156)
 [connection signal="input_event" from="wall_left/toggle_door" to="wall_left/toggle_door" method="_toggle_door_open_closed"]
 [connection signal="input_event" from="wall_right/toggle_light" to="wall_right/toggle_light" method="_toggle_light_on_off"]
 [connection signal="input_event" from="wall_right/toggle_door" to="wall_right/toggle_door" method="_toggle_door_open_closed"]
+[connection signal="mouse_entered" from="gui/camera_toggle" to="game_manager" method="_open_camera"]
+[connection signal="mouse_exited" from="gui/camera_toggle" to="game_manager" method="_close_camera"]
