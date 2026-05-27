@@ -10,7 +10,7 @@ var current_power:float=1000.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$"../cameras/TextureRect".texture=cam.get_texture()
+	$"../cameras/cam1".texture=cam.get_texture()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -29,8 +29,11 @@ func _timeout_counter() -> void:
 
 
 func _open_camera() -> void:
-	$"../cameras".visible=true
-
-
-func _close_camera() -> void:
-	$"../cameras".visible=false
+	if !$"../cameras".visible:
+		if $"../gui/usage_bar_container".power_sources<$"../gui/usage_bar_container".TOTAL_POWER_SOURCES:
+			$"../cameras".visible=true
+			$"../gui/usage_bar_container".power_sources+=1
+	else:
+		$"../cameras".visible=false
+		$"../gui/usage_bar_container".power_sources-=1
+		

@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://pigfb45lfdm0"]
+[gd_scene load_steps=32 format=3 uid="uid://pigfb45lfdm0"]
 
 [ext_resource type="Script" uid="uid://com4mk7x4gvc1" path="res://camera.gd" id="1_g3mwp"]
 [ext_resource type="Script" uid="uid://ckjr1dj5iune1" path="res://game_manager.gd" id="1_lcwox"]
@@ -56,6 +56,36 @@ background_color = Color(0.15487596, 0.154876, 0.1548759, 1)
 glow_enabled = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_lcnwv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_knsl5"]
+bg_color = Color(0.20152655, 0.20152661, 0.20152646, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.9428228, 0.94282264, 0.94282264, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gxl1f"]
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_color = Color(0.9411765, 0.9411765, 0.9411765, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2uxut"]
+bg_color = Color(0.2, 0.2, 0.2, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.9411765, 0.9411765, 0.9411765, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s0aar"]
+bg_color = Color(0.3429043, 0.4318, 0.23729932, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_70x1r"]
 bg_color = Color(0.8696731, 0.3982218, 0.34311143, 0.49019608)
@@ -271,18 +301,146 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="TextureRect" type="TextureRect" parent="cameras"]
+[node name="cam1" type="TextureRect" parent="cameras"]
 layout_mode = 0
-offset_left = 13.0
-offset_top = 16.0
-offset_right = 1122.0
-offset_bottom = 624.0
+offset_left = -2.0
+offset_top = -1.0
+offset_right = 1149.0
+offset_bottom = 651.0
+
+[node name="map" type="Control" parent="cameras"]
+anchors_preset = 0
+offset_left = 810.0
+offset_top = 235.0
+offset_right = 858.0
+offset_bottom = 272.0
+metadata/_edit_group_ = true
+
+[node name="lines" type="Control" parent="cameras/map"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Line2D" type="Line2D" parent="cameras/map/lines"]
+points = PackedVector2Array(142, 171, 67, 171, 66, 96, 66, -31, 112, -31)
+width = 3.0
+
+[node name="Line2D2" type="Line2D" parent="cameras/map/lines"]
+points = PackedVector2Array(67, 23, 1, 23)
+width = 3.0
+
+[node name="Line2D3" type="Line2D" parent="cameras/map/lines"]
+points = PackedVector2Array(28, -74, 28, -20, 66, -20)
+width = 3.0
+
+[node name="Line2D4" type="Line2D" parent="cameras/map/lines"]
+points = PackedVector2Array(143, 170, 209, 170, 209, 92, 209, -31, 156, -31)
+width = 3.0
+
+[node name="Line2D5" type="Line2D" parent="cameras/map/lines"]
+points = PackedVector2Array(258, 4, 212, 4)
+width = 3.0
+
+[node name="Button" type="Button" parent="cameras/map"]
+layout_mode = 0
+offset_left = 115.0
+offset_top = 155.0
+offset_right = 171.0
+offset_bottom = 188.0
+theme_override_colors/font_color = Color(0.9471995, 0.9471994, 0.9471994, 1)
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_knsl5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_gxl1f")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_2uxut")
+disabled = true
+text = "you"
+
+[node name="camA" type="Button" parent="cameras/map"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 75.0
+offset_right = 96.0
+offset_bottom = 108.0
+theme_override_colors/font_color = Color(0.9340804, 0.9340805, 0.93408036, 1)
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_knsl5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_s0aar")
+text = "cam A"
+
+[node name="camB" type="Button" parent="cameras/map"]
+layout_mode = 0
+offset_left = 179.0
+offset_top = 71.0
+offset_right = 235.0
+offset_bottom = 104.0
+theme_override_colors/font_color = Color(0.9340804, 0.9340805, 0.93408036, 1)
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_knsl5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_s0aar")
+text = "cam B"
+
+[node name="camC" type="Button" parent="cameras/map"]
+layout_mode = 0
+offset_left = 110.0
+offset_top = -42.0
+offset_right = 166.0
+offset_bottom = -9.0
+theme_override_colors/font_color = Color(0.9340804, 0.9340805, 0.93408036, 1)
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_knsl5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_s0aar")
+text = "cam C"
+
+[node name="camF" type="Button" parent="cameras/map"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -97.0
+offset_right = 57.0
+offset_bottom = -64.0
+theme_override_colors/font_color = Color(0.9340804, 0.9340805, 0.93408036, 1)
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_knsl5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_s0aar")
+text = "cam F"
+
+[node name="camD" type="Button" parent="cameras/map"]
+layout_mode = 0
+offset_left = -55.0
+offset_top = 7.0
+offset_right = 1.0
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(0.9340804, 0.9340805, 0.93408036, 1)
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_knsl5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_s0aar")
+text = "cam D"
+
+[node name="camE" type="Button" parent="cameras/map"]
+layout_mode = 0
+offset_left = 240.0
+offset_top = -13.0
+offset_right = 296.0
+offset_bottom = 20.0
+theme_override_colors/font_color = Color(0.9340804, 0.9340805, 0.93408036, 1)
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_knsl5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_s0aar")
+text = "cam E"
+
+[node name="place_name" type="RichTextLabel" parent="cameras"]
+layout_mode = 0
+offset_left = 819.0
+offset_top = 466.0
+offset_right = 1089.0
+offset_bottom = 532.0
+text = "Classroom A"
+horizontal_alignment = 1
 
 [node name="gui" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 1160.0
-offset_bottom = 657.0
+offset_right = 198.0
+offset_bottom = 109.0
 mouse_filter = 2
 
 [node name="time" type="RichTextLabel" parent="gui"]
@@ -333,6 +491,7 @@ offset_top = 535.0
 offset_right = 803.0
 offset_bottom = 609.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_70x1r")
+metadata/_edit_group_ = true
 
 [node name="Node2D" type="Node2D" parent="gui/camera_toggle"]
 position = Vector2(0, -3)
@@ -449,4 +608,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.176916, 0, 10.05156)
 [connection signal="input_event" from="wall_right/toggle_light" to="wall_right/toggle_light" method="_toggle_light_on_off"]
 [connection signal="input_event" from="wall_right/toggle_door" to="wall_right/toggle_door" method="_toggle_door_open_closed"]
 [connection signal="mouse_entered" from="gui/camera_toggle" to="game_manager" method="_open_camera"]
-[connection signal="mouse_exited" from="gui/camera_toggle" to="game_manager" method="_close_camera"]
