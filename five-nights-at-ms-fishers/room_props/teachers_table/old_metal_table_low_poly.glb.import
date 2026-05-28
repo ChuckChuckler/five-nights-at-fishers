@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c48qhqr3ud1fh"
-path="res://.godot/imported/school_desk_and_chair.glb-642ef297f2ce70312f4b145b29b2ec1d.scn"
+uid="uid://ygdsj5wv7013"
+path="res://.godot/imported/old_metal_table_low_poly.glb-1c9b1cb156b6966e2d247ad7236b825f.scn"
 
 [deps]
 
-source_file="res://room1/school_desk_and_chair.glb"
-dest_files=["res://.godot/imported/school_desk_and_chair.glb-642ef297f2ce70312f4b145b29b2ec1d.scn"]
+source_file="res://room_props/teachers_table/old_metal_table_low_poly.glb"
+dest_files=["res://.godot/imported/old_metal_table_low_poly.glb-1c9b1cb156b6966e2d247ad7236b825f.scn"]
 
 [params]
 

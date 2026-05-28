@@ -5,7 +5,7 @@ var current_hour:int=0
 const START_POWER:float=1000.0
 var current_power:float=1000.0
 
-@onready var room = $"../room"
+@onready var room = $"../classroom_a"
 @onready var cam = room.get_node("SubViewport")
 
 # Called when the node enters the scene tree for the first time.

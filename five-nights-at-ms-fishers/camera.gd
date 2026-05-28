@@ -21,7 +21,7 @@ func _process(delta: float) -> void:
 		
 	var screen_x:float=get_viewport().get_visible_rect().size.x
 	var cursor_x:float=get_viewport().get_mouse_position().x
-	if cursor_x >= 0 and cursor_x <= screen_x:
+	if cursor_x >= 0 and cursor_x <= screen_x and !$"../cameras".visible:
 		var target:float=0.0
 		if cursor_x >= screen_x-100 and cursor_x <= screen_x and !is_on_right: #sliddee to the right
 			if is_on_left:

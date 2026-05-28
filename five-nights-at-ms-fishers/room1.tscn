@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://cv6pc1vgfsp5o"]
 
-[ext_resource type="PackedScene" uid="uid://c48qhqr3ud1fh" path="res://room1/school_desk_and_chair.glb" id="1_03sbn"]
+[ext_resource type="PackedScene" uid="uid://c48qhqr3ud1fh" path="res://room_props/school_desk/school_desk_and_chair.glb" id="1_03sbn"]
 [ext_resource type="Script" uid="uid://bv4h0bfsrkn22" path="res://camera_idle.gd" id="2_23v6p"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_03sbn"]

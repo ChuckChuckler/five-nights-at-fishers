@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cu5krdllcwix2"
-path.s3tc="res://.godot/imported/school_desk_and_chair_1.png-8de712e449279680334e5fb37410646d.s3tc.ctex"
+uid="uid://dj5mr02k6u2eu"
+path.s3tc="res://.godot/imported/pencils_w_holder_3.png-890002ac5e4fead370affb33ba3a7704.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "9c0f97ed464b1a803da80c64d6a35d78"
+"md5": "7f16e755d41c8c897aea4793a26546da"
 }
 
 [deps]
 
-source_file="res://room1/school_desk_and_chair_1.png"
-dest_files=["res://.godot/imported/school_desk_and_chair_1.png-8de712e449279680334e5fb37410646d.s3tc.ctex"]
+source_file="res://room_props/pencil_holder/pencils_w_holder_3.png"
+dest_files=["res://.godot/imported/pencils_w_holder_3.png-890002ac5e4fead370affb33ba3a7704.s3tc.ctex"]
 
 [params]
 

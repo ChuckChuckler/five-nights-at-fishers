@@ -1,0 +1,163 @@
+[gd_scene load_steps=17 format=3 uid="uid://cn3543lir8tf3"]
+
+[ext_resource type="Texture2D" uid="uid://cycby47d1pqia" path="res://textures/floor_texture.jpg" id="1_sk538"]
+[ext_resource type="PackedScene" uid="uid://c48qhqr3ud1fh" path="res://room_props/school_desk/school_desk_and_chair.glb" id="1_xlr03"]
+[ext_resource type="PackedScene" uid="uid://ygdsj5wv7013" path="res://room_props/teachers_table/old_metal_table_low_poly.glb" id="2_w2in0"]
+[ext_resource type="PackedScene" uid="uid://ca5fw8j45a80u" path="res://room_props/office_chair/office_chair.glb" id="3_48s82"]
+[ext_resource type="Texture2D" uid="uid://b8026t73kioli" path="res://textures/school_ahh_carpet.jpeg" id="5_2s61t"]
+[ext_resource type="PackedScene" uid="uid://7e1njd8h0ca" path="res://room_props/pencil_holder/pencils_w_holder.glb" id="6_4xlrg"]
+[ext_resource type="PackedScene" uid="uid://dfobpdotc33pq" path="res://room_props/trash_can/trash_can.glb" id="7_vo4rk"]
+[ext_resource type="PackedScene" uid="uid://85re5c6k6c5d" path="res://room_props/stack_of_papers/paper_stack.glb" id="8_2s61t"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5qo6f"]
+albedo_color = Color(0.6983886, 0.55351937, 0.42543533, 1)
+albedo_texture = ExtResource("1_sk538")
+uv1_scale = Vector3(20, 20, 20)
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_qh56n"]
+material = SubResource("StandardMaterial3D_5qo6f")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_23v6p"]
+albedo_color = Color(0.099985994, 0.099985994, 0.099985994, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_xlr03"]
+material = SubResource("StandardMaterial3D_23v6p")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8e036"]
+albedo_color = Color(0.09803922, 0.09803922, 0.09803922, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_vvv6m"]
+material = SubResource("StandardMaterial3D_8e036")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nxp8b"]
+albedo_texture = ExtResource("5_2s61t")
+uv1_scale = Vector3(3, 3, 3)
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_0uyju"]
+material = SubResource("StandardMaterial3D_nxp8b")
+size = Vector3(1, 0.1, 1)
+
+[node name="classroom_b" type="Node3D"]
+
+[node name="floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(8.668518, 0, 0, 0, -0.020028353, 0, 0, 0, 7.846375, 0, 0, 0)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_qh56n")
+
+[node name="wall1" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.04646969, 0, 0, 0, 6.950762, 0, 0, 0, 8.050067, -4.3594017, 2.9276657, 0)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_xlr03")
+
+[node name="wall2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.04646969, 0, 0, 0, 6.950762, 0, 0, 0, 8.050067, 4.238184, 2.9276657, 0)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_xlr03")
+
+[node name="wall3" type="MeshInstance3D" parent="."]
+transform = Transform3D(9.006356, 0, 0, 0, 9.090252, 0, 0, 0, 0.09675646, 0, 1.463881, 3.4066424)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_vvv6m")
+
+[node name="wall4" type="MeshInstance3D" parent="."]
+transform = Transform3D(4.003478, 0, 0, 0, 9.090252, 0, 0, 0, 0.09675646, -2.6995785, 1.463881, -3.8266206)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_vvv6m")
+
+[node name="wall5" type="MeshInstance3D" parent="."]
+transform = Transform3D(4.003478, 0, 0, 0, 9.090252, 0, 0, 0, 0.09675646, 2.949983, 1.463881, -3.8266206)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_vvv6m")
+
+[node name="wall6" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.7499758e-07, -9.090252, 0, 4.003478, -3.9734752e-07, 0, 0, 0, 0.09675646, -0.021680355, 4.5926156, -3.8266206)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_vvv6m")
+
+[node name="table" type="Node3D" parent="."]
+transform = Transform3D(0.9204435, 0, -0.39087573, 0, 1, 0, 0.39087573, 0, 0.9204435, -1.0873237, 0, 0.5476651)
+metadata/_edit_group_ = true
+
+[node name="desk" parent="table" instance=ExtResource("1_xlr03")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 3.0551414, 0, 2.4790087)
+
+[node name="desk2" parent="table" instance=ExtResource("1_xlr03")]
+transform = Transform3D(-0.14999999, 0, 1.3113416e-08, 0, 0.14999999, 0, -1.3113416e-08, 0, -0.14999999, -7.7616153, 0, -6.9530478)
+
+[node name="desk3" parent="table" instance=ExtResource("1_xlr03")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 3.0551414, 0, 3.4874878)
+
+[node name="desk4" parent="table" instance=ExtResource("1_xlr03")]
+transform = Transform3D(-0.14999999, 0, 1.3113416e-08, 0, 0.14999999, 0, -1.3113416e-08, 0, -0.14999999, -7.7616153, 0, -5.9445686)
+
+[node name="table2" type="Node3D" parent="."]
+transform = Transform3D(0.9316468, 0, 0.36336505, 0, 1, 0, -0.36336505, 0, 0.9316468, -0.22763062, 0, 1.9847329)
+metadata/_edit_group_ = true
+
+[node name="desk" parent="table2" instance=ExtResource("1_xlr03")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 3.0551414, 0, 2.4790087)
+
+[node name="desk2" parent="table2" instance=ExtResource("1_xlr03")]
+transform = Transform3D(-0.14999999, 0, 1.3113416e-08, 0, 0.14999999, 0, -1.3113416e-08, 0, -0.14999999, -7.7616153, 0, -6.9530478)
+
+[node name="desk3" parent="table2" instance=ExtResource("1_xlr03")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 3.0551414, 0, 3.4874878)
+
+[node name="desk4" parent="table2" instance=ExtResource("1_xlr03")]
+transform = Transform3D(-0.14999999, 0, 1.3113416e-08, 0, 0.14999999, 0, -1.3113416e-08, 0, -0.14999999, -7.7616153, 0, -5.9445686)
+
+[node name="table3" type="Node3D" parent="."]
+transform = Transform3D(0.9936271, 0, -0.11271769, 0, 1, 0, 0.11271769, 0, 0.9936271, 1.8189421, 0, 3.430968)
+metadata/_edit_group_ = true
+
+[node name="desk" parent="table3" instance=ExtResource("1_xlr03")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 3.0551414, 0, 2.4790087)
+
+[node name="desk2" parent="table3" instance=ExtResource("1_xlr03")]
+transform = Transform3D(-0.14999999, 0, 1.3113416e-08, 0, 0.14999999, 0, -1.3113416e-08, 0, -0.14999999, -7.7616153, 0, -6.9530478)
+
+[node name="desk3" parent="table3" instance=ExtResource("1_xlr03")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 3.0551414, 0, 3.4874878)
+
+[node name="desk4" parent="table3" instance=ExtResource("1_xlr03")]
+transform = Transform3D(-0.14999999, 0, 1.3113416e-08, 0, 0.14999999, 0, -1.3113416e-08, 0, -0.14999999, -7.7616153, 0, -5.9445686)
+
+[node name="table4" type="Node3D" parent="."]
+transform = Transform3D(0.99229956, 0, 0.12386123, 0, 1, 0, -0.12386123, 0, 0.99229956, 2.8555632, -4.7683716e-07, -0.3614688)
+metadata/_edit_group_ = true
+
+[node name="desk" parent="table4" instance=ExtResource("1_xlr03")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 3.0551414, 0, 2.4790087)
+
+[node name="desk2" parent="table4" instance=ExtResource("1_xlr03")]
+transform = Transform3D(-0.14999999, 0, 1.3113416e-08, 0, 0.14999999, 0, -1.3113416e-08, 0, -0.14999999, -7.7616153, 0, -6.9530478)
+
+[node name="desk3" parent="table4" instance=ExtResource("1_xlr03")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 3.0551414, 0, 3.4874878)
+
+[node name="desk4" parent="table4" instance=ExtResource("1_xlr03")]
+transform = Transform3D(-0.14999999, 0, 1.3113416e-08, 0, 0.14999999, 0, -1.3113416e-08, 0, -0.14999999, -7.7616153, 0, -5.9445686)
+
+[node name="teachers_desk" parent="." instance=ExtResource("2_w2in0")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 2.4962735, 0.62603855, 1.2713683)
+
+[node name="chair1" parent="." instance=ExtResource("3_48s82")]
+transform = Transform3D(-0.0026218067, 0, -0.011710087, 0, 0.012, 0, 0.011710087, 0, -0.0026218067, 3.449582, 0, 1.4558384)
+
+[node name="chair2" parent="." instance=ExtResource("3_48s82")]
+transform = Transform3D(0.0077954466, 0, -0.009123102, 0, 0.011999999, 0, 0.009123102, 0, 0.0077954466, 3.449582, 0, -0.8021722)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(7.4674993, 0, 0.5654334, 0, 1, 0, -0.7102262, 0, 5.9451103, 0, 0, -0.12666273)
+mesh = SubResource("BoxMesh_0uyju")
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("6_4xlrg")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 2.1086051, 1.2432367, 2.0310602)
+
+[node name="Sketchfab_Scene2" parent="." instance=ExtResource("7_vo4rk")]
+transform = Transform3D(0.002, 0, 0, 0, 0.002, 0, 0, 0, 0.002, 1.3433554, 0, -3.435403)
+
+[node name="Sketchfab_Scene3" parent="." instance=ExtResource("8_2s61t")]
+transform = Transform3D(0.008376786, 0, 0.008592407, 0, 0.012, 0, -0.008592407, 0, 0.008376786, 2.4750235, 1.1755886, 2.106225)

@@ -2,24 +2,23 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://m3r8ty44hj6g"
-path.s3tc="res://.godot/imported/school_desk_and_chair_2.png-86743a4ec75c2c58a77262b18fc86fe7.s3tc.ctex"
+uid="uid://kvon3k6uqr0l"
+path="res://.godot/imported/paper_stack_2.png-a9663cd2e66fe9811a4d38eec89548c8.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 generator_parameters={
-"md5": "90e260ab5b7adf460beeb49f0761bd7c"
+"md5": "84512a2c4428a10321d8bdc2a11dcc16"
 }
 
 [deps]
 
-source_file="res://room1/school_desk_and_chair_2.png"
-dest_files=["res://.godot/imported/school_desk_and_chair_2.png-86743a4ec75c2c58a77262b18fc86fe7.s3tc.ctex"]
+source_file="res://room_props/stack_of_papers/paper_stack_2.png"
+dest_files=["res://.godot/imported/paper_stack_2.png-a9663cd2e66fe9811a4d38eec89548c8.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -41,4 +40,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wg3ylm2vte5u"
-path.s3tc="res://.godot/imported/school_desk_and_chair_0.png-5a3d3cd9a764ec0b9fdacd9d0a89a073.s3tc.ctex"
+uid="uid://bcibqnrrifb3m"
+path.s3tc="res://.godot/imported/office_chair_6.jpg-54d68cd988a1523910a7e1f33cec12e1.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "a6e89805178da9b32c28687cb97d7a4b"
+"md5": "a80ad75eeee7d7a8aad1ab2d82dfe765"
 }
 
 [deps]
 
-source_file="res://room1/school_desk_and_chair_0.png"
-dest_files=["res://.godot/imported/school_desk_and_chair_0.png-5a3d3cd9a764ec0b9fdacd9d0a89a073.s3tc.ctex"]
+source_file="res://room_props/office_chair/office_chair_6.jpg"
+dest_files=["res://.godot/imported/office_chair_6.jpg-54d68cd988a1523910a7e1f33cec12e1.s3tc.ctex"]
 
 [params]
 

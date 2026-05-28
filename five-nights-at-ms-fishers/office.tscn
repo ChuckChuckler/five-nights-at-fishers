@@ -598,7 +598,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(21.137314, 0, 0, 0, -0.025786722, 0, 0, 0, 46.54424, 0, 8.518635, -7.763641)
 mesh = SubResource("BoxMesh_70x1r")
 
-[node name="room" parent="." instance=ExtResource("11_70x1r")]
+[node name="classroom_a" parent="." instance=ExtResource("11_70x1r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.176916, 0, 10.05156)
 
 [connection signal="timeout" from="game_manager/hour" to="game_manager" method="_next_hour"]
