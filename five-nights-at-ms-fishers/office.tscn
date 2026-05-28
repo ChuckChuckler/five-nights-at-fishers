@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://pigfb45lfdm0"]
+[gd_scene load_steps=34 format=3 uid="uid://pigfb45lfdm0"]
 
 [ext_resource type="Script" uid="uid://com4mk7x4gvc1" path="res://camera.gd" id="1_g3mwp"]
 [ext_resource type="Script" uid="uid://ckjr1dj5iune1" path="res://game_manager.gd" id="1_lcwox"]
@@ -10,7 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://b3fv7mgwvg4fn" path="res://coffee_mug_-_caneca_de_cafe.glb" id="7_lcwox"]
 [ext_resource type="PackedScene" uid="uid://djsf5lgkf53t" path="res://desktop.glb" id="8_wruqr"]
 [ext_resource type="Script" uid="uid://cv66srj7sm6pl" path="res://usage_bar_manager.gd" id="10_3xqf3"]
+[ext_resource type="Script" uid="uid://cxsjhfxfaqu23" path="res://switch_cam.gd" id="10_s0aar"]
 [ext_resource type="PackedScene" uid="uid://cv6pc1vgfsp5o" path="res://room1.tscn" id="11_70x1r"]
+[ext_resource type="PackedScene" uid="uid://cn3543lir8tf3" path="res://classroom_b.tscn" id="12_knsl5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g3mwp"]
 albedo_color = Color(0.37036502, 0.37036428, 0.37036443, 1)
@@ -354,6 +356,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_gxl1f")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_2uxut")
 disabled = true
 text = "you"
+metadata/index = -1
 
 [node name="camA" type="Button" parent="cameras/map"]
 layout_mode = 0
@@ -366,6 +369,9 @@ theme_override_font_sizes/font_size = 12
 theme_override_styles/normal = SubResource("StyleBoxFlat_knsl5")
 theme_override_styles/hover = SubResource("StyleBoxFlat_s0aar")
 text = "cam A"
+script = ExtResource("10_s0aar")
+metadata/index = 0
+metadata/name = "Classroom A"
 
 [node name="camB" type="Button" parent="cameras/map"]
 layout_mode = 0
@@ -378,6 +384,9 @@ theme_override_font_sizes/font_size = 12
 theme_override_styles/normal = SubResource("StyleBoxFlat_knsl5")
 theme_override_styles/hover = SubResource("StyleBoxFlat_s0aar")
 text = "cam B"
+script = ExtResource("10_s0aar")
+metadata/index = 1
+metadata/name = "Classroom B"
 
 [node name="camC" type="Button" parent="cameras/map"]
 layout_mode = 0
@@ -390,6 +399,7 @@ theme_override_font_sizes/font_size = 12
 theme_override_styles/normal = SubResource("StyleBoxFlat_knsl5")
 theme_override_styles/hover = SubResource("StyleBoxFlat_s0aar")
 text = "cam C"
+metadata/index = 2
 
 [node name="camF" type="Button" parent="cameras/map"]
 layout_mode = 0
@@ -402,6 +412,7 @@ theme_override_font_sizes/font_size = 12
 theme_override_styles/normal = SubResource("StyleBoxFlat_knsl5")
 theme_override_styles/hover = SubResource("StyleBoxFlat_s0aar")
 text = "cam F"
+metadata/index = 3
 
 [node name="camD" type="Button" parent="cameras/map"]
 layout_mode = 0
@@ -414,6 +425,7 @@ theme_override_font_sizes/font_size = 12
 theme_override_styles/normal = SubResource("StyleBoxFlat_knsl5")
 theme_override_styles/hover = SubResource("StyleBoxFlat_s0aar")
 text = "cam D"
+metadata/index = 4
 
 [node name="camE" type="Button" parent="cameras/map"]
 layout_mode = 0
@@ -426,6 +438,7 @@ theme_override_font_sizes/font_size = 12
 theme_override_styles/normal = SubResource("StyleBoxFlat_knsl5")
 theme_override_styles/hover = SubResource("StyleBoxFlat_s0aar")
 text = "cam E"
+metadata/index = 5
 
 [node name="place_name" type="RichTextLabel" parent="cameras"]
 layout_mode = 0
@@ -601,10 +614,15 @@ mesh = SubResource("BoxMesh_70x1r")
 [node name="classroom_a" parent="." instance=ExtResource("11_70x1r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.176916, 0, 10.05156)
 
+[node name="classroom_b" parent="." instance=ExtResource("12_knsl5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -71.67547, 0, 25.82692)
+
 [connection signal="timeout" from="game_manager/hour" to="game_manager" method="_next_hour"]
 [connection signal="timeout" from="game_manager/power" to="game_manager" method="_timeout_counter"]
 [connection signal="input_event" from="wall_left/toggle_light" to="wall_left/toggle_light" method="_toggle_light_on_off"]
 [connection signal="input_event" from="wall_left/toggle_door" to="wall_left/toggle_door" method="_toggle_door_open_closed"]
 [connection signal="input_event" from="wall_right/toggle_light" to="wall_right/toggle_light" method="_toggle_light_on_off"]
 [connection signal="input_event" from="wall_right/toggle_door" to="wall_right/toggle_door" method="_toggle_door_open_closed"]
+[connection signal="pressed" from="cameras/map/camA" to="cameras/map/camA" method="_switch_to_this_cam"]
+[connection signal="pressed" from="cameras/map/camB" to="cameras/map/camB" method="_switch_to_this_cam"]
 [connection signal="mouse_entered" from="gui/camera_toggle" to="game_manager" method="_open_camera"]

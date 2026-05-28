@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cn3543lir8tf3"]
+[gd_scene load_steps=22 format=3 uid="uid://cn3543lir8tf3"]
 
 [ext_resource type="Texture2D" uid="uid://cycby47d1pqia" path="res://textures/floor_texture.jpg" id="1_sk538"]
 [ext_resource type="PackedScene" uid="uid://c48qhqr3ud1fh" path="res://room_props/school_desk/school_desk_and_chair.glb" id="1_xlr03"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://7e1njd8h0ca" path="res://room_props/pencil_holder/pencils_w_holder.glb" id="6_4xlrg"]
 [ext_resource type="PackedScene" uid="uid://dfobpdotc33pq" path="res://room_props/trash_can/trash_can.glb" id="7_vo4rk"]
 [ext_resource type="PackedScene" uid="uid://85re5c6k6c5d" path="res://room_props/stack_of_papers/paper_stack.glb" id="8_2s61t"]
+[ext_resource type="Script" uid="uid://bv4h0bfsrkn22" path="res://camera_idle.gd" id="9_4xlrg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5qo6f"]
 albedo_color = Color(0.6983886, 0.55351937, 0.42543533, 1)
@@ -19,13 +20,13 @@ uv1_triplanar = true
 material = SubResource("StandardMaterial3D_5qo6f")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_23v6p"]
-albedo_color = Color(0.099985994, 0.099985994, 0.099985994, 1)
+albedo_color = Color(0.8992584, 0.8992584, 0.8992584, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_xlr03"]
 material = SubResource("StandardMaterial3D_23v6p")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8e036"]
-albedo_color = Color(0.09803922, 0.09803922, 0.09803922, 1)
+albedo_color = Color(0.8474744, 0.84747446, 0.84747446, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_vvv6m"]
 material = SubResource("StandardMaterial3D_8e036")
@@ -38,6 +39,17 @@ uv1_triplanar = true
 [sub_resource type="BoxMesh" id="BoxMesh_0uyju"]
 material = SubResource("StandardMaterial3D_nxp8b")
 size = Vector3(1, 0.1, 1)
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_2s61t"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_4xlrg"]
+material = SubResource("ORMMaterial3D_2s61t")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vo4rk"]
+albedo_color = Color(0.5093053, 0.4411115, 0.3220748, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5qo6f"]
+material = SubResource("StandardMaterial3D_vo4rk")
 
 [node name="classroom_b" type="Node3D"]
 
@@ -161,3 +173,25 @@ transform = Transform3D(0.002, 0, 0, 0, 0.002, 0, 0, 0, 0.002, 1.3433554, 0, -3.
 
 [node name="Sketchfab_Scene3" parent="." instance=ExtResource("8_2s61t")]
 transform = Transform3D(0.008376786, 0, 0.008592407, 0, 0.012, 0, -0.008592407, 0, 0.008376786, 2.4750235, 1.1755886, 2.106225)
+
+[node name="whiteboard" type="Node3D" parent="."]
+
+[node name="board" type="MeshInstance3D" parent="whiteboard"]
+transform = Transform3D(0.01, 0, 0, 0, 2.0370069, 0, 0, 0, 3.7226079, 4.192972, 2.4962564, -1.1404847)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_4xlrg")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="whiteboard"]
+transform = Transform3D(0.49338162, 0, 0, 0, 0.029784452, 0, 0, 0, 3.9803884, 4.3858547, 1.463274, -1.1059003)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_5qo6f")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+size = Vector2i(700, 450)
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport"]
+transform = Transform3D(-0.4454412, 0.5357657, -0.7173124, 0.11438743, 0.828678, 0.54791254, 0.88797367, 0.16201134, -0.43041232, -75.559, 3.372, 22.598)
+script = ExtResource("9_4xlrg")
+metadata/TAR_1 = -113.5
+metadata/TAR_2 = -133.4

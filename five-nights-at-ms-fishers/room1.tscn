@@ -100,11 +100,15 @@ transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 3.055, 0, 6.1907334)
 [node name="SubViewport" type="SubViewport" parent="."]
 size = Vector2i(700, 450)
 render_target_update_mode = 4
+metadata/TAR_1 = 91.4
+metadata/TAR_2 = 113.6
 
 [node name="Camera3D" type="Camera3D" parent="SubViewport"]
 transform = Transform3D(-0.38248032, -0.34560984, 0.8568913, -0.05194649, 0.9339846, 0.35351714, -0.9225023, 0.09070085, -0.37518394, 26.656, 3.184, 7.435)
 current = true
 script = ExtResource("2_23v6p")
+metadata/TAR_1 = 91.4
+metadata/TAR_2 = 113.6
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_03sbn")
