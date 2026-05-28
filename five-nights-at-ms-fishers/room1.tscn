@@ -1,29 +1,55 @@
-[gd_scene load_steps=10 format=3 uid="uid://cv6pc1vgfsp5o"]
+[gd_scene load_steps=21 format=3 uid="uid://cv6pc1vgfsp5o"]
 
 [ext_resource type="PackedScene" uid="uid://c48qhqr3ud1fh" path="res://room_props/school_desk/school_desk_and_chair.glb" id="1_03sbn"]
+[ext_resource type="Texture2D" uid="uid://btnsbpejr6ktx" path="res://textures/floor_texture_2.jpg" id="1_6em4c"]
 [ext_resource type="Script" uid="uid://bv4h0bfsrkn22" path="res://camera_idle.gd" id="2_23v6p"]
+[ext_resource type="Texture2D" uid="uid://dfrj8f543ktlj" path="res://textures/plaster_wall.jpg" id="2_vk7w7"]
+[ext_resource type="Texture2D" uid="uid://ggn5l6q30ytw" path="res://textures/carpet_texture_2.jpg" id="4_vk7w7"]
+[ext_resource type="PackedScene" uid="uid://ygdsj5wv7013" path="res://room_props/teachers_table/old_metal_table_low_poly.glb" id="6_o3a6a"]
+[ext_resource type="PackedScene" uid="uid://ca5fw8j45a80u" path="res://room_props/office_chair/office_chair.glb" id="7_xwx8c"]
+[ext_resource type="Texture2D" uid="uid://dd1nj54aba65p" path="res://cornball/THEMINION.jpg" id="8_54482"]
+[ext_resource type="Texture2D" uid="uid://dcfgdyxih287x" path="res://cornball/corny1.jpg" id="9_uqw6m"]
+[ext_resource type="Texture2D" uid="uid://csxr7uhr02h28" path="res://cornball/corny2.jpg" id="10_pwckm"]
+[ext_resource type="Texture2D" uid="uid://bfrq1dnavoqfb" path="res://cornball/cornballllll.jpg" id="11_3e48k"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_03sbn"]
-albedo_color = Color(0.07683582, 0.07683582, 0.07683582, 1)
+albedo_color = Color(0.861699, 0.8239803, 0.785442, 1)
+albedo_texture = ExtResource("1_6em4c")
+uv1_scale = Vector3(9, 9, 9)
+uv1_triplanar = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_03sbn"]
 material = SubResource("StandardMaterial3D_03sbn")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_23v6p"]
-albedo_color = Color(0.099985994, 0.099985994, 0.099985994, 1)
+albedo_texture = ExtResource("2_vk7w7")
+uv1_scale = Vector3(10, 10, 10)
+uv1_triplanar = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_23v6p"]
 material = SubResource("StandardMaterial3D_23v6p")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8e036"]
-albedo_color = Color(0.09803922, 0.09803922, 0.09803922, 1)
+albedo_texture = ExtResource("2_vk7w7")
+uv1_scale = Vector3(10, 10, 10)
+uv1_triplanar = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_8e036"]
 material = SubResource("StandardMaterial3D_8e036")
 
 [sub_resource type="Environment" id="Environment_03sbn"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_imxel"]
+albedo_color = Color(0.7684953, 0.62960464, 0.55617887, 1)
+albedo_texture = ExtResource("4_vk7w7")
+uv1_scale = Vector3(2, 2, 2)
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_o3a6a"]
+material = SubResource("StandardMaterial3D_imxel")
+
 [node name="room" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.0588976, 0, 0, 0)
 
 [node name="floor" type="MeshInstance3D" parent="."]
 transform = Transform3D(8.668518, 0, 0, 0, -0.020028353, 0, 0, 0, 7.846375, 0, 0, 0)
@@ -61,6 +87,7 @@ cast_shadow = 0
 mesh = SubResource("BoxMesh_8e036")
 
 [node name="desks" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.39277267, 0, 0)
 
 [node name="row1" type="Node3D" parent="desks"]
 
@@ -112,3 +139,29 @@ metadata/TAR_2 = 113.6
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_03sbn")
+
+[node name="carpet" type="MeshInstance3D" parent="."]
+transform = Transform3D(7.442597, 0, 0, 0, 0.1, 0, 0, 0, 5.900868, -0.40656745, 0, -0.23686373)
+mesh = SubResource("BoxMesh_o3a6a")
+
+[node name="teacher_desk" parent="." instance=ExtResource("6_o3a6a")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.133, 2.9666216, 0.59940827, 1.4260626)
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("7_xwx8c")]
+transform = Transform3D(0.00086945854, 0, -0.010971088, 0, 0.012, 0, 0.01196846, 0, 0.0007970036, 3.8188944, 0, 1.3391875)
+
+[node name="cornball_poster" type="Sprite3D" parent="."]
+transform = Transform3D(-1.0927847e-08, 0, 0.25, 0, 0.24999999, 0, -0.25, 0, -1.0927847e-08, -4.3273234, 2.2086768, 0.52643996)
+texture = ExtResource("8_54482")
+
+[node name="cornball_poster2" type="Sprite3D" parent="."]
+transform = Transform3D(-8.742278e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.742278e-09, -4.3273234, 4.28739, 1.5326961)
+texture = ExtResource("9_uqw6m")
+
+[node name="cornball_poster3" type="Sprite3D" parent="."]
+transform = Transform3D(-8.742277e-09, 0, 0.19999999, 0, 0.2, 0, -0.19999999, 0, -8.742277e-09, -4.3273234, 2.7096562, -1.830015)
+texture = ExtResource("10_pwckm")
+
+[node name="cornball_poster4" type="Sprite3D" parent="."]
+transform = Transform3D(-8.742277e-09, 0, 0.19999999, 0, 0.2, 0, -0.19999999, 0, -8.742277e-09, -4.3273234, 4.7415786, -0.6812865)
+texture = ExtResource("11_3e48k")
