@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqbtfaqckqpvt"
-path.s3tc="res://.godot/imported/brick_wall.jpg-f9e8a98c6c4962991eba41e729d5d95d.s3tc.ctex"
+uid="uid://qqcnw3nx7oxq"
+path.s3tc="res://.godot/imported/door_classroom_9_mb_2.png-2e5e765ad878d045cf4ab88c4e258c28.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "dcaefc2f3e95a399f06f408f6ee704a9"
+}
 
 [deps]
 
-source_file="res://textures/brick_wall.jpg"
-dest_files=["res://.godot/imported/brick_wall.jpg-f9e8a98c6c4962991eba41e729d5d95d.s3tc.ctex"]
+source_file="res://room_props/door_2/door_classroom_9_mb_2.png"
+dest_files=["res://.godot/imported/door_classroom_9_mb_2.png-2e5e765ad878d045cf4ab88c4e258c28.s3tc.ctex"]
 
 [params]
 
@@ -22,12 +25,12 @@ compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
-compress/normal_map=0
+compress/normal_map=1
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=0
-roughness/src_normal=""
+roughness/mode=1
+roughness/src_normal="res://room_props/door_2/door_classroom_9_mb_2.png"
 process/channel_remap/red=0
 process/channel_remap/green=1
 process/channel_remap/blue=2

@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqbtfaqckqpvt"
-path.s3tc="res://.godot/imported/brick_wall.jpg-f9e8a98c6c4962991eba41e729d5d95d.s3tc.ctex"
+uid="uid://8wq3ippxbjal"
+path.s3tc="res://.godot/imported/vending_machine (1)_4.png-20ad013fb5d102c1f738361ccf448955.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "58536166de26e65dbbe2bda6b895d7cb"
+}
 
 [deps]
 
-source_file="res://textures/brick_wall.jpg"
-dest_files=["res://.godot/imported/brick_wall.jpg-f9e8a98c6c4962991eba41e729d5d95d.s3tc.ctex"]
+source_file="res://room_props/vending_machine/vending_machine (1)_4.png"
+dest_files=["res://.godot/imported/vending_machine (1)_4.png-20ad013fb5d102c1f738361ccf448955.s3tc.ctex"]
 
 [params]
 

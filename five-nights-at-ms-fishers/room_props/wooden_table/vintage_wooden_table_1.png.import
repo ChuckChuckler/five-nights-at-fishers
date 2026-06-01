@@ -2,21 +2,23 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqbtfaqckqpvt"
-path.s3tc="res://.godot/imported/brick_wall.jpg-f9e8a98c6c4962991eba41e729d5d95d.s3tc.ctex"
+uid="uid://fodfmrnh77fy"
+path="res://.godot/imported/vintage_wooden_table_1.png-704ef973611f5dba142dbf537b29d9fd.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
+}
+generator_parameters={
+"md5": "539a58963d23980eafc149304ab73b12"
 }
 
 [deps]
 
-source_file="res://textures/brick_wall.jpg"
-dest_files=["res://.godot/imported/brick_wall.jpg-f9e8a98c6c4962991eba41e729d5d95d.s3tc.ctex"]
+source_file="res://room_props/wooden_table/vintage_wooden_table_1.png"
+dest_files=["res://.godot/imported/vintage_wooden_table_1.png-704ef973611f5dba142dbf537b29d9fd.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -38,4 +40,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

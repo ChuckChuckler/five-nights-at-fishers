@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqbtfaqckqpvt"
-path.s3tc="res://.godot/imported/brick_wall.jpg-f9e8a98c6c4962991eba41e729d5d95d.s3tc.ctex"
+uid="uid://c0t7j6g2e4xsj"
+path.s3tc="res://.godot/imported/door_classroom_9_mb_3.png-3748f3e16f4188924fd0155fb57ee9b2.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "9bd690fe78be1b9050dee200f156fb4d"
+}
 
 [deps]
 
-source_file="res://textures/brick_wall.jpg"
-dest_files=["res://.godot/imported/brick_wall.jpg-f9e8a98c6c4962991eba41e729d5d95d.s3tc.ctex"]
+source_file="res://room_props/door_2/door_classroom_9_mb_3.png"
+dest_files=["res://.godot/imported/door_classroom_9_mb_3.png-3748f3e16f4188924fd0155fb57ee9b2.s3tc.ctex"]
 
 [params]
 

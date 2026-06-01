@@ -1,0 +1,118 @@
+[gd_scene load_steps=17 format=3 uid="uid://dli1ehr8cyxna"]
+
+[ext_resource type="Texture2D" uid="uid://btnsbpejr6ktx" path="res://textures/floor_texture_2.jpg" id="1_ll2xe"]
+[ext_resource type="PackedScene" uid="uid://ca5fw8j45a80u" path="res://room_props/office_chair/office_chair.glb" id="2_xrgmn"]
+[ext_resource type="PackedScene" uid="uid://cu6dpicm6i1je" path="res://room_props/bench/wooden_bench.glb" id="3_tftiq"]
+[ext_resource type="Texture2D" uid="uid://cqbtfaqckqpvt" path="res://textures/brick_wall.jpg" id="4_gm5bj"]
+[ext_resource type="PackedScene" uid="uid://b8pbotqic3eig" path="res://room_props/vending_machine/vending_machine (1).glb" id="4_tftiq"]
+[ext_resource type="PackedScene" uid="uid://bej1vs3ql7vh4" path="res://room_props/wooden_table/vintage_wooden_table.glb" id="5_1gg6n"]
+[ext_resource type="PackedScene" uid="uid://b0ay86mfnvejw" path="res://room_props/door_2/door_classroom_9_mb.glb" id="8_g30ku"]
+[ext_resource type="Texture2D" uid="uid://bwrumjuknd0es" path="res://textures/carpet_texture_3_red.jpg" id="9_up7ya"]
+[ext_resource type="Script" uid="uid://bv4h0bfsrkn22" path="res://camera_idle.gd" id="10_g30ku"]
+[ext_resource type="PackedScene" uid="uid://b8je8knc55q1v" path="res://recolored_door.tscn" id="11_up7ya"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_03sbn"]
+albedo_color = Color(0.861699, 0.8239803, 0.785442, 1)
+albedo_texture = ExtResource("1_ll2xe")
+uv1_scale = Vector3(20, 20, 10)
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_xrgmn"]
+material = SubResource("StandardMaterial3D_03sbn")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mcopp"]
+albedo_texture = ExtResource("4_gm5bj")
+uv1_scale = Vector3(10, 2, 2)
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_x4164"]
+material = SubResource("StandardMaterial3D_mcopp")
+size = Vector3(1, 1, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nu6hm"]
+albedo_color = Color(0.646029, 0.646029, 0.646029, 1)
+albedo_texture = ExtResource("9_up7ya")
+uv1_scale = Vector3(15, 5, 5)
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_7pn7i"]
+material = SubResource("StandardMaterial3D_nu6hm")
+
+[node name="lobby" type="Node3D"]
+
+[node name="floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(27.069416, 0, 0, 0, -0.020028353, 0, 0, 0, 10.109692, 0, 0, 0)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_xrgmn")
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("2_xrgmn")]
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -3.4322119, 0, 2.2727904)
+visible = false
+
+[node name="bench" parent="." instance=ExtResource("3_tftiq")]
+transform = Transform3D(0.007, 0, 0, 0, 0.007, 0, 0, 0, 0.007, -4.620303, 0, 4.351244)
+
+[node name="wall" type="MeshInstance3D" parent="."]
+transform = Transform3D(27.209785, 0, 0, 0, 8.529975, 0, 0, 0, 1, 0, 2.944683, -4.8714843)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_x4164")
+
+[node name="wall2" type="MeshInstance3D" parent="."]
+transform = Transform3D(27.209785, 0, 0, 0, 8.529975, 0, 0, 0, 1, 0, 2.944683, 5.186504)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_x4164")
+
+[node name="bench2" parent="." instance=ExtResource("3_tftiq")]
+transform = Transform3D(0.007, 0, 0, 0, 0.007, 0, 0, 0, 0.007, -1.8154527, 0, 4.351244)
+
+[node name="vending_machine1" parent="." instance=ExtResource("4_tftiq")]
+transform = Transform3D(-8.742278e-08, 0, 2, 0, 2, 0, -2, 0, -8.742278e-08, 0.8986292, 1.44607, 4.3939366)
+
+[node name="bench3" parent="." instance=ExtResource("3_tftiq")]
+transform = Transform3D(0.007, 0, 0, 0, 0.007, 0, 0, 0, 0.007, 3.5354257, 0, 4.351244)
+
+[node name="bench4" parent="." instance=ExtResource("3_tftiq")]
+transform = Transform3D(0.007, 0, 0, 0, 0.007, 0, 0, 0, 0.007, 6.3985634, 0, 4.351244)
+
+[node name="Sketchfab_Scene2" parent="." instance=ExtResource("5_1gg6n")]
+transform = Transform3D(-2.1855694e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.1855694e-08, 10.795688, 0, 4.412205)
+
+[node name="wall3" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.1893775e-06, 0, 1, 0, 8.529975, 0, -27.209785, 0, -4.371139e-08, -13.405244, 2.944683, -4.8714843)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_x4164")
+
+[node name="wall4" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.1893775e-06, 0, 1, 0, 8.529975, 0, -27.209785, 0, -4.371139e-08, 13.612145, 2.944683, -4.8714843)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_x4164")
+
+[node name="wall5" type="MeshInstance3D" parent="."]
+transform = Transform3D(27.209785, 0, 0, 0, -5.751217e-07, -1, 0, 13.15725, -4.371139e-08, 0.05124855, 6.327175, 0.09208441)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_x4164")
+
+[node name="Sketchfab_Scene5" parent="." instance=ExtResource("8_g30ku")]
+transform = Transform3D(-6.556708e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.556708e-08, 13.444035, 0, 0.22408962)
+
+[node name="Sketchfab_Scene6" parent="." instance=ExtResource("8_g30ku")]
+transform = Transform3D(-6.556708e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.556708e-08, -13.2224655, 0, 0.22408962)
+
+[node name="carpet" type="MeshInstance3D" parent="."]
+transform = Transform3D(20.878, 0, 5.883553e-07, 0, 0.02, 0, 1.8252127e-06, 0, -6.73, 0, 0.08021161, 0)
+mesh = SubResource("BoxMesh_7pn7i")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+size = Vector2i(700, 450)
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport"]
+transform = Transform3D(-0.99999994, 5.4893214e-09, -8.725027e-08, 0, 0.9980267, 0.06279052, 8.742277e-08, 0.06279052, -0.9980267, -0.394, 2.569, 37.061)
+script = ExtResource("10_g30ku")
+metadata/TAR_1 = -147.9
+metadata/TAR_2 = -212.1
+
+[node name="Sketchfab_Scene4" parent="." instance=ExtResource("11_up7ya")]
+transform = Transform3D(-1.9, 0, -1.6610328e-07, 0, 1.9, 0, 1.6610328e-07, 0, -1.9, -8.276098, 0, 1.8776054)
+
+[node name="Sketchfab_Scene7" parent="." instance=ExtResource("11_up7ya")]
+transform = Transform3D(-1.9, 0, -1.6610328e-07, 0, 1.9, 0, 1.6610328e-07, 0, -1.9, 7.849415, 0, 1.8776054)

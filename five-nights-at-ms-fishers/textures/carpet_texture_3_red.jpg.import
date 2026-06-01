@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqbtfaqckqpvt"
-path.s3tc="res://.godot/imported/brick_wall.jpg-f9e8a98c6c4962991eba41e729d5d95d.s3tc.ctex"
+uid="uid://bwrumjuknd0es"
+path.s3tc="res://.godot/imported/carpet_texture_3_red.jpg-06148c061789f0d5ef4a4805907b72c6.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://textures/brick_wall.jpg"
-dest_files=["res://.godot/imported/brick_wall.jpg-f9e8a98c6c4962991eba41e729d5d95d.s3tc.ctex"]
+source_file="res://textures/carpet_texture_3_red.jpg"
+dest_files=["res://.godot/imported/carpet_texture_3_red.jpg-06148c061789f0d5ef4a4805907b72c6.s3tc.ctex"]
 
 [params]
 
