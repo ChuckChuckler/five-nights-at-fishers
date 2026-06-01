@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://pigfb45lfdm0"]
+[gd_scene load_steps=38 format=3 uid="uid://pigfb45lfdm0"]
 
 [ext_resource type="Script" uid="uid://com4mk7x4gvc1" path="res://camera.gd" id="1_g3mwp"]
 [ext_resource type="Script" uid="uid://ckjr1dj5iune1" path="res://game_manager.gd" id="1_lcwox"]
@@ -12,9 +12,11 @@
 [ext_resource type="Script" uid="uid://cv66srj7sm6pl" path="res://usage_bar_manager.gd" id="10_3xqf3"]
 [ext_resource type="Script" uid="uid://cxsjhfxfaqu23" path="res://switch_cam.gd" id="10_s0aar"]
 [ext_resource type="PackedScene" uid="uid://cv6pc1vgfsp5o" path="res://room1.tscn" id="11_70x1r"]
+[ext_resource type="PackedScene" uid="uid://cgljixvdoo0dp" path="res://classroom_d.tscn" id="11_n1y4y"]
 [ext_resource type="PackedScene" uid="uid://cn3543lir8tf3" path="res://classroom_b.tscn" id="12_knsl5"]
 [ext_resource type="PackedScene" uid="uid://d35p0oq65ok55" path="res://classroom_e.tscn" id="14_gxl1f"]
 [ext_resource type="PackedScene" uid="uid://dli1ehr8cyxna" path="res://lobby.tscn" id="15_2uxut"]
+[ext_resource type="PackedScene" uid="uid://bd5k6a7ubc04r" path="res://tardy_office.tscn" id="16_m8tx5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g3mwp"]
 albedo_color = Color(0.37036502, 0.37036428, 0.37036443, 1)
@@ -373,7 +375,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_s0aar")
 text = "cam A"
 script = ExtResource("10_s0aar")
 metadata/index = 0
-metadata/name = "Classroom A"
+metadata/name = "Classroom A (Upstairs)"
 
 [node name="camB" type="Button" parent="cameras/map"]
 layout_mode = 0
@@ -388,7 +390,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_s0aar")
 text = "cam B"
 script = ExtResource("10_s0aar")
 metadata/index = 1
-metadata/name = "Classroom B"
+metadata/name = "Classroom B (Upstairs)"
 
 [node name="camC" type="Button" parent="cameras/map"]
 layout_mode = 0
@@ -416,7 +418,9 @@ theme_override_font_sizes/font_size = 12
 theme_override_styles/normal = SubResource("StyleBoxFlat_knsl5")
 theme_override_styles/hover = SubResource("StyleBoxFlat_s0aar")
 text = "cam F"
+script = ExtResource("10_s0aar")
 metadata/index = 5
+metadata/name = "Tardy Office (Downstairs)"
 
 [node name="camD" type="Button" parent="cameras/map"]
 layout_mode = 0
@@ -429,7 +433,9 @@ theme_override_font_sizes/font_size = 12
 theme_override_styles/normal = SubResource("StyleBoxFlat_knsl5")
 theme_override_styles/hover = SubResource("StyleBoxFlat_s0aar")
 text = "cam D"
+script = ExtResource("10_s0aar")
 metadata/index = 3
+metadata/name = "Classroom D (Upstairs)"
 
 [node name="camE" type="Button" parent="cameras/map"]
 layout_mode = 0
@@ -444,7 +450,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_s0aar")
 text = "cam E"
 script = ExtResource("10_s0aar")
 metadata/index = 4
-metadata/name = "Classroom E"
+metadata/name = "Classroom E (Downstairs)"
 
 [node name="place_name" type="RichTextLabel" parent="cameras"]
 layout_mode = 0
@@ -629,6 +635,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52.254566, 0, -25.247116)
 [node name="lobby" parent="." instance=ExtResource("15_2uxut")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10428858, 0, 39.810093)
 
+[node name="tardy_office" parent="." instance=ExtResource("16_m8tx5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1842957, 0, 59.567764)
+
+[node name="classroom_d" parent="." instance=ExtResource("11_n1y4y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.084614, 0, 32.599216)
+
 [connection signal="timeout" from="game_manager/hour" to="game_manager" method="_next_hour"]
 [connection signal="timeout" from="game_manager/power" to="game_manager" method="_timeout_counter"]
 [connection signal="input_event" from="wall_left/toggle_light" to="wall_left/toggle_light" method="_toggle_light_on_off"]
@@ -638,5 +650,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10428858, 0, 39.810093)
 [connection signal="pressed" from="cameras/map/camA" to="cameras/map/camA" method="_switch_to_this_cam"]
 [connection signal="pressed" from="cameras/map/camB" to="cameras/map/camB" method="_switch_to_this_cam"]
 [connection signal="pressed" from="cameras/map/camC" to="cameras/map/camC" method="_switch_to_this_cam"]
+[connection signal="pressed" from="cameras/map/camF" to="cameras/map/camF" method="_switch_to_this_cam"]
+[connection signal="pressed" from="cameras/map/camD" to="cameras/map/camD" method="_switch_to_this_cam"]
 [connection signal="pressed" from="cameras/map/camE" to="cameras/map/camE" method="_switch_to_this_cam"]
 [connection signal="mouse_entered" from="gui/camera_toggle" to="game_manager" method="_open_camera"]
