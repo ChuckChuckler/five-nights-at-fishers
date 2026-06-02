@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cv6pc1vgfsp5o"]
+[gd_scene load_steps=22 format=3 uid="uid://cv6pc1vgfsp5o"]
 
 [ext_resource type="PackedScene" uid="uid://c48qhqr3ud1fh" path="res://room_props/school_desk/school_desk_and_chair.glb" id="1_03sbn"]
 [ext_resource type="Texture2D" uid="uid://btnsbpejr6ktx" path="res://textures/floor_texture_2.jpg" id="1_6em4c"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://dcfgdyxih287x" path="res://cornball/corny1.jpg" id="9_uqw6m"]
 [ext_resource type="Texture2D" uid="uid://csxr7uhr02h28" path="res://cornball/corny2.jpg" id="10_pwckm"]
 [ext_resource type="Texture2D" uid="uid://bfrq1dnavoqfb" path="res://cornball/cornballllll.jpg" id="11_3e48k"]
+[ext_resource type="PackedScene" uid="uid://b8je8knc55q1v" path="res://recolored_door.tscn" id="12_uqw6m"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_03sbn"]
 albedo_color = Color(0.861699, 0.8239803, 0.785442, 1)
@@ -165,3 +166,6 @@ texture = ExtResource("10_pwckm")
 [node name="cornball_poster4" type="Sprite3D" parent="."]
 transform = Transform3D(-8.742277e-09, 0, 0.19999999, 0, 0.2, 0, -0.19999999, 0, -8.742277e-09, -4.3273234, 4.7415786, -0.6812865)
 texture = ExtResource("11_3e48k")
+
+[node name="door" parent="." instance=ExtResource("12_uqw6m")]
+transform = Transform3D(1.9, 0, 0, 0, 1.9, 0, 0, 0, 1.9, 0.9661827, -0.26256418, -0.7044474)

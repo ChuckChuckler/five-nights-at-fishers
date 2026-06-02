@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://pigfb45lfdm0"]
+[gd_scene load_steps=40 format=3 uid="uid://pigfb45lfdm0"]
 
 [ext_resource type="Script" uid="uid://com4mk7x4gvc1" path="res://camera.gd" id="1_g3mwp"]
 [ext_resource type="Script" uid="uid://ckjr1dj5iune1" path="res://game_manager.gd" id="1_lcwox"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://b3fv7mgwvg4fn" path="res://coffee_mug_-_caneca_de_cafe.glb" id="7_lcwox"]
 [ext_resource type="PackedScene" uid="uid://djsf5lgkf53t" path="res://desktop.glb" id="8_wruqr"]
 [ext_resource type="Script" uid="uid://cv66srj7sm6pl" path="res://usage_bar_manager.gd" id="10_3xqf3"]
+[ext_resource type="Shader" uid="uid://dbw7ee1mfkjiq" path="res://vhs_filter.gdshader" id="10_4hetp"]
 [ext_resource type="Script" uid="uid://cxsjhfxfaqu23" path="res://switch_cam.gd" id="10_s0aar"]
 [ext_resource type="PackedScene" uid="uid://cv6pc1vgfsp5o" path="res://room1.tscn" id="11_70x1r"]
 [ext_resource type="PackedScene" uid="uid://cgljixvdoo0dp" path="res://classroom_d.tscn" id="11_n1y4y"]
@@ -62,6 +63,13 @@ background_color = Color(0.15487596, 0.154876, 0.1548759, 1)
 glow_enabled = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_lcnwv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4hetp"]
+shader = ExtResource("10_4hetp")
+shader_parameter/pixel_size = 3.0
+shader_parameter/vhs_intensity = 3.0
+shader_parameter/noise_intensity = 0.15
+shader_parameter/opacity = 0.5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_knsl5"]
 bg_color = Color(0.20152655, 0.20152661, 0.20152646, 1)
@@ -313,6 +321,18 @@ offset_left = -2.0
 offset_top = -1.0
 offset_right = 1149.0
 offset_bottom = 651.0
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="cameras"]
+material = SubResource("ShaderMaterial_4hetp")
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SubViewport" type="SubViewport" parent="cameras/SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1151, 652)
+render_target_update_mode = 0
 
 [node name="map" type="Control" parent="cameras"]
 anchors_preset = 0

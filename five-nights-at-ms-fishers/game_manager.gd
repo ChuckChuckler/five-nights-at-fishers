@@ -8,11 +8,13 @@ var current_power:float=1000.0
 @onready var rooms = [$"../classroom_a",$"../classroom_b",$"../lobby",$"../classroom_d",$"../classroom_e",$"../tardy_office"]
 @onready var cams = [$"../classroom_a".get_node("SubViewport"), $"../classroom_b".get_node("SubViewport"),$"../lobby".get_node("SubViewport"),$"../classroom_d".get_node("SubViewport"),$"../classroom_e".get_node("SubViewport"),$"../tardy_office".get_node("SubViewport")]
 
+@onready var cam_display = $"../cameras/cam1"
+
 var current_room=0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$"../cameras/cam1".texture=cams[current_room].get_texture()
+	cam_display.texture=cams[current_room].get_texture()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -41,5 +43,5 @@ func _open_camera() -> void:
 		
 func switch_cams(index:int, room_name:String)->void:
 	current_room=index
-	$"../cameras/cam1".texture=cams[current_room].get_texture()
+	cam_display.texture=cams[current_room].get_texture()
 	$"../cameras/place_name".text=room_name
