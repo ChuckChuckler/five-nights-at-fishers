@@ -1,0 +1,73 @@
+[gd_scene load_steps=9 format=3 uid="uid://c50wego03luu6"]
+
+[ext_resource type="Texture2D" uid="uid://btnsbpejr6ktx" path="res://textures/floor_texture_2.jpg" id="1_fduof"]
+[ext_resource type="Texture2D" uid="uid://dfrj8f543ktlj" path="res://textures/plaster_wall.jpg" id="2_omr4y"]
+[ext_resource type="PackedScene" uid="uid://cxqwk6ucb8b07" path="res://room_props/locker_1/captains_quarters_locker.glb" id="3_4h02l"]
+[ext_resource type="Script" uid="uid://bv4h0bfsrkn22" path="res://camera_idle.gd" id="4_4h02l"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_if4va"]
+albedo_texture = ExtResource("1_fduof")
+uv1_scale = Vector3(15, 6, 4)
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_omr4y"]
+material = SubResource("StandardMaterial3D_if4va")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h8jxr"]
+albedo_texture = ExtResource("2_omr4y")
+uv1_scale = Vector3(4, 4, 4)
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_4h02l"]
+material = SubResource("StandardMaterial3D_h8jxr")
+
+[node name="hallway_1" type="Node3D"]
+
+[node name="floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(22.139553, 0, 0, 0, 0.05, 0, 0, 0, 4.212755, 0, 0, 0)
+mesh = SubResource("BoxMesh_omr4y")
+
+[node name="wall" type="MeshInstance3D" parent="."]
+transform = Transform3D(24.954586, 0, 0, 0, 9.6779585, 0, 0, 0, 0.07356757, 0, 1.9565675, -2.066738)
+mesh = SubResource("BoxMesh_4h02l")
+
+[node name="locker" parent="." instance=ExtResource("3_4h02l")]
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 4.282398, 2.3841858e-07, 0.17021918)
+
+[node name="locker2" parent="." instance=ExtResource("3_4h02l")]
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 2.3942008, 2.3841858e-07, 0.17021918)
+
+[node name="locker3" parent="." instance=ExtResource("3_4h02l")]
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0.51921797, 2.3841858e-07, 0.17021918)
+
+[node name="locker4" parent="." instance=ExtResource("3_4h02l")]
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, -1.3535094, 2.3841858e-07, 0.17021918)
+
+[node name="locker5" parent="." instance=ExtResource("3_4h02l")]
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, -3.2417073, 2.3841858e-07, 0.17021918)
+
+[node name="locker6" parent="." instance=ExtResource("3_4h02l")]
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, -5.11669, 2.3841858e-07, 0.17021918)
+
+[node name="locker7" parent="." instance=ExtResource("3_4h02l")]
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, -6.817174, 2.3841858e-07, 0.17021918)
+
+[node name="locker8" parent="." instance=ExtResource("3_4h02l")]
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, -8.705372, 2.3841858e-07, 0.17021918)
+
+[node name="locker9" parent="." instance=ExtResource("3_4h02l")]
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, -10.580355, 2.3841858e-07, 0.17021918)
+
+[node name="SubViewport" type="SubViewport" parent="."]
+size = Vector2i(700, 450)
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 0.9842605, 0.17672403, 0, -0.17672403, 0.9842605, -111.8, 2.617, -30.439)
+script = ExtResource("4_4h02l")
+metadata/TAR_1 = 5.6
+metadata/TAR_2 = -5.6
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.668076, 0)
+light_energy = 0.5
+omni_range = 17.58987

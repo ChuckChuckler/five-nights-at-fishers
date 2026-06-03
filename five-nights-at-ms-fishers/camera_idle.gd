@@ -1,6 +1,6 @@
 extends Camera3D
 
-const VELOCITY:float=5
+var VELOCITY:float=5
 
 @onready var TAR_1:float=get_meta("TAR_1")
 @onready var TAR_2:float=get_meta("TAR_2")
@@ -10,6 +10,8 @@ var current_target:float
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	current_target=TAR_1
+	if TAR_1==-147.9 and TAR_2==-212.1: #so we can fix the slow ahh velocity of this camera specifically
+		VELOCITY=10
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

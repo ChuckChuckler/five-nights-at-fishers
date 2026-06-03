@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://pigfb45lfdm0"]
+[gd_scene load_steps=44 format=3 uid="uid://pigfb45lfdm0"]
 
 [ext_resource type="Script" uid="uid://com4mk7x4gvc1" path="res://camera.gd" id="1_g3mwp"]
 [ext_resource type="Script" uid="uid://ckjr1dj5iune1" path="res://game_manager.gd" id="1_lcwox"]
@@ -18,6 +18,9 @@
 [ext_resource type="PackedScene" uid="uid://d35p0oq65ok55" path="res://classroom_e.tscn" id="14_gxl1f"]
 [ext_resource type="PackedScene" uid="uid://dli1ehr8cyxna" path="res://lobby.tscn" id="15_2uxut"]
 [ext_resource type="PackedScene" uid="uid://bd5k6a7ubc04r" path="res://tardy_office.tscn" id="16_m8tx5"]
+[ext_resource type="Texture2D" uid="uid://cdokjwgh7pvhw" path="res://characters/fang/fang_placeholder.png" id="19_o3cd7"]
+[ext_resource type="Script" uid="uid://8jmd2pn0eldo" path="res://fang_ai.gd" id="20_8qan1"]
+[ext_resource type="PackedScene" uid="uid://c50wego03luu6" path="res://hallway_1.tscn" id="21_jktts"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g3mwp"]
 albedo_color = Color(0.37036502, 0.37036428, 0.37036443, 1)
@@ -113,6 +116,8 @@ albedo_color = Color(0.0885599, 0.0885599, 0.0885599, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_70x1r"]
 material = SubResource("StandardMaterial3D_3xqf3")
+
+[sub_resource type="BoxMesh" id="BoxMesh_o3cd7"]
 
 [node name="Node3D" type="Node3D"]
 
@@ -340,7 +345,6 @@ offset_left = 810.0
 offset_top = 235.0
 offset_right = 858.0
 offset_bottom = 272.0
-metadata/_edit_group_ = true
 
 [node name="lines" type="Control" parent="cameras/map"]
 anchors_preset = 0
@@ -348,7 +352,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Line2D" type="Line2D" parent="cameras/map/lines"]
-points = PackedVector2Array(142, 171, 67, 171, 66, 96, 66, 22, 125, 22, 125, -27)
+points = PackedVector2Array(142, 171, 67, 171, 66, 96, 66, 23, 125, 23, 125, -27)
 width = 3.0
 
 [node name="Line2D2" type="Line2D" parent="cameras/map/lines"]
@@ -360,7 +364,7 @@ points = PackedVector2Array(28, -74, 28, -20, 119, -20)
 width = 3.0
 
 [node name="Line2D4" type="Line2D" parent="cameras/map/lines"]
-points = PackedVector2Array(143, 170, 209, 170, 206, 92, 206, 10, 155, 10, 155, -31)
+points = PackedVector2Array(143, 170, 206, 170, 206, 92, 206, 10, 155, 10, 155, -31)
 width = 3.0
 
 [node name="Line2D5" type="Line2D" parent="cameras/map/lines"]
@@ -471,6 +475,141 @@ text = "cam E"
 script = ExtResource("10_s0aar")
 metadata/index = 4
 metadata/name = "Classroom E (Downstairs)"
+
+[node name="cam1" type="Button" parent="cameras/map"]
+layout_mode = 0
+offset_left = 196.0
+offset_top = -35.0
+offset_right = 220.0
+offset_bottom = -10.0
+theme_override_colors/font_color = Color(0.9340804, 0.9340805, 0.93408036, 1)
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_knsl5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_s0aar")
+text = "1"
+script = ExtResource("10_s0aar")
+metadata/index = 6
+metadata/name = "Left Lower Hall"
+
+[node name="cam2A" type="Button" parent="cameras/map"]
+layout_mode = 0
+offset_left = 171.0
+offset_top = -1.0
+offset_right = 197.0
+offset_bottom = 24.0
+theme_override_colors/font_color = Color(0.9340804, 0.9340805, 0.93408036, 1)
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_knsl5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_s0aar")
+text = "2A"
+script = ExtResource("10_s0aar")
+metadata/index = 6
+metadata/name = "Left Lower Hall"
+
+[node name="cam2B" type="Button" parent="cameras/map"]
+layout_mode = 0
+offset_left = 193.0
+offset_top = 34.0
+offset_right = 220.0
+offset_bottom = 59.0
+theme_override_colors/font_color = Color(0.9340804, 0.9340805, 0.93408036, 1)
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_knsl5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_s0aar")
+text = "2B"
+script = ExtResource("10_s0aar")
+metadata/index = 6
+metadata/name = "Left Lower Hall"
+
+[node name="cam3" type="Button" parent="cameras/map"]
+layout_mode = 0
+offset_left = 194.0
+offset_top = 117.0
+offset_right = 218.0
+offset_bottom = 142.0
+theme_override_colors/font_color = Color(0.9340804, 0.9340805, 0.93408036, 1)
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_knsl5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_s0aar")
+text = "3"
+script = ExtResource("10_s0aar")
+metadata/index = 6
+metadata/name = "Left Lower Hall"
+
+[node name="cam4" type="Button" parent="cameras/map"]
+layout_mode = 0
+offset_left = 62.0
+offset_top = -34.0
+offset_right = 86.0
+offset_bottom = -9.0
+theme_override_colors/font_color = Color(0.9340804, 0.9340805, 0.93408036, 1)
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_knsl5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_s0aar")
+text = "4"
+script = ExtResource("10_s0aar")
+metadata/index = 6
+metadata/name = "Left Lower Hall"
+
+[node name="cam5A" type="Button" parent="cameras/map"]
+layout_mode = 0
+offset_left = 83.0
+offset_top = 10.0
+offset_right = 111.0
+offset_bottom = 35.0
+theme_override_colors/font_color = Color(0.9340804, 0.9340805, 0.93408036, 1)
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_knsl5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_s0aar")
+text = "5A"
+script = ExtResource("10_s0aar")
+metadata/index = 6
+metadata/name = "Left Lower Hall"
+
+[node name="cam5B" type="Button" parent="cameras/map"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 10.0
+offset_right = 43.0
+offset_bottom = 35.0
+theme_override_colors/font_color = Color(0.9340804, 0.9340805, 0.93408036, 1)
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_knsl5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_s0aar")
+text = "5B"
+script = ExtResource("10_s0aar")
+metadata/index = 6
+metadata/name = "Left Lower Hall"
+
+[node name="cam5C" type="Button" parent="cameras/map"]
+layout_mode = 0
+offset_left = 53.0
+offset_top = 39.0
+offset_right = 80.0
+offset_bottom = 64.0
+theme_override_colors/font_color = Color(0.9340804, 0.9340805, 0.93408036, 1)
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_knsl5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_s0aar")
+text = "5C"
+script = ExtResource("10_s0aar")
+metadata/index = 6
+metadata/name = "Left Lower Hall"
+
+[node name="cam6" type="Button" parent="cameras/map"]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 118.0
+offset_right = 79.0
+offset_bottom = 143.0
+theme_override_colors/font_color = Color(0.9340804, 0.9340805, 0.93408036, 1)
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_knsl5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_s0aar")
+text = "6"
+script = ExtResource("10_s0aar")
+metadata/index = 6
+metadata/name = "Left Lower Hall"
 
 [node name="place_name" type="RichTextLabel" parent="cameras"]
 layout_mode = 0
@@ -661,6 +800,74 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1842957, 0, 59.567764)
 [node name="classroom_d" parent="." instance=ExtResource("11_n1y4y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.084614, 0, 32.599216)
 
+[node name="hallway_1" parent="." instance=ExtResource("21_jktts")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -111.82626, 0, -32.71004)
+
+[node name="fang" type="Sprite3D" parent="."]
+transform = Transform3D(-0.3, 0, -2.6226834e-08, 0, 0.3, 0, 2.6226834e-08, 0, -0.3, -48.523514, 0, 0)
+texture = ExtResource("19_o3cd7")
+script = ExtResource("20_8qan1")
+
+[node name="spawns_e" type="Node3D" parent="."]
+
+[node name="fang_spawn" type="MeshInstance3D" parent="spawns_e"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52.063522, 2.2267647, -26.142038)
+visible = false
+mesh = SubResource("BoxMesh_o3cd7")
+skeleton = NodePath("../../classroom_e")
+
+[node name="spawns_lobby" type="Node3D" parent="."]
+
+[node name="fang_spawns" type="Node3D" parent="spawns_lobby"]
+
+[node name="from_e" type="MeshInstance3D" parent="spawns_lobby/fang_spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.945456, 1.4654381, 40.628956)
+visible = false
+mesh = SubResource("BoxMesh_o3cd7")
+skeleton = NodePath("../../classroom_e")
+
+[node name="to_staircase_left" type="MeshInstance3D" parent="spawns_lobby/fang_spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.582877, 1.4654381, 43.46705)
+visible = false
+mesh = SubResource("BoxMesh_o3cd7")
+skeleton = NodePath("../../classroom_e")
+
+[node name="to_staircase_right" type="MeshInstance3D" parent="spawns_lobby/fang_spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.165838, 1.4654381, 43.265244)
+visible = false
+mesh = SubResource("BoxMesh_o3cd7")
+skeleton = NodePath("../../classroom_e")
+
+[node name="to_tardy_office" type="MeshInstance3D" parent="spawns_lobby/fang_spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.653019, 1.4654381, 39.235313)
+visible = false
+mesh = SubResource("BoxMesh_o3cd7")
+skeleton = NodePath("../../classroom_e")
+
+[node name="spawns_b" type="Node3D" parent="."]
+
+[node name="fang_spawn" type="MeshInstance3D" parent="spawns_b"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -73.146484, 1.4654381, 25.681686)
+visible = false
+mesh = SubResource("BoxMesh_o3cd7")
+skeleton = NodePath("../../classroom_e")
+
+[node name="spawns_hallway_1" type="Node3D" parent="."]
+
+[node name="fang_spawns" type="Node3D" parent="spawns_hallway_1"]
+
+[node name="spawn_1" type="MeshInstance3D" parent="spawns_hallway_1/fang_spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -109.229195, 1.465, -32.005554)
+visible = false
+mesh = SubResource("BoxMesh_o3cd7")
+skeleton = NodePath("../../../classroom_e")
+
+[node name="spawn_2" type="MeshInstance3D" parent="spawns_hallway_1/fang_spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -114.229195, 1.465, -32.005554)
+visible = false
+mesh = SubResource("BoxMesh_o3cd7")
+skeleton = NodePath("../../../classroom_e")
+
 [connection signal="timeout" from="game_manager/hour" to="game_manager" method="_next_hour"]
 [connection signal="timeout" from="game_manager/power" to="game_manager" method="_timeout_counter"]
 [connection signal="input_event" from="wall_left/toggle_light" to="wall_left/toggle_light" method="_toggle_light_on_off"]
@@ -673,4 +880,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.084614, 0, 32.599216)
 [connection signal="pressed" from="cameras/map/camF" to="cameras/map/camF" method="_switch_to_this_cam"]
 [connection signal="pressed" from="cameras/map/camD" to="cameras/map/camD" method="_switch_to_this_cam"]
 [connection signal="pressed" from="cameras/map/camE" to="cameras/map/camE" method="_switch_to_this_cam"]
+[connection signal="pressed" from="cameras/map/cam1" to="cameras/map/cam1" method="_switch_to_this_cam"]
+[connection signal="pressed" from="cameras/map/cam2A" to="cameras/map/cam2A" method="_switch_to_this_cam"]
+[connection signal="pressed" from="cameras/map/cam2B" to="cameras/map/cam2B" method="_switch_to_this_cam"]
+[connection signal="pressed" from="cameras/map/cam3" to="cameras/map/cam3" method="_switch_to_this_cam"]
+[connection signal="pressed" from="cameras/map/cam4" to="cameras/map/cam4" method="_switch_to_this_cam"]
+[connection signal="pressed" from="cameras/map/cam5A" to="cameras/map/cam5A" method="_switch_to_this_cam"]
+[connection signal="pressed" from="cameras/map/cam5B" to="cameras/map/cam5B" method="_switch_to_this_cam"]
+[connection signal="pressed" from="cameras/map/cam5C" to="cameras/map/cam5C" method="_switch_to_this_cam"]
+[connection signal="pressed" from="cameras/map/cam6" to="cameras/map/cam6" method="_switch_to_this_cam"]
 [connection signal="mouse_entered" from="gui/camera_toggle" to="game_manager" method="_open_camera"]

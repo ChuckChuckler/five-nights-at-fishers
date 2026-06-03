@@ -5,8 +5,8 @@ var current_hour:int=0
 const START_POWER:float=1000.0
 var current_power:float=1000.0
 
-@onready var rooms = [$"../classroom_a",$"../classroom_b",$"../lobby",$"../classroom_d",$"../classroom_e",$"../tardy_office"]
-@onready var cams = [$"../classroom_a".get_node("SubViewport"), $"../classroom_b".get_node("SubViewport"),$"../lobby".get_node("SubViewport"),$"../classroom_d".get_node("SubViewport"),$"../classroom_e".get_node("SubViewport"),$"../tardy_office".get_node("SubViewport")]
+@onready var rooms = [$"../classroom_a",$"../classroom_b",$"../lobby",$"../classroom_d",$"../classroom_e",$"../tardy_office", $"../hallway_1"]
+@onready var cams = [$"../classroom_a".get_node("SubViewport"), $"../classroom_b".get_node("SubViewport"),$"../lobby".get_node("SubViewport"),$"../classroom_d".get_node("SubViewport"),$"../classroom_e".get_node("SubViewport"),$"../tardy_office".get_node("SubViewport"),$"../hallway_1".get_node("SubViewport")]
 
 @onready var cam_display = $"../cameras/cam1"
 
