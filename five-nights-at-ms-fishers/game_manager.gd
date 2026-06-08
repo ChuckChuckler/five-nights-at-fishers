@@ -5,8 +5,8 @@ var current_hour:int=0
 const START_POWER:float=1000.0
 var current_power:float=1000.0
 
-@onready var rooms = [$"../classroom_a",$"../classroom_b",$"../lobby",$"../classroom_d",$"../classroom_e",$"../tardy_office", $"../hallway_1", $"../hallway_2A", $"../hallway_2B",$"../hallway_3"]
-@onready var cams = [$"../classroom_a".get_node("SubViewport"), $"../classroom_b".get_node("SubViewport"),$"../lobby".get_node("SubViewport"),$"../classroom_d".get_node("SubViewport"),$"../classroom_e".get_node("SubViewport"),$"../tardy_office".get_node("SubViewport"),$"../hallway_1".get_node("SubViewport"),$"../hallway_2A".get_node("SubViewport"),$"../hallway_2B".get_node("SubViewport"),$"../hallway_3".get_node("SubViewport")]
+@onready var rooms = [$"../classroom_a",$"../classroom_b",$"../lobby",$"../classroom_d",$"../classroom_e",$"../tardy_office", $"../hallway_1", $"../hallway_2A", $"../hallway_2B",$"../hallway_3",$"../hallway_4", $"../hallway_5a", $"../hallway_5b",$"../hallway_5c",$"../hallway_6"]
+@onready var cams = [$"../classroom_a".get_node("SubViewport"), $"../classroom_b".get_node("SubViewport"),$"../lobby".get_node("SubViewport"),$"../classroom_d".get_node("SubViewport"),$"../classroom_e".get_node("SubViewport"),$"../tardy_office".get_node("SubViewport"),$"../hallway_1".get_node("SubViewport"),$"../hallway_2A".get_node("SubViewport"),$"../hallway_2B".get_node("SubViewport"),$"../hallway_3".get_node("SubViewport"),$"../hallway_4".get_node("SubViewport"),$"../hallway_5a".get_node("SubViewport"), $"../hallway_5b".get_node("SubViewport"),$"../hallway_5c".get_node("SubViewport"),$"../hallway_6".get_node("SubViewport")]
 
 @onready var cam_display = $"../cameras/cam1"
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://pigfb45lfdm0"]
+[gd_scene load_steps=51 format=3 uid="uid://pigfb45lfdm0"]
 
 [ext_resource type="Script" uid="uid://com4mk7x4gvc1" path="res://camera.gd" id="1_g3mwp"]
 [ext_resource type="Script" uid="uid://ckjr1dj5iune1" path="res://game_manager.gd" id="1_lcwox"]
@@ -24,6 +24,11 @@
 [ext_resource type="PackedScene" uid="uid://cv7icyxhwrp8t" path="res://hallway_2.tscn" id="22_25m5p"]
 [ext_resource type="PackedScene" uid="uid://dq14qfgmebxj7" path="res://hallway_2b.tscn" id="23_ga26y"]
 [ext_resource type="PackedScene" uid="uid://b5xnio0jbq6rq" path="res://hallway_3.tscn" id="24_2k2f6"]
+[ext_resource type="PackedScene" uid="uid://b1sy0he2y5jvh" path="res://hallway_4.tscn" id="25_hs4kw"]
+[ext_resource type="PackedScene" uid="uid://duiwkx0766no6" path="res://hallway_5a.tscn" id="26_bm8iy"]
+[ext_resource type="PackedScene" uid="uid://yhno67fypbaw" path="res://hallway_5b.tscn" id="27_2uru3"]
+[ext_resource type="PackedScene" uid="uid://fqgn8f007va" path="res://hallway_5c.tscn" id="28_ekubs"]
+[ext_resource type="PackedScene" uid="uid://u3v6dsydutdi" path="res://hallway_6.tscn" id="29_hblr6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g3mwp"]
 albedo_color = Color(0.37036502, 0.37036428, 0.37036443, 1)
@@ -545,7 +550,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_knsl5")
 theme_override_styles/hover = SubResource("StyleBoxFlat_s0aar")
 text = "4"
 script = ExtResource("10_s0aar")
-metadata/index = 6
+metadata/index = 10
 metadata/name = "Left Lower Hall"
 
 [node name="cam5A" type="Button" parent="cameras/map"]
@@ -560,8 +565,8 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_knsl5")
 theme_override_styles/hover = SubResource("StyleBoxFlat_s0aar")
 text = "5A"
 script = ExtResource("10_s0aar")
-metadata/index = 6
-metadata/name = "Left Lower Hall"
+metadata/index = 11
+metadata/name = "Left Upper Hall A"
 
 [node name="cam5B" type="Button" parent="cameras/map"]
 layout_mode = 0
@@ -575,8 +580,8 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_knsl5")
 theme_override_styles/hover = SubResource("StyleBoxFlat_s0aar")
 text = "5B"
 script = ExtResource("10_s0aar")
-metadata/index = 6
-metadata/name = "Left Lower Hall"
+metadata/index = 12
+metadata/name = "Left Upper Hall B"
 
 [node name="cam5C" type="Button" parent="cameras/map"]
 layout_mode = 0
@@ -590,8 +595,8 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_knsl5")
 theme_override_styles/hover = SubResource("StyleBoxFlat_s0aar")
 text = "5C"
 script = ExtResource("10_s0aar")
-metadata/index = 6
-metadata/name = "Left Lower Hall"
+metadata/index = 13
+metadata/name = "Left Upper Hall C"
 
 [node name="cam6" type="Button" parent="cameras/map"]
 layout_mode = 0
@@ -605,8 +610,8 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_knsl5")
 theme_override_styles/hover = SubResource("StyleBoxFlat_s0aar")
 text = "6"
 script = ExtResource("10_s0aar")
-metadata/index = 6
-metadata/name = "Left Lower Hall"
+metadata/index = 14
+metadata/name = "Left Outside Office"
 
 [node name="place_name" type="RichTextLabel" parent="cameras"]
 layout_mode = 0
@@ -705,19 +710,19 @@ spot_range = 4.947322
 spot_angle = 33.26355
 
 [node name="door_light_right" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.496609, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.496609, -0.12550259, 0)
 visible = false
 
 [node name="SpotLight3D" type="SpotLight3D" parent="door_light_right"]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -3.8225434, 3.7098184, 2.0188072)
-light_energy = 30.0
+light_energy = 40.0
 shadow_enabled = true
 spot_range = 4.947322
 spot_angle = 33.26355
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="door_light_right"]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -4.3783245, 3.8214364, -0.016069233)
-light_energy = 30.0
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -3.5433989, 3.8214364, -0.016069233)
+light_energy = 40.0
 shadow_enabled = true
 spot_range = 4.947322
 spot_angle = 33.26355
@@ -928,10 +933,25 @@ mesh = SubResource("BoxMesh_o3cd7")
 skeleton = NodePath("../../../classroom_e")
 
 [node name="outside_window" type="MeshInstance3D" parent="spawns_office/spawns_right/fang_spawns"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.405903, 1.5336658, 0.11448717)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.7008715, 1.5336658, -0.24349779)
 visible = false
 mesh = SubResource("BoxMesh_o3cd7")
 skeleton = NodePath("../../../classroom_e")
+
+[node name="hallway_4" parent="." instance=ExtResource("25_hs4kw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.134956, 0, 51.72961)
+
+[node name="hallway_5a" parent="." instance=ExtResource("26_bm8iy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.95575, 0, 84.72188)
+
+[node name="hallway_5b" parent="." instance=ExtResource("27_2uru3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 109.13275, 0, 70.90883)
+
+[node name="hallway_5c" parent="." instance=ExtResource("28_ekubs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 126.884445, 0, 127.440094)
+
+[node name="hallway_6" parent="." instance=ExtResource("29_hblr6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 126.7196, 9.536743e-07, 33.42328)
 
 [connection signal="timeout" from="game_manager/hour" to="game_manager" method="_next_hour"]
 [connection signal="timeout" from="game_manager/power" to="game_manager" method="_timeout_counter"]

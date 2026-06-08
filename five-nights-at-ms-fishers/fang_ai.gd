@@ -10,6 +10,8 @@ var compare_time:int=0
 
 var current_area:String="classroom e"
 
+var fangs_door_closed:bool=false
+
 @onready var routes={
 	"classroom e":[
 		[$"../spawns_hallway_1/fang_spawns/spawn_1","hallway 1 to e"]
@@ -59,7 +61,6 @@ var current_area:String="classroom e"
 }
 func _ready() -> void:
 	$".".position=Vector3(spawn_e.position.x, spawn_e.position.y, spawn_e.position.z)
-	print_debug(time_before_disappear)
 	compare_time=Time.get_ticks_msec()
 
 func _process(delta: float) -> void:
@@ -72,17 +73,31 @@ func _process(delta: float) -> void:
 			var moves=true
 			if moves:
 				var chosen_move = routes[current_area][randi_range(0,routes[current_area].size()-1)]
-				if chosen_move[1]!="no":
+				if chosen_move[1]!="no" || fangs_door_closed==false:
 					$".".position=Vector3(chosen_move[0].position.x, chosen_move[0].position.y, chosen_move[0].position.z)
 					current_area=chosen_move[1]
 						
 			else:
 				print_debug("fang does not move")
 	else:
-		if $"../wall_right/toggle_door".door_down:
+		if $"../wall_right/toggle_door".door_down and (current_area=="outside right window" || current_area=="outside right door"):
+			fangs_door_closed=true
 			if time_passed/1000.0 >= time_before_disappear-0.5 and time_passed/1000.0<=time_before_disappear+0.5:
 				compare_time=Time.get_ticks_msec()
 				time_passed=0
 				current_area="classroom e"
+				print_debug("he is gone..")
 				$".".position=Vector3(spawn_e.position.x, spawn_e.position.y, spawn_e.position.z)
-			
+		else:
+			fangs_door_closed=false
+			if time_passed/1000.0 >= time_wait-0.5 and time_passed/1000.0<=time_wait+0.5:
+				compare_time=Time.get_ticks_msec()
+				time_passed=0
+				print_debug("YOU ARE DEAD ELELELE")
+				time_wait=-1
+
+func door_triggered():
+	time_passed=0
+	compare_time=Time.get_ticks_msec()
+	if current_area=="outside right door":
+		$".".position=Vector3(routes["hallway 3 spawn 2"][1][0].position.x, routes["hallway 3 spawn 2"][1][0].position.y, routes["hallway 3 spawn 2"][1][0].position.z)

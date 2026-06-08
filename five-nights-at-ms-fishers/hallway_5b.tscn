@@ -1,0 +1,112 @@
+[gd_scene load_steps=9 format=3 uid="uid://yhno67fypbaw"]
+
+[ext_resource type="Texture2D" uid="uid://btnsbpejr6ktx" path="res://textures/floor_texture_2.jpg" id="1_ddnfg"]
+[ext_resource type="Texture2D" uid="uid://cqbtfaqckqpvt" path="res://textures/brick_wall.jpg" id="2_l0t74"]
+[ext_resource type="PackedScene" uid="uid://cxqwk6ucb8b07" path="res://room_props/locker_1/captains_quarters_locker.glb" id="3_7qk1e"]
+[ext_resource type="Script" uid="uid://bv4h0bfsrkn22" path="res://camera_idle.gd" id="6_krm7m"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_if4va"]
+albedo_texture = ExtResource("1_ddnfg")
+uv1_scale = Vector3(15, 6, 4)
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_ddnfg"]
+material = SubResource("StandardMaterial3D_if4va")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_raits"]
+albedo_color = Color(0.9503837, 0.8564007, 0.56116694, 1)
+albedo_texture = ExtResource("2_l0t74")
+uv1_scale = Vector3(5, 1.66, 1.66)
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_l0t74"]
+material = SubResource("StandardMaterial3D_raits")
+
+[node name="hallway_5b" type="Node3D"]
+
+[node name="floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(33.06755, 0, 0, 0, 0.05, 0, 0, 0, 9.883798, 0, 0, 0)
+mesh = SubResource("BoxMesh_ddnfg")
+
+[node name="wall" type="MeshInstance3D" parent="."]
+transform = Transform3D(37.786865, 0, 0, 0, 20.587132, 0, 0, 0, 0.07356757, 0, 1.9565675, -2.066738)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_l0t74")
+
+[node name="locker6" parent="." instance=ExtResource("3_7qk1e")]
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 13.02559, 2.3841858e-07, 0.17021918)
+
+[node name="locker7" parent="." instance=ExtResource("3_7qk1e")]
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 11.150607, 2.3841858e-07, 0.17021918)
+
+[node name="locker8" parent="." instance=ExtResource("3_7qk1e")]
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 9.27788, 2.3841858e-07, 0.17021918)
+
+[node name="locker9" parent="." instance=ExtResource("3_7qk1e")]
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 7.389682, 2.3841858e-07, 0.17021918)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.668076, 0)
+light_energy = 0.5
+omni_range = 17.58987
+
+[node name="locker10" parent="." instance=ExtResource("3_7qk1e")]
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, -15.55021, 2.3841858e-07, 0.17021918)
+
+[node name="locker11" parent="." instance=ExtResource("3_7qk1e")]
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, -17.422937, 2.3841858e-07, 0.17021918)
+
+[node name="locker12" parent="." instance=ExtResource("3_7qk1e")]
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, -19.311134, 2.3841858e-07, 0.17021918)
+
+[node name="SubViewport" type="SubViewport" parent="."]
+size = Vector2i(700, 450)
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 0.98795986, 0.15471038, 0, -0.1547104, 0.9879598, 109.13, 3.381, 73.818)
+fov = 88.75164
+script = ExtResource("6_krm7m")
+metadata/TAR_1 = 7.7
+metadata/TAR_2 = -7.7
+
+[node name="locker13" parent="." instance=ExtResource("3_7qk1e")]
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, -9.870875, 2.3841858e-07, 0.17021918)
+
+[node name="locker14" parent="." instance=ExtResource("3_7qk1e")]
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, -11.743603, 2.3841858e-07, 0.17021918)
+
+[node name="locker15" parent="." instance=ExtResource("3_7qk1e")]
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, -13.6318, 2.3841858e-07, 0.17021918)
+
+[node name="locker16" parent="." instance=ExtResource("3_7qk1e")]
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 5.4737635, 2.3841858e-07, 0.17021918)
+
+[node name="locker17" parent="." instance=ExtResource("3_7qk1e")]
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 3.5739512, 2.3841858e-07, 0.17021918)
+
+[node name="locker18" parent="." instance=ExtResource("3_7qk1e")]
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 1.6457598, 2.3841858e-07, 0.17021918)
+
+[node name="locker19" parent="." instance=ExtResource("3_7qk1e")]
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, -13.61002, 2.3841858e-07, 0.17021918)
+
+[node name="locker20" parent="." instance=ExtResource("3_7qk1e")]
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, -4.169761, 2.3841858e-07, 0.17021918)
+
+[node name="locker21" parent="." instance=ExtResource("3_7qk1e")]
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, -6.0424886, 2.3841858e-07, 0.17021918)
+
+[node name="locker22" parent="." instance=ExtResource("3_7qk1e")]
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, -7.9306855, 2.3841858e-07, 0.17021918)
+
+[node name="locker23" parent="." instance=ExtResource("3_7qk1e")]
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 11.174877, 2.3841858e-07, 0.17021918)
+
+[node name="locker24" parent="." instance=ExtResource("3_7qk1e")]
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, -7.872902, 2.3841858e-07, 0.17021918)
+
+[node name="locker26" parent="." instance=ExtResource("3_7qk1e")]
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, -0.30537033, 2.3841858e-07, 0.17021918)
+
+[node name="locker27" parent="." instance=ExtResource("3_7qk1e")]
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, -2.1935673, 2.3841858e-07, 0.17021918)
