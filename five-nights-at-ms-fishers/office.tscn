@@ -354,11 +354,11 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Line2D" type="Line2D" parent="cameras/map/lines"]
-points = PackedVector2Array(142, 171, 67, 171, 66, 96, 66, 23, 125, 23, 125, -27)
+points = PackedVector2Array(142, 171, 95, 171, 95, 56, 95, 23, 125, 23, 125, -27)
 width = 3.0
 
 [node name="Line2D2" type="Line2D" parent="cameras/map/lines"]
-points = PackedVector2Array(67, 23, 1, 23)
+points = PackedVector2Array(84, 23, 1, 23)
 width = 3.0
 
 [node name="Line2D3" type="Line2D" parent="cameras/map/lines"]
@@ -390,10 +390,10 @@ metadata/index = -1
 
 [node name="camA" type="Button" parent="cameras/map"]
 layout_mode = 0
-offset_left = 11.0
-offset_top = 75.0
-offset_right = 67.0
-offset_bottom = 108.0
+offset_left = 40.0
+offset_top = 79.0
+offset_right = 96.0
+offset_bottom = 112.0
 theme_override_colors/font_color = Color(0.9340804, 0.9340805, 0.93408036, 1)
 theme_override_font_sizes/font_size = 12
 theme_override_styles/normal = SubResource("StyleBoxFlat_knsl5")
@@ -450,9 +450,9 @@ metadata/name = "Tardy Office (Downstairs)"
 
 [node name="camD" type="Button" parent="cameras/map"]
 layout_mode = 0
-offset_left = -55.0
+offset_left = -43.0
 offset_top = 7.0
-offset_right = 1.0
+offset_right = 13.0
 offset_bottom = 40.0
 theme_override_colors/font_color = Color(0.9340804, 0.9340805, 0.93408036, 1)
 theme_override_font_sizes/font_size = 12
@@ -570,10 +570,10 @@ metadata/name = "Left Upper Hall A"
 
 [node name="cam5B" type="Button" parent="cameras/map"]
 layout_mode = 0
-offset_left = 17.0
-offset_top = 10.0
-offset_right = 43.0
-offset_bottom = 35.0
+offset_left = 32.0
+offset_top = 11.0
+offset_right = 58.0
+offset_bottom = 36.0
 theme_override_colors/font_color = Color(0.9340804, 0.9340805, 0.93408036, 1)
 theme_override_font_sizes/font_size = 12
 theme_override_styles/normal = SubResource("StyleBoxFlat_knsl5")
@@ -585,10 +585,10 @@ metadata/name = "Left Upper Hall B"
 
 [node name="cam5C" type="Button" parent="cameras/map"]
 layout_mode = 0
-offset_left = 53.0
-offset_top = 39.0
-offset_right = 80.0
-offset_bottom = 64.0
+offset_left = 82.0
+offset_top = 47.0
+offset_right = 109.0
+offset_bottom = 72.0
 theme_override_colors/font_color = Color(0.9340804, 0.9340805, 0.93408036, 1)
 theme_override_font_sizes/font_size = 12
 theme_override_styles/normal = SubResource("StyleBoxFlat_knsl5")
@@ -600,9 +600,9 @@ metadata/name = "Left Upper Hall C"
 
 [node name="cam6" type="Button" parent="cameras/map"]
 layout_mode = 0
-offset_left = 54.0
+offset_left = 82.0
 offset_top = 118.0
-offset_right = 79.0
+offset_right = 107.0
 offset_bottom = 143.0
 theme_override_colors/font_color = Color(0.9340804, 0.9340805, 0.93408036, 1)
 theme_override_font_sizes/font_size = 12
@@ -672,10 +672,10 @@ offset_bottom = 40.0
 
 [node name="camera_toggle" type="Panel" parent="gui"]
 layout_mode = 0
-offset_left = 290.0
-offset_top = 549.0
-offset_right = 803.0
-offset_bottom = 609.0
+offset_left = 291.0
+offset_top = 577.0
+offset_right = 804.0
+offset_bottom = 637.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_70x1r")
 metadata/_edit_group_ = true
 
@@ -807,7 +807,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -111.82626, 0, -32.71004)
 
 [node name="fang" type="Sprite3D" parent="."]
 transform = Transform3D(-0.3, 0, -2.6226834e-08, 0, 0.3, 0, 2.6226834e-08, 0, -0.3, -48.523514, 0, 0)
-shaded = true
 texture = ExtResource("19_o3cd7")
 script = ExtResource("20_8qan1")
 
@@ -895,8 +894,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 94.12201, 0, -10.378995)
 
 [node name="spawns_hallway_2b" type="Node3D" parent="."]
 
-[node name="fang_spawn" type="MeshInstance3D" parent="spawns_hallway_2b"]
+[node name="fang_spawns" type="Node3D" parent="spawns_hallway_2b"]
+
+[node name="spawn_1" type="MeshInstance3D" parent="spawns_hallway_2b/fang_spawns"]
 transform = Transform3D(0.8939979, 0, -0.44807118, 0, 1, 0, 0.44807118, 0, 0.8939979, 92.32739, 1.465, -8.862533)
+visible = false
+mesh = SubResource("BoxMesh_o3cd7")
+skeleton = NodePath("../../../classroom_e")
+
+[node name="spawn_2" type="MeshInstance3D" parent="spawns_hallway_2b/fang_spawns"]
+transform = Transform3D(0.8939979, 0, -0.44807118, 0, 1, 0, 0.44807118, 0, 0.8939979, 98.88831, 1.465, -8.862533)
 visible = false
 mesh = SubResource("BoxMesh_o3cd7")
 skeleton = NodePath("../../../classroom_e")
@@ -938,20 +945,122 @@ visible = false
 mesh = SubResource("BoxMesh_o3cd7")
 skeleton = NodePath("../../../classroom_e")
 
+[node name="spawns_left" type="Node3D" parent="spawns_office"]
+
+[node name="fang_spawns" type="Node3D" parent="spawns_office/spawns_left"]
+
+[node name="outside_door" type="MeshInstance3D" parent="spawns_office/spawns_left/fang_spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8554668, 1.465, 2.9819694)
+visible = false
+mesh = SubResource("BoxMesh_o3cd7")
+skeleton = NodePath("../../../classroom_e")
+
+[node name="outside_window" type="MeshInstance3D" parent="spawns_office/spawns_left/fang_spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5125532, 1.5336658, -0.24349779)
+visible = false
+mesh = SubResource("BoxMesh_o3cd7")
+skeleton = NodePath("../../../classroom_e")
+
 [node name="hallway_4" parent="." instance=ExtResource("25_hs4kw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.134956, 0, 51.72961)
 
 [node name="hallway_5a" parent="." instance=ExtResource("26_bm8iy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.95575, 0, 84.72188)
 
+[node name="spawns_hallway_5a" type="Node3D" parent="."]
+
+[node name="fang_spawns" type="Node3D" parent="spawns_hallway_5a"]
+
+[node name="spawn_1" type="MeshInstance3D" parent="spawns_hallway_5a/fang_spawns"]
+transform = Transform3D(0.96170783, 0, 0.27407676, 0, 1, 0, -0.27407676, 0, 0.96170783, 35.55922, 1.465, 85.11389)
+visible = false
+mesh = SubResource("BoxMesh_o3cd7")
+skeleton = NodePath("../../../classroom_e")
+
+[node name="spawn_2" type="MeshInstance3D" parent="spawns_hallway_5a/fang_spawns"]
+transform = Transform3D(0.96170783, 0, 0.27407676, 0, 1, 0, -0.27407676, 0, 0.96170783, 30.233088, 1.465, 86.178734)
+visible = false
+mesh = SubResource("BoxMesh_o3cd7")
+skeleton = NodePath("../../../classroom_e")
+
+[node name="spawn_3" type="MeshInstance3D" parent="spawns_hallway_5a/fang_spawns"]
+transform = Transform3D(0.96170783, 0, 0.27407676, 0, 1, 0, -0.27407676, 0, 0.96170783, 34.65751, 1.465, 87.62618)
+visible = false
+mesh = SubResource("BoxMesh_o3cd7")
+skeleton = NodePath("../../../classroom_e")
+
 [node name="hallway_5b" parent="." instance=ExtResource("27_2uru3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 109.13275, 0, 70.90883)
+
+[node name="spawns_hallway_5b" type="Node3D" parent="."]
+
+[node name="fang_spawns" type="Node3D" parent="spawns_hallway_5b"]
+
+[node name="spawn_1" type="MeshInstance3D" parent="spawns_hallway_5b/fang_spawns"]
+transform = Transform3D(0.96170783, 0, 0.27407676, 0, 1, 0, -0.27407676, 0, 0.96170783, 112.45918, 1.465, 71.43414)
+visible = false
+mesh = SubResource("BoxMesh_o3cd7")
+skeleton = NodePath("../../../classroom_e")
+
+[node name="spawn_2" type="MeshInstance3D" parent="spawns_hallway_5b/fang_spawns"]
+transform = Transform3D(0.96170783, 0, 0.27407676, 0, 1, 0, -0.27407676, 0, 0.96170783, 105.67819, 1.465, 71.32197)
+visible = false
+mesh = SubResource("BoxMesh_o3cd7")
+skeleton = NodePath("../../../classroom_e")
 
 [node name="hallway_5c" parent="." instance=ExtResource("28_ekubs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 126.884445, 0, 127.440094)
 
 [node name="hallway_6" parent="." instance=ExtResource("29_hblr6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 126.7196, 9.536743e-07, 33.42328)
+
+[node name="spawns_classroom_d" type="Node3D" parent="."]
+
+[node name="fang_spawn" type="MeshInstance3D" parent="spawns_classroom_d"]
+transform = Transform3D(0.66537374, 0, -0.74651045, 0, 1, 0, 0.74651045, 0, 0.66537374, 34.509346, 2.8873942, 30.658478)
+visible = false
+mesh = SubResource("BoxMesh_o3cd7")
+skeleton = NodePath("../../../classroom_e")
+
+[node name="spawns_hallway_5c" type="Node3D" parent="."]
+
+[node name="fang_spawns" type="Node3D" parent="spawns_hallway_5c"]
+
+[node name="spawn_1" type="MeshInstance3D" parent="spawns_hallway_5c/fang_spawns"]
+transform = Transform3D(0.9963079, 0, -0.08585164, 0, 1, 0, 0.08585164, 0, 0.9963079, 119.94951, 1.465, 129.39151)
+visible = false
+mesh = SubResource("BoxMesh_o3cd7")
+skeleton = NodePath("../../../classroom_e")
+
+[node name="spawn_2" type="MeshInstance3D" parent="spawns_hallway_5c/fang_spawns"]
+transform = Transform3D(0.9963079, 0, -0.08585164, 0, 1, 0, 0.08585164, 0, 0.9963079, 125.82187, 1.465, 128.17195)
+visible = false
+mesh = SubResource("BoxMesh_o3cd7")
+skeleton = NodePath("../../../classroom_e")
+
+[node name="spawns_classroom_a" type="Node3D" parent="."]
+
+[node name="fang_spawn" type="MeshInstance3D" parent="spawns_classroom_a"]
+transform = Transform3D(0.9963079, 0, -0.08585164, 0, 1, 0, 0.08585164, 0, 0.9963079, 22.929518, 1.465, 10.049061)
+visible = false
+mesh = SubResource("BoxMesh_o3cd7")
+skeleton = NodePath("../../../classroom_e")
+
+[node name="spawns_hallway_4" type="Node3D" parent="."]
+
+[node name="fang_spawns" type="Node3D" parent="spawns_hallway_4"]
+
+[node name="spawn_1" type="MeshInstance3D" parent="spawns_hallway_4/fang_spawns"]
+transform = Transform3D(0.96170783, 0, 0.27407676, 0, 1, 0, -0.27407676, 0, 0.96170783, 127.57451, 1.465, 32.334255)
+visible = false
+mesh = SubResource("BoxMesh_o3cd7")
+skeleton = NodePath("../../../classroom_e")
+
+[node name="spawn_2" type="MeshInstance3D" parent="spawns_hallway_4/fang_spawns"]
+transform = Transform3D(0.9973919, 0, -0.07217634, 0, 1, 0, 0.07217634, 0, 0.9973919, 118.769775, 1.9758931, 32.90367)
+visible = false
+mesh = SubResource("BoxMesh_o3cd7")
+skeleton = NodePath("../../../classroom_e")
 
 [connection signal="timeout" from="game_manager/hour" to="game_manager" method="_next_hour"]
 [connection signal="timeout" from="game_manager/power" to="game_manager" method="_timeout_counter"]

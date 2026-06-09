@@ -58,12 +58,6 @@ transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, -3.2417073, 2.384
 [node name="locker6" parent="." instance=ExtResource("3_x8dms")]
 transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, -5.11669, 2.3841858e-07, 0.17021918)
 
-[node name="locker7" parent="." instance=ExtResource("3_x8dms")]
-transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, -6.817174, 2.3841858e-07, 0.17021918)
-
-[node name="locker8" parent="." instance=ExtResource("3_x8dms")]
-transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, -8.705372, 2.3841858e-07, 0.17021918)
-
 [node name="locker9" parent="." instance=ExtResource("3_x8dms")]
 transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, -10.580355, 2.3841858e-07, 0.17021918)
 
@@ -120,8 +114,11 @@ transform = Transform3D(-67.25333, -1.4775862e-06, -3.215741e-09, 2.9397363e-06,
 mesh = SubResource("BoxMesh_ejesc")
 
 [node name="Sketchfab_Scene" parent="." instance=ExtResource("5_05yvx")]
-transform = Transform3D(-2.5, 0, -3.774895e-07, 0, 2.5, 0, 3.774895e-07, 0, -2.5, -7.923816, 0, 1.1158948)
+transform = Transform3D(-2.5, 0, -2.1855695e-07, 0, 2.5, 0, 2.1855695e-07, 0, -2.5, -7.923816, 0, 1.4542646)
 
 [node name="wall5" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1.0907996e-06, 0, 0.07356757, 0, 16.901613, 0, -24.954586, 0, -3.2157406e-09, 11.177081, 1.9565675, 5.993017)
 mesh = SubResource("BoxMesh_t076u")
+
+[node name="Sketchfab_Scene2" parent="." instance=ExtResource("5_05yvx")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -3.5532794, -0.2255956, 2.3003185)
