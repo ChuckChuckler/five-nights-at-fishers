@@ -1,6 +1,6 @@
 extends Sprite3D
 
-var level:float=10.0
+var level:float=1
 var time_wait:float=(-0.32*level)+8.31
 var time_before_disappear:float=0.368421*level+2.63158
 
@@ -126,7 +126,7 @@ var current_area:String="door to e"
 }
 func _ready() -> void:
 	var randindex = randi_range(0,potential_spawnpoints_names.size()-1)
-	while potential_spawnpoints_names[randindex]==$"../fang".current_area:
+	while potential_spawnpoints_names[randindex]==$"../fang".current_area || potential_spawnpoints_names[randindex]==$"../fang2".current_area || potential_spawnpoints_names[randindex]==$"../fang3".current_area:
 		randindex=randi_range(0,potential_spawnpoints_names.size()-1)
 	
 	current_area=potential_spawnpoints_names[randindex]
@@ -146,7 +146,7 @@ func _process(delta: float) -> void:
 				var move_index = randi_range(0,routes[current_area].size()-1)
 				var chosen_move = routes[current_area][move_index]
 				if chosen_move[1]!="no":
-					if chosen_move[1]==$"../fang".current_area:
+					if chosen_move[1]==$"../fang".current_area || chosen_move[1]==$"../fang2".current_area || chosen_move[1]==$"../fang3".current_area:
 						if routes[current_area].size()==2:
 							if move_index==0:
 								move_index=1
@@ -183,7 +183,6 @@ func _process(delta: float) -> void:
 				$"../game_manager".trigger_game_over()
 
 func door_triggered():
-	time_passed=0
 	compare_time=Time.get_ticks_msec()
 	if current_area=="outside right door":
 		if !$"../wall_right/toggle_door".door_down:

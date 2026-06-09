@@ -14,10 +14,12 @@ func _process(delta: float) -> void:
 func _toggle_light_on_off(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index==MOUSE_BUTTON_LEFT and event.pressed:
 		if !$"../../door_light_left".visible:
+			$"../fake_shadow".visible=false
 			if $"../../gui/usage_bar_container".power_sources<$"../../gui/usage_bar_container".TOTAL_POWER_SOURCES:
 				$"../../door_light_left".visible=true
 				$"../../gui/usage_bar_container".power_sources+=1
 		else:
+			$"../fake_shadow".visible=true
 			$"../../door_light_left".visible=false
 			$"../../gui/usage_bar_container".power_sources-=1
 			

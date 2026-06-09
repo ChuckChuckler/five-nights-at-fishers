@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://pigfb45lfdm0"]
+[gd_scene load_steps=60 format=3 uid="uid://pigfb45lfdm0"]
 
 [ext_resource type="Script" uid="uid://com4mk7x4gvc1" path="res://camera.gd" id="1_g3mwp"]
 [ext_resource type="Script" uid="uid://ckjr1dj5iune1" path="res://game_manager.gd" id="1_lcwox"]
@@ -31,6 +31,9 @@
 [ext_resource type="PackedScene" uid="uid://u3v6dsydutdi" path="res://hallway_6.tscn" id="29_hblr6"]
 [ext_resource type="Texture2D" uid="uid://yv7x314yqmvr" path="res://characters/idk/placeholder_1.png" id="30_bveom"]
 [ext_resource type="Script" uid="uid://qvc8jshd41vr" path="res://person_ai.gd" id="31_6jtqa"]
+[ext_resource type="Texture2D" uid="uid://cufm08r3hyodq" path="res://characters/idk2/placeholder_2.png" id="32_6jtqa"]
+[ext_resource type="Texture2D" uid="uid://y5pssijf81xb" path="res://characters/tardyman/tardy_guy_ykw.png" id="33_nl0r1"]
+[ext_resource type="Script" uid="uid://c1obg0xcmsubc" path="res://tardy_guy_ai.gd" id="34_26ul0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g3mwp"]
 albedo_color = Color(0.37036502, 0.37036428, 0.37036443, 1)
@@ -61,6 +64,12 @@ material = SubResource("StandardMaterial3D_43ocd")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ei2s5"]
 size = Vector3(0.09387207, 0.4267578, 0.42070007)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_26ul0"]
+albedo_color = Color(0.00011382803, 0.00011382803, 0.00011382803, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5bs7n"]
+material = SubResource("StandardMaterial3D_26ul0")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ei2s5"]
 albedo_color = Color(0.0142752165, 0.014275218, 0.014275218, 1)
@@ -221,6 +230,11 @@ cast_shadow = 0
 mesh = SubResource("BoxMesh_ei2s5")
 skeleton = NodePath("../..")
 
+[node name="fake_shadow" type="MeshInstance3D" parent="wall_left"]
+transform = Transform3D(0.44784677, 0, 0, 0, 15.790982, 0, 0, 0, 15.766572, 4.7200074, -0.14659977, 1.149101)
+mesh = SubResource("BoxMesh_5bs7n")
+skeleton = NodePath("../..")
+
 [node name="wall_right" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.023573875, 0, 0)
 metadata/_edit_group_ = true
@@ -255,38 +269,37 @@ shape = SubResource("BoxShape3D_ei2s5")
 
 [node name="left_of_door" type="MeshInstance3D" parent="wall_right"]
 transform = Transform3D(0.44784677, 0, 0, 0, 15.790982, 0, 0, 0, 1.5178366, 5.0669947, -0.14659977, 1.149101)
-cast_shadow = 0
 mesh = SubResource("BoxMesh_ei2s5")
 skeleton = NodePath("../..")
 
 [node name="right_of_door" type="MeshInstance3D" parent="wall_right"]
 transform = Transform3D(0.44784677, 0, 0, 0, 15.790982, 0, 0, 0, 7.0341344, 5.21584, 0, 7.5512905)
-cast_shadow = 0
 mesh = SubResource("BoxMesh_ei2s5")
 skeleton = NodePath("../..")
 
 [node name="top_of_door" type="MeshInstance3D" parent="wall_right"]
 transform = Transform3D(0.44784677, 0, 0, 0, -6.9024577e-07, 7.034135, 0, -15.790982, -3.074718e-07, 5.2156324, 7.486057, 3.47)
-cast_shadow = 0
 mesh = SubResource("BoxMesh_ei2s5")
 skeleton = NodePath("../..")
 
 [node name="right_window" type="MeshInstance3D" parent="wall_right"]
 transform = Transform3D(0.44784677, 0, 0, 0, 15.790982, 0, 0, 0, 1.5178366, 5.0669947, -0.14659977, -1.809499)
-cast_shadow = 0
 mesh = SubResource("BoxMesh_ei2s5")
 skeleton = NodePath("../..")
 
 [node name="bottom_window" type="MeshInstance3D" parent="wall_right"]
 transform = Transform3D(0.44784677, 0, 0, 0, -1.8369051, 0, 0, 0, 3.8826637, 5.0669947, -0.14659977, -0.49078882)
-cast_shadow = 0
 mesh = SubResource("BoxMesh_ei2s5")
 skeleton = NodePath("../..")
 
 [node name="top_window" type="MeshInstance3D" parent="wall_right"]
 transform = Transform3D(0.44784677, 0, 0, 0, -1.8369051, 0, 0, 0, 3.8826637, 5.0669947, 3.8332152, -0.49078882)
-cast_shadow = 0
 mesh = SubResource("BoxMesh_ei2s5")
+skeleton = NodePath("../..")
+
+[node name="fake_shadow" type="MeshInstance3D" parent="wall_right"]
+transform = Transform3D(0.44784677, 0, 0, 0, 15.790982, 0, 0, 0, 15.766572, 5.312382, -0.14659977, 1.149101)
+mesh = SubResource("BoxMesh_5bs7n")
 skeleton = NodePath("../..")
 
 [node name="floor" type="MeshInstance3D" parent="."]
@@ -703,37 +716,33 @@ width = 5.0
 [node name="door_light_left" type="Node3D" parent="."]
 visible = false
 
-[node name="SpotLight3D" type="SpotLight3D" parent="door_light_left"]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -3.8225434, 3.7098184, 2.0188072)
-light_energy = 30.0
-shadow_enabled = true
-spot_range = 4.947322
-spot_angle = 33.26355
+[node name="OmniLight3D" type="OmniLight3D" parent="door_light_left"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.715603, 1.1814868, 2.3404627)
+light_color = Color(0.94509804, 0.92941177, 0.8392157, 1)
+light_energy = 0.5
+omni_range = 4.0
 
-[node name="SpotLight3D2" type="SpotLight3D" parent="door_light_left"]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -4.3783245, 3.8214364, -0.016069233)
-light_energy = 30.0
-shadow_enabled = true
-spot_range = 4.947322
-spot_angle = 33.26355
+[node name="OmniLight3D2" type="OmniLight3D" parent="door_light_left"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.715603, 1.1814868, -3.1671162)
+light_color = Color(0.94509804, 0.92941177, 0.8392157, 1)
+light_energy = 0.5
+omni_range = 4.0
 
 [node name="door_light_right" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.496609, -0.12550259, 0)
 visible = false
 
-[node name="SpotLight3D" type="SpotLight3D" parent="door_light_right"]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -3.8225434, 3.7098184, 2.0188072)
-light_energy = 40.0
-shadow_enabled = true
-spot_range = 4.947322
-spot_angle = 33.26355
+[node name="OmniLight3D" type="OmniLight3D" parent="door_light_right"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.114502, 1.1814868, 2.3404627)
+light_color = Color(0.9465397, 0.9285454, 0.83926195, 1)
+light_energy = 0.5
+omni_range = 4.0
 
-[node name="SpotLight3D2" type="SpotLight3D" parent="door_light_right"]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -3.5433989, 3.8214364, -0.016069233)
-light_energy = 40.0
-shadow_enabled = true
-spot_range = 4.947322
-spot_angle = 33.26355
+[node name="OmniLight3D2" type="OmniLight3D" parent="door_light_right"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.114502, 1.1814868, -3.1671162)
+light_color = Color(0.9465397, 0.9285454, 0.83926195, 1)
+light_energy = 0.5
+omni_range = 4.0
 
 [node name="left_hallway" type="Node3D" parent="."]
 
@@ -947,7 +956,7 @@ mesh = SubResource("BoxMesh_o3cd7")
 skeleton = NodePath("../../../classroom_e")
 
 [node name="outside_window" type="MeshInstance3D" parent="spawns_office/spawns_right"]
-transform = Transform3D(-0.28851375, 0, 0.9574757, 0, 1, 0, -0.9574757, 0, -0.28851375, 5.7008715, 1.5336658, -0.24349779)
+transform = Transform3D(-0.28851375, 0, 0.9574757, 0, 1, 0, -0.9574757, 0, -0.28851375, 6.189416, 1.5336658, -0.24349779)
 visible = false
 mesh = SubResource("BoxMesh_o3cd7")
 skeleton = NodePath("../../../classroom_e")
@@ -955,13 +964,13 @@ skeleton = NodePath("../../../classroom_e")
 [node name="spawns_left" type="Node3D" parent="spawns_office"]
 
 [node name="outside_door" type="MeshInstance3D" parent="spawns_office/spawns_left"]
-transform = Transform3D(0.06299954, 0, 0.99801356, 0, 1, 0, -0.99801356, 0, 0.06299954, -2.8554668, 1.465, 2.9819694)
+transform = Transform3D(-0.016527526, 0, 0.9998634, 0, 1, 0, -0.9998634, 0, -0.016527526, -3.3323429, 1.465, 2.9819694)
 visible = false
 mesh = SubResource("BoxMesh_o3cd7")
 skeleton = NodePath("../../../classroom_e")
 
 [node name="outside_window" type="MeshInstance3D" parent="spawns_office/spawns_left"]
-transform = Transform3D(0.49679226, 0, 0.8678695, 0, 1, 0, -0.8678695, 0, 0.49679226, -3.5125532, 1.5336658, -0.24349779)
+transform = Transform3D(0.4684542, 0, 0.88348776, 0, 1, 0, -0.88348776, 0, 0.4684542, -3.7763226, 1.5336658, -0.24349779)
 visible = false
 mesh = SubResource("BoxMesh_o3cd7")
 skeleton = NodePath("../../../classroom_e")
@@ -977,19 +986,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.95575, 0, 84.72188)
 [node name="fang_spawns" type="Node3D" parent="spawns_hallway_5a"]
 
 [node name="spawn_1" type="MeshInstance3D" parent="spawns_hallway_5a/fang_spawns"]
-transform = Transform3D(0.96170783, 0, 0.27407676, 0, 1, 0, -0.27407676, 0, 0.96170783, 35.55922, 1.465, 85.11389)
+transform = Transform3D(0.9995453, 0, -0.030154675, 0, 1, 0, 0.030154675, 0, 0.9995453, 35.55922, 1.465, 85.11389)
 visible = false
 mesh = SubResource("BoxMesh_o3cd7")
 skeleton = NodePath("../../../classroom_e")
 
 [node name="spawn_2" type="MeshInstance3D" parent="spawns_hallway_5a/fang_spawns"]
-transform = Transform3D(0.96170783, 0, 0.27407676, 0, 1, 0, -0.27407676, 0, 0.96170783, 30.233088, 1.465, 86.178734)
+transform = Transform3D(0.9934128, 0, 0.11459042, 0, 1, 0, -0.11459042, 0, 0.9934128, 30.233088, 1.465, 86.178734)
 visible = false
 mesh = SubResource("BoxMesh_o3cd7")
 skeleton = NodePath("../../../classroom_e")
 
 [node name="spawn_3" type="MeshInstance3D" parent="spawns_hallway_5a/fang_spawns"]
-transform = Transform3D(0.96170783, 0, 0.27407676, 0, 1, 0, -0.27407676, 0, 0.96170783, 34.65751, 1.465, 87.62618)
+transform = Transform3D(0.99996346, 0, -0.008551955, 0, 1, 0, 0.008551955, 0, 0.99996346, 34.65751, 1.465, 87.62618)
 visible = false
 mesh = SubResource("BoxMesh_o3cd7")
 skeleton = NodePath("../../../classroom_e")
@@ -1002,13 +1011,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 109.13275, 0, 70.90883)
 [node name="fang_spawns" type="Node3D" parent="spawns_hallway_5b"]
 
 [node name="spawn_1" type="MeshInstance3D" parent="spawns_hallway_5b/fang_spawns"]
-transform = Transform3D(0.96170783, 0, 0.27407676, 0, 1, 0, -0.27407676, 0, 0.96170783, 112.45918, 1.465, 71.43414)
+transform = Transform3D(0.9987061, 0, -0.050854355, 0, 1, 0, 0.050854355, 0, 0.9987061, 112.45918, 1.465, 71.43414)
 visible = false
 mesh = SubResource("BoxMesh_o3cd7")
 skeleton = NodePath("../../../classroom_e")
 
 [node name="spawn_2" type="MeshInstance3D" parent="spawns_hallway_5b/fang_spawns"]
-transform = Transform3D(0.96170783, 0, 0.27407676, 0, 1, 0, -0.27407676, 0, 0.96170783, 105.67819, 1.465, 71.32197)
+transform = Transform3D(0.9822742, 0, 0.18744993, 0, 1, 0, -0.18744993, 0, 0.9822742, 105.67819, 1.465, 71.32197)
 visible = false
 mesh = SubResource("BoxMesh_o3cd7")
 skeleton = NodePath("../../../classroom_e")
@@ -1109,6 +1118,36 @@ shaded = true
 texture = ExtResource("30_bveom")
 script = ExtResource("31_6jtqa")
 
+[node name="fang3" type="Sprite3D" parent="."]
+transform = Transform3D(-0.3, 0, -4.5298744e-08, 0, 0.3, 0, 4.5298744e-08, 0, -0.3, -43.229023, 0, 0)
+shaded = true
+texture = ExtResource("32_6jtqa")
+script = ExtResource("31_6jtqa")
+
+[node name="tardy_guy" type="Sprite3D" parent="."]
+transform = Transform3D(-0.3, 0, -4.5298744e-08, 0, 0.3, 0, 4.5298744e-08, 0, -0.3, -40.77518, 0, 0)
+shaded = true
+texture = ExtResource("33_nl0r1")
+script = ExtResource("34_26ul0")
+
+[node name="appearance" type="Timer" parent="tardy_guy"]
+one_shot = true
+
+[node name="kill" type="Timer" parent="tardy_guy"]
+one_shot = true
+
+[node name="grace" type="Timer" parent="tardy_guy"]
+wait_time = 5.0
+one_shot = true
+
+[node name="tardy_hall_spawn" type="Node3D" parent="."]
+
+[node name="tardy_spawn" type="MeshInstance3D" parent="tardy_hall_spawn"]
+transform = Transform3D(-0.1479303, 0, 0.9889978, 0, 1, 0, -0.9889978, 0, -0.1479303, -5.1065254, 1.465, 57.698997)
+visible = false
+mesh = SubResource("BoxMesh_o3cd7")
+skeleton = NodePath("../../../classroom_e")
+
 [connection signal="timeout" from="game_manager/hour" to="game_manager" method="_next_hour"]
 [connection signal="timeout" from="game_manager/power" to="game_manager" method="_timeout_counter"]
 [connection signal="input_event" from="wall_left/toggle_light" to="wall_left/toggle_light" method="_toggle_light_on_off"]
@@ -1132,3 +1171,6 @@ script = ExtResource("31_6jtqa")
 [connection signal="pressed" from="cameras/map/cam6" to="cameras/map/cam6" method="_switch_to_this_cam"]
 [connection signal="mouse_entered" from="gui/camera_toggle" to="game_manager" method="_open_camera"]
 [connection signal="pressed" from="game_over/bg/Button" to="game_manager" method="_restart_game"]
+[connection signal="timeout" from="tardy_guy/appearance" to="tardy_guy" method="_go_in_hall"]
+[connection signal="timeout" from="tardy_guy/kill" to="tardy_guy" method="_trigger_grace_period"]
+[connection signal="timeout" from="tardy_guy/grace" to="tardy_guy" method="_on_kill_timeout"]

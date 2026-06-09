@@ -1,8 +1,8 @@
 extends Sprite3D
 
 @onready var spawn_e = $"../spawns_e/fang_spawn"
-var level:float=10.0
-var time_wait:float=-0.315789*level+8.31579
+var level:float=1
+var time_wait:float=(-0.315789*level+8.31579)*1.5
 var time_before_disappear:float=0.368421*level+2.63158
 
 var time_passed:int=0
