@@ -14,7 +14,7 @@ func _process(delta: float) -> void:
 
 func _toggle_door_open_closed(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index==MOUSE_BUTTON_LEFT and event.pressed:
-		$"../../fang".door_triggered()
+		$"../../fang2".door_triggered()
 		if !door_down:
 			if $"../../gui/usage_bar_container".power_sources<$"../../gui/usage_bar_container".TOTAL_POWER_SOURCES:
 				create_tween().tween_property($"../../door_right", "position", Vector3($"../../door_right".position.x, 1.828, $"../../door_right".position.z),1)
