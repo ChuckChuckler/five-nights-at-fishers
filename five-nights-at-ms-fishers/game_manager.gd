@@ -45,3 +45,10 @@ func switch_cams(index:int, room_name:String)->void:
 	current_room=index
 	cam_display.texture=cams[current_room].get_texture()
 	$"../cameras/place_name".text=room_name
+
+func trigger_game_over():
+	$"../game_over".visible=true
+
+
+func _restart_game() -> void:
+	get_tree().reload_current_scene()
