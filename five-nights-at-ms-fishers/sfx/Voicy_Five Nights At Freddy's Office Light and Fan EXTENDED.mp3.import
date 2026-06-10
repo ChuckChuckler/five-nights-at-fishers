@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ctq12lqk26i17"
+path="res://.godot/imported/Voicy_Five Nights At Freddy's Office Light and Fan EXTENDED.mp3-13d9dc0ca8b1b0572548f64c4b364ad4.mp3str"
+
+[deps]
+
+source_file="res://sfx/Voicy_Five Nights At Freddy's Office Light and Fan EXTENDED.mp3"
+dest_files=["res://.godot/imported/Voicy_Five Nights At Freddy's Office Light and Fan EXTENDED.mp3-13d9dc0ca8b1b0572548f64c4b364ad4.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

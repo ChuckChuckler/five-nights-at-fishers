@@ -1,9 +1,10 @@
-[gd_scene load_steps=71 format=3 uid="uid://pigfb45lfdm0"]
+[gd_scene load_steps=74 format=3 uid="uid://pigfb45lfdm0"]
 
 [ext_resource type="Script" uid="uid://com4mk7x4gvc1" path="res://camera.gd" id="1_g3mwp"]
 [ext_resource type="Script" uid="uid://ckjr1dj5iune1" path="res://game_manager.gd" id="1_lcwox"]
 [ext_resource type="Script" uid="uid://dwq40el1f4rml" path="res://toggle_light_left.gd" id="2_ei2s5"]
 [ext_resource type="AudioStream" uid="uid://cy7uy8kak58yj" path="res://sfx/creatorshome-keyboard-click-327728.mp3" id="2_g6veu"]
+[ext_resource type="AudioStream" uid="uid://bimk276d0xlyk" path="res://sfx/fnaf-hooray (1).mp3" id="3_qsbda"]
 [ext_resource type="Script" uid="uid://8st75x30xko4" path="res://toggle_door_left.gd" id="3_u8nhc"]
 [ext_resource type="Script" uid="uid://npb2r6scrfk8" path="res://toggle_light_right.gd" id="4_43ocd"]
 [ext_resource type="AudioStream" uid="uid://c0730xaaj4ron" path="res://sfx/emilianodleon-select-button-ui-395763.mp3" id="4_cu40l"]
@@ -15,12 +16,13 @@
 [ext_resource type="PackedScene" uid="uid://djsf5lgkf53t" path="res://desktop.glb" id="8_wruqr"]
 [ext_resource type="Script" uid="uid://cv66srj7sm6pl" path="res://usage_bar_manager.gd" id="10_3xqf3"]
 [ext_resource type="Shader" uid="uid://dbw7ee1mfkjiq" path="res://vhs_filter.gdshader" id="10_4hetp"]
-[ext_resource type="AudioStream" uid="uid://b8sulg1xi6f4m" path="res://sfx/freesound_community-roomtone-bedroom-small-quiet-6754.mp3" id="10_5bs7n"]
 [ext_resource type="Script" uid="uid://cxsjhfxfaqu23" path="res://switch_cam.gd" id="10_s0aar"]
 [ext_resource type="PackedScene" uid="uid://cv6pc1vgfsp5o" path="res://room1.tscn" id="11_70x1r"]
 [ext_resource type="PackedScene" uid="uid://cgljixvdoo0dp" path="res://classroom_d.tscn" id="11_n1y4y"]
 [ext_resource type="PackedScene" uid="uid://cn3543lir8tf3" path="res://classroom_b.tscn" id="12_knsl5"]
+[ext_resource type="AudioStream" uid="uid://2k3i8dhf2md0" path="res://sfx/Five Nights At Freddy's Office Light and Fan EXTENDED - NINTENDO PRESENTS (128k).mp3" id="14_2prrh"]
 [ext_resource type="PackedScene" uid="uid://d35p0oq65ok55" path="res://classroom_e.tscn" id="14_gxl1f"]
+[ext_resource type="PackedScene" uid="uid://3ckuwkn6j2mb" path="res://room_props/fnaf_desk_fan.glb" id="15_2prrh"]
 [ext_resource type="PackedScene" uid="uid://dli1ehr8cyxna" path="res://lobby.tscn" id="15_2uxut"]
 [ext_resource type="PackedScene" uid="uid://bd5k6a7ubc04r" path="res://tardy_office.tscn" id="16_m8tx5"]
 [ext_resource type="AudioStream" uid="uid://dw3ljv2y4d3pp" path="res://sfx/kauasilbershlachparodes-chutter-click-494024.mp3" id="16_xemgy"]
@@ -44,6 +46,7 @@
 [ext_resource type="AudioStream" uid="uid://65meahi8c6vi" path="res://sfx/footsteps.mp3" id="39_g68bc"]
 [ext_resource type="AudioStream" uid="uid://d3ymapquhe1ef" path="res://sfx/ding-sound-effect_1.mp3" id="40_1g0dp"]
 [ext_resource type="AudioStream" uid="uid://ygdjy7o8jkce" path="res://sfx/very_fast_footsteps.mp3" id="41_4360s"]
+[ext_resource type="AudioStream" uid="uid://bvug75r35mdvx" path="res://sfx/animatronic-in-door.mp3" id="42_8ovme"]
 [ext_resource type="AudioStream" uid="uid://bvllr0g3iyfo8" path="res://sfx/thud.mp3" id="43_a0t2l"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g3mwp"]
@@ -159,7 +162,7 @@ bg_color = Color(0.21230498, 0.2123048, 0.21230483, 1)
 script = ExtResource("1_lcwox")
 
 [node name="hour" type="Timer" parent="game_manager"]
-wait_time = 60.0
+wait_time = 40.0
 autostart = true
 
 [node name="power" type="Timer" parent="game_manager"]
@@ -168,6 +171,9 @@ autostart = true
 [node name="open_cam" type="AudioStreamPlayer" parent="game_manager"]
 stream = ExtResource("2_g6veu")
 volume_db = -5.0
+
+[node name="hooray" type="AudioStreamPlayer" parent="game_manager"]
+stream = ExtResource("3_qsbda")
 
 [node name="camera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.9982129, 0.059759356, 0, -0.059759356, 0.9982129, 1.1559151, 1.118759, 1.857029)
@@ -364,16 +370,20 @@ transform = Transform3D(1.1451198, 0, -0.35874915, 0, 1.1999999, 0, 0.35874915, 
 transform = Transform3D(5.9534984, 0, -0.7455581, 0, 5.9999995, 0, 0.7455581, 0, 5.9534984, -20.809834, 88.373665, -58.41413)
 
 [node name="ambience" type="AudioStreamPlayer" parent="desk"]
-stream = ExtResource("10_5bs7n")
-volume_db = 10.0
+stream = ExtResource("14_2prrh")
+volume_db = -10.0
 autoplay = true
+
+[node name="Sketchfab_Scene" parent="desk" instance=ExtResource("15_2prrh")]
+transform = Transform3D(-14.001996, 0, -14.2809, 0, 20, 0, 14.2809, 0, -14.001996, -2.216289, 88.12846, 56.373688)
 
 [node name="desk_light" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 1.123553, 3.4662106, 0)
 light_color = Color(0.8851736, 0.87716717, 0.75766146, 1)
-light_energy = 10.0
+light_energy = 13.0
 light_indirect_energy = 5.0
 shadow_enabled = true
+spot_range = 7.0
 spot_angle = 30.409227
 
 [node name="cameras" type="Control" parent="."]
@@ -1024,7 +1034,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.95575, 0, 84.72188)
 [node name="fang_spawns" type="Node3D" parent="spawns_hallway_5a"]
 
 [node name="spawn_1" type="MeshInstance3D" parent="spawns_hallway_5a/fang_spawns"]
-transform = Transform3D(-0.000628287, 0, -0.9999998, 0, 1, 0, 0.9999998, 0, -0.000628287, 35.55922, 1.465, 85.11389)
+transform = Transform3D(0.9974283, 0, -0.0716715, 0, 1, 0, 0.0716715, 0, 0.9974283, 35.55922, 1.465, 85.11389)
 visible = false
 mesh = SubResource("BoxMesh_o3cd7")
 skeleton = NodePath("../../../classroom_e")
@@ -1114,6 +1124,78 @@ visible = false
 mesh = SubResource("BoxMesh_o3cd7")
 skeleton = NodePath("../../../classroom_e")
 
+[node name="fang" type="Sprite3D" parent="."]
+transform = Transform3D(-0.3, 0, -2.6226834e-08, 0, 0.3, 0, 2.6226834e-08, 0, -0.3, -48.523514, 0, 0)
+shaded = true
+texture = ExtResource("19_o3cd7")
+script = ExtResource("20_8qan1")
+
+[node name="hehehehe" type="AudioStreamPlayer" parent="fang"]
+stream = ExtResource("34_4360s")
+volume_db = -5.0
+
+[node name="fang2" type="Sprite3D" parent="."]
+transform = Transform3D(-0.3, 0, -2.6226834e-08, 0, 0.3, 0, 2.6226834e-08, 0, -0.3, -45.794167, 0, 0)
+shaded = true
+texture = ExtResource("30_bveom")
+script = ExtResource("31_6jtqa")
+metadata/type = 2
+
+[node name="footsteps" type="AudioStreamPlayer" parent="fang2"]
+stream = ExtResource("39_g68bc")
+
+[node name="in_door" type="AudioStreamPlayer" parent="fang2"]
+stream = ExtResource("42_8ovme")
+volume_db = -3.0
+
+[node name="fang3" type="Sprite3D" parent="."]
+transform = Transform3D(-0.3, 0, -4.5298744e-08, 0, 0.3, 0, 4.5298744e-08, 0, -0.3, -43.229023, 0, 0)
+shaded = true
+texture = ExtResource("32_6jtqa")
+script = ExtResource("31_6jtqa")
+metadata/type = 3
+
+[node name="footsteps" type="AudioStreamPlayer" parent="fang3"]
+stream = ExtResource("39_g68bc")
+
+[node name="in_door" type="AudioStreamPlayer" parent="fang3"]
+stream = ExtResource("42_8ovme")
+volume_db = -3.0
+
+[node name="tardy_guy" type="Sprite3D" parent="."]
+transform = Transform3D(-0.3, 0, -4.5298744e-08, 0, 0.3, 0, 4.5298744e-08, 0, -0.3, -40.77518, 0, 0)
+shaded = true
+texture = ExtResource("33_nl0r1")
+script = ExtResource("34_26ul0")
+
+[node name="appearance" type="Timer" parent="tardy_guy"]
+one_shot = true
+
+[node name="kill" type="Timer" parent="tardy_guy"]
+one_shot = true
+
+[node name="grace" type="Timer" parent="tardy_guy"]
+wait_time = 5.0
+one_shot = true
+
+[node name="ding" type="AudioStreamPlayer" parent="tardy_guy"]
+stream = ExtResource("40_1g0dp")
+volume_db = -5.0
+
+[node name="running_rapidly" type="AudioStreamPlayer" parent="tardy_guy"]
+stream = ExtResource("41_4360s")
+
+[node name="thud" type="AudioStreamPlayer" parent="tardy_guy"]
+stream = ExtResource("43_a0t2l")
+
+[node name="tardy_hall_spawn" type="Node3D" parent="."]
+
+[node name="tardy_spawn" type="MeshInstance3D" parent="tardy_hall_spawn"]
+transform = Transform3D(-0.1479303, 0, 0.9889978, 0, 1, 0, -0.9889978, 0, -0.1479303, -5.1065254, 1.465, 57.698997)
+visible = false
+mesh = SubResource("BoxMesh_o3cd7")
+skeleton = NodePath("../../../classroom_e")
+
 [node name="game_over" type="Control" parent="."]
 visible = false
 layout_mode = 3
@@ -1150,67 +1232,40 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_hblr6")
 theme_override_styles/hover = SubResource("StyleBoxFlat_46so7")
 text = "try again"
 
-[node name="fang" type="Sprite3D" parent="."]
-transform = Transform3D(-0.3, 0, -2.6226834e-08, 0, 0.3, 0, 2.6226834e-08, 0, -0.3, -48.523514, 0, 0)
-shaded = true
-texture = ExtResource("19_o3cd7")
-script = ExtResource("20_8qan1")
-
-[node name="hehehehe" type="AudioStreamPlayer" parent="fang"]
-stream = ExtResource("34_4360s")
-volume_db = -5.0
-
-[node name="fang2" type="Sprite3D" parent="."]
-transform = Transform3D(-0.3, 0, -2.6226834e-08, 0, 0.3, 0, 2.6226834e-08, 0, -0.3, -45.794167, 0, 0)
-shaded = true
-texture = ExtResource("30_bveom")
-script = ExtResource("31_6jtqa")
-
-[node name="footsteps" type="AudioStreamPlayer" parent="fang2"]
-stream = ExtResource("39_g68bc")
-
-[node name="fang3" type="Sprite3D" parent="."]
-transform = Transform3D(-0.3, 0, -4.5298744e-08, 0, 0.3, 0, 4.5298744e-08, 0, -0.3, -43.229023, 0, 0)
-shaded = true
-texture = ExtResource("32_6jtqa")
-script = ExtResource("31_6jtqa")
-
-[node name="footsteps" type="AudioStreamPlayer" parent="fang3"]
-stream = ExtResource("39_g68bc")
-
-[node name="tardy_guy" type="Sprite3D" parent="."]
-transform = Transform3D(-0.3, 0, -4.5298744e-08, 0, 0.3, 0, 4.5298744e-08, 0, -0.3, -40.77518, 0, 0)
-shaded = true
-texture = ExtResource("33_nl0r1")
-script = ExtResource("34_26ul0")
-
-[node name="appearance" type="Timer" parent="tardy_guy"]
-one_shot = true
-
-[node name="kill" type="Timer" parent="tardy_guy"]
-one_shot = true
-
-[node name="grace" type="Timer" parent="tardy_guy"]
-wait_time = 5.0
-one_shot = true
-
-[node name="ding" type="AudioStreamPlayer" parent="tardy_guy"]
-stream = ExtResource("40_1g0dp")
-volume_db = -5.0
-
-[node name="running_rapidly" type="AudioStreamPlayer" parent="tardy_guy"]
-stream = ExtResource("41_4360s")
-
-[node name="thud" type="AudioStreamPlayer" parent="tardy_guy"]
-stream = ExtResource("43_a0t2l")
-
-[node name="tardy_hall_spawn" type="Node3D" parent="."]
-
-[node name="tardy_spawn" type="MeshInstance3D" parent="tardy_hall_spawn"]
-transform = Transform3D(-0.1479303, 0, 0.9889978, 0, 1, 0, -0.9889978, 0, -0.1479303, -5.1065254, 1.465, 57.698997)
+[node name="game_win" type="Control" parent="."]
 visible = false
-mesh = SubResource("BoxMesh_o3cd7")
-skeleton = NodePath("../../../classroom_e")
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="bg" type="ColorRect" parent="game_win"]
+layout_mode = 0
+offset_right = 1156.0
+offset_bottom = 653.0
+color = Color(0.03308492, 0.060025536, 0.03751918, 1)
+
+[node name="text" type="RichTextLabel" parent="game_win/bg"]
+layout_mode = 0
+offset_left = 67.0
+offset_top = 209.0
+offset_right = 1094.0
+offset_bottom = 357.0
+theme_override_font_sizes/normal_font_size = 50
+text = "6:00
+You win!!!!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="game_win/bg"]
+layout_mode = 0
+offset_left = 464.0
+offset_top = 390.0
+offset_right = 699.0
+offset_bottom = 456.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_hblr6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_46so7")
+text = "play again"
 
 [connection signal="timeout" from="game_manager/hour" to="game_manager" method="_next_hour"]
 [connection signal="timeout" from="game_manager/power" to="game_manager" method="_timeout_counter"]
@@ -1234,7 +1289,7 @@ skeleton = NodePath("../../../classroom_e")
 [connection signal="pressed" from="cameras/map/cam5C" to="cameras/map/cam5C" method="_switch_to_this_cam"]
 [connection signal="pressed" from="cameras/map/cam6" to="cameras/map/cam6" method="_switch_to_this_cam"]
 [connection signal="mouse_entered" from="gui/camera_toggle" to="game_manager" method="_open_camera"]
-[connection signal="pressed" from="game_over/bg/Button" to="game_manager" method="_restart_game"]
 [connection signal="timeout" from="tardy_guy/appearance" to="tardy_guy" method="_go_in_hall"]
 [connection signal="timeout" from="tardy_guy/kill" to="tardy_guy" method="_trigger_grace_period"]
 [connection signal="timeout" from="tardy_guy/grace" to="tardy_guy" method="_on_kill_timeout"]
+[connection signal="pressed" from="game_over/bg/Button" to="game_manager" method="_restart_game"]

@@ -1,8 +1,10 @@
 extends Sprite3D
-var difficulty=1
+var difficulty=15
 
-const TIME_MAX=50
+const TIME_MAX=40
 var time_min=40
+
+var game_stopped=false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -38,18 +40,21 @@ func _go_in_hall() -> void:
 
 
 func _on_kill_timeout() -> void:
-	$running_rapidly.volume_db=-80
-	if !$"../wall_right/toggle_door".door_down:
-		$"../game_manager".trigger_game_over()
-	else:
-		$thud.play()
-		$".".position=Vector3(-40.77,0,0)
-		$appearance.start()
+	if !game_stopped:
+		$running_rapidly.volume_db=-80
+		if !$"../wall_right/toggle_door".door_down:
+			$"../game_manager".trigger_game_over()
+			game_stopped=true
+		else:
+			$thud.play()
+			$".".position=Vector3(-40.77,0,0)
+			$appearance.start()
 
 
 func _trigger_grace_period() -> void:
-	$running_rapidly.volume_db=0
-	$ding.play()
-	$running_rapidly.play()
-	$".".position=Vector3(-40.77,0,0)
-	$grace.start()
+	if !game_stopped:
+		$running_rapidly.volume_db=0
+		$ding.play()
+		$running_rapidly.play()
+		$".".position=Vector3(-40.77,0,0)
+		$grace.start()

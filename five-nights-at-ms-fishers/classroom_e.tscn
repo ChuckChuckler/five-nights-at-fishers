@@ -73,6 +73,7 @@ transform = Transform3D(-6.5567085e-09, 0, -0.15, 0, 0.15, 0, 0.15, 0, -6.556708
 
 [node name="tung" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9050038, 1.7685113, 3.3347905)
+shaded = true
 texture = ExtResource("4_880p2")
 
 [node name="SubViewport" type="SubViewport" parent="."]

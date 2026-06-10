@@ -153,18 +153,22 @@ transform = Transform3D(0.00086945854, 0, -0.010971088, 0, 0.012, 0, 0.01196846,
 
 [node name="cornball_poster" type="Sprite3D" parent="."]
 transform = Transform3D(-1.0927847e-08, 0, 0.25, 0, 0.24999999, 0, -0.25, 0, -1.0927847e-08, -4.3273234, 2.2086768, 0.52643996)
+shaded = true
 texture = ExtResource("8_54482")
 
 [node name="cornball_poster2" type="Sprite3D" parent="."]
 transform = Transform3D(-8.742278e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.742278e-09, -4.3273234, 4.28739, 1.5326961)
+shaded = true
 texture = ExtResource("9_uqw6m")
 
 [node name="cornball_poster3" type="Sprite3D" parent="."]
 transform = Transform3D(-8.742277e-09, 0, 0.19999999, 0, 0.2, 0, -0.19999999, 0, -8.742277e-09, -4.3273234, 2.7096562, -1.830015)
+shaded = true
 texture = ExtResource("10_pwckm")
 
 [node name="cornball_poster4" type="Sprite3D" parent="."]
 transform = Transform3D(-8.742277e-09, 0, 0.19999999, 0, 0.2, 0, -0.19999999, 0, -8.742277e-09, -4.3273234, 4.7415786, -0.6812865)
+shaded = true
 texture = ExtResource("11_3e48k")
 
 [node name="door" parent="." instance=ExtResource("12_uqw6m")]

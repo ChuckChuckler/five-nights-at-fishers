@@ -41,4 +41,4 @@ func _process(delta: float) -> void:
 			else:
 				target=rotation_degrees.y
 				
-		rotation_degrees.y = move_toward(rotation_degrees.y, target, delta*120)
+		rotation_degrees.y = move_toward(rotation_degrees.y, target, delta*200)

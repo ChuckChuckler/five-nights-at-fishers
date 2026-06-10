@@ -15,10 +15,12 @@ func _toggle_light_on_off(camera: Node, event: InputEvent, event_position: Vecto
 	if event is InputEventMouseButton and event.button_index==MOUSE_BUTTON_LEFT and event.pressed:
 		$click.play()
 		if !$"../../door_light_right".visible:
-			$"../fake_shadow".visible=false
 			if $"../../gui/usage_bar_container".power_sources<$"../../gui/usage_bar_container".TOTAL_POWER_SOURCES:
+				$"../fake_shadow".visible=false
 				$"../../door_light_right".visible=true
 				$"../../gui/usage_bar_container".power_sources+=1
+				$"../../fang2".right_light_triggered(2)
+				$"../../fang3".right_light_triggered(3)
 		else:
 			$"../fake_shadow".visible=true
 			$"../../door_light_right".visible=false

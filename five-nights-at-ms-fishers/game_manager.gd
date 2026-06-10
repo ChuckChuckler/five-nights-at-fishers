@@ -25,10 +25,19 @@ func _process(delta: float) -> void:
 func _next_hour() -> void:
 	current_hour+=1
 	$"../gui/time".text=str(current_hour)+" AM"
+	if current_hour==6:
+		$hooray.play()
+		$"../game_win".visible=true
+		$"../desk/ambience".stop()
+		$"../fang".game_stopped=true
+		$"../fang2".game_stopped=true
+		$"../fang3".game_stopped=true
+		$"../tardy_guy".game_stopped=true
+		
 
 
 func _timeout_counter() -> void:
-	current_power-=$"../gui/usage_bar_container".power_sources*1.4
+	current_power-=$"../gui/usage_bar_container".power_sources*1.6
 	$"../gui/power_left".text="Power left: " + str(int(current_power/START_POWER*100)) + " %"
 
 
@@ -49,6 +58,11 @@ func switch_cams(index:int, room_name:String)->void:
 
 func trigger_game_over():
 	$"../game_over".visible=true
+	$"../desk/ambience".stop()
+	$"../fang".game_stopped=true
+	$"../fang2".game_stopped=true
+	$"../fang3".game_stopped=true
+	$"../tardy_guy".game_stopped=true
 
 
 func _restart_game() -> void:

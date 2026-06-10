@@ -1,9 +1,8 @@
 extends Sprite3D
 
 @onready var spawn_e = $"../spawns_e/fang_spawn"
-var level:float=1
-var time_wait:float=(-0.315789*level+8.31579)*1.5
-var time_before_disappear:float=0.368421*level+2.63158
+var level:float=15
+var time_wait:float=-0.368421*level+12.36842
 
 var time_passed:int=0
 var compare_time:int=0
@@ -11,7 +10,7 @@ var compare_time:int=0
 var current_area:String="classroom e"
 var current_index:int=4
 
-var fangs_door_closed:bool=false
+var game_stopped=false
 
 @onready var routes={
 	"classroom e":[
@@ -128,26 +127,27 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	time_passed=Time.get_ticks_msec()-compare_time
-	if current_area!="outside right door" and current_area!="outside left door":
-		if $"../game_manager".current_room!=current_index || !$"../cameras".visible:
-			if time_passed/1000.0 >= time_wait-0.5 and time_passed/1000.0<=time_wait+0.5:
+	if !game_stopped:
+		if current_area!="outside right door" and current_area!="outside left door":
+			if $"../game_manager".current_room!=current_index || !$"../cameras".visible:
+				if time_passed/1000.0 >= time_wait-0.5 and time_passed/1000.0<=time_wait+0.5:
+					compare_time=Time.get_ticks_msec()
+					time_passed=0
+					var moves = randi_range(1,2)==1
+					if moves:
+						var chosen_move = routes[current_area][randi_range(0,routes[current_area].size()-1)]
+						if chosen_move[1]!="no":
+							$".".position=Vector3(chosen_move[0].position.x, chosen_move[0].position.y, chosen_move[0].position.z)
+							rotation_degrees.y=chosen_move[0].rotation_degrees.y
+							current_area=chosen_move[1]
+							current_index=chosen_move[2]
+							$hehehehe.play()
+			else:
 				compare_time=Time.get_ticks_msec()
-				time_passed=0
-				var moves = randi_range(1,3)<=2
-				#var moves=true
-				if moves:
-					var chosen_move = routes[current_area][randi_range(0,routes[current_area].size()-1)]
-					if chosen_move[1]!="no":
-						$".".position=Vector3(chosen_move[0].position.x, chosen_move[0].position.y, chosen_move[0].position.z)
-						rotation_degrees.y=chosen_move[0].rotation_degrees.y
-						current_area=chosen_move[1]
-						current_index=chosen_move[2]
-						$hehehehe.play()
 		else:
-			compare_time=Time.get_ticks_msec()
-	else:
-		if time_passed/1000.0 >= (time_wait*2)-0.5 and time_passed/1000.0<=(time_wait*2)+0.5:
-			compare_time=Time.get_ticks_msec()
-			print_debug("YOU ARE DEAD ELELELE")
-			time_wait=-1
-			$"../game_manager".trigger_game_over()
+			if time_passed/1000.0 >= (time_wait*2)-0.5 and time_passed/1000.0<=(time_wait*2)+0.5:
+				compare_time=Time.get_ticks_msec()
+				print_debug("YOU ARE DEAD ELELELE")
+				time_wait=-1
+				$"../game_manager".trigger_game_over()
+				game_stopped=true

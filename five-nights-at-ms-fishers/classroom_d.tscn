@@ -178,16 +178,20 @@ metadata/TAR_2 = -128.1
 
 [node name="poster" type="Sprite3D" parent="."]
 transform = Transform3D(1.1924881e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924881e-08, -4.249131, 3.4334548, -0.19047236)
+shaded = true
 texture = ExtResource("10_bg5rw")
 
 [node name="poster2" type="Sprite3D" parent="."]
 transform = Transform3D(-0.8, 0, -6.9938224e-08, 0, 0.8, 0, 6.9938224e-08, 0, -0.8, 1.6726931, 3.1671095, 3.3365362)
+shaded = true
 texture = ExtResource("11_jkj12")
 
 [node name="poster3" type="Sprite3D" parent="."]
 transform = Transform3D(-0.5, 0, -4.371139e-08, 0, 0.5, 0, 4.371139e-08, 0, -0.5, -0.6586056, 4.20578, 3.3357134)
+shaded = true
 texture = ExtResource("12_tn181")
 
 [node name="poster4" type="Sprite3D" parent="."]
 transform = Transform3D(-0.4, 0, -3.4969112e-08, 0, 0.4, 0, 3.4969112e-08, 0, -0.4, -2.7385914, 2.8627825, 3.3299813)
+shaded = true
 texture = ExtResource("13_tp7ka")

@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://btnsbpejr6ktx" path="res://textures/floor_texture_2.jpg" id="1_ddnfg"]
 [ext_resource type="Texture2D" uid="uid://cqbtfaqckqpvt" path="res://textures/brick_wall.jpg" id="2_l0t74"]
 [ext_resource type="PackedScene" uid="uid://cxqwk6ucb8b07" path="res://room_props/locker_1/captains_quarters_locker.glb" id="3_7qk1e"]
-[ext_resource type="Texture2D" uid="uid://droo4gtwmbox7" path="res://textures/tung.png" id="4_j8dtr"]
+[ext_resource type="Texture2D" uid="uid://crlm2f5bnskpv" path="res://cornball/IMG_7675.JPG" id="4_0uy01"]
 [ext_resource type="PackedScene" uid="uid://b8je8knc55q1v" path="res://recolored_door.tscn" id="5_kyxkk"]
 [ext_resource type="Script" uid="uid://bv4h0bfsrkn22" path="res://camera_idle.gd" id="6_krm7m"]
 
@@ -53,8 +53,9 @@ light_energy = 0.5
 omni_range = 17.58987
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -3.745458, 3.621196, -2.0216684)
-texture = ExtResource("4_j8dtr")
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -3.1492121, 3.621196, -2.0216684)
+shaded = true
+texture = ExtResource("4_0uy01")
 
 [node name="Sketchfab_Scene" parent="." instance=ExtResource("5_kyxkk")]
 transform = Transform3D(2.2, 0, 0, 0, 2.2, 0, 0, 0, 2.2, 2.1185732, -0.031681895, 2.2436943)
