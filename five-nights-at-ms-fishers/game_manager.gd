@@ -28,11 +28,12 @@ func _next_hour() -> void:
 
 
 func _timeout_counter() -> void:
-	current_power-=$"../gui/usage_bar_container".power_sources
+	current_power-=$"../gui/usage_bar_container".power_sources*1.4
 	$"../gui/power_left".text="Power left: " + str(int(current_power/START_POWER*100)) + " %"
 
 
 func _open_camera() -> void:
+	$open_cam.play()
 	if !$"../cameras".visible:
 		if $"../gui/usage_bar_container".power_sources<$"../gui/usage_bar_container".TOTAL_POWER_SOURCES:
 			$"../cameras".visible=true

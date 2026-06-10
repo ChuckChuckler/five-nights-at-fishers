@@ -142,6 +142,7 @@ func _process(delta: float) -> void:
 						rotation_degrees.y=chosen_move[0].rotation_degrees.y
 						current_area=chosen_move[1]
 						current_index=chosen_move[2]
+						$hehehehe.play()
 		else:
 			compare_time=Time.get_ticks_msec()
 	else:

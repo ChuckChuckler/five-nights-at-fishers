@@ -38,13 +38,18 @@ func _go_in_hall() -> void:
 
 
 func _on_kill_timeout() -> void:
+	$running_rapidly.volume_db=-80
 	if !$"../wall_right/toggle_door".door_down:
 		$"../game_manager".trigger_game_over()
 	else:
+		$thud.play()
 		$".".position=Vector3(-40.77,0,0)
 		$appearance.start()
 
 
 func _trigger_grace_period() -> void:
+	$running_rapidly.volume_db=0
+	$ding.play()
+	$running_rapidly.play()
 	$".".position=Vector3(-40.77,0,0)
 	$grace.start()

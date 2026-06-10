@@ -1,16 +1,21 @@
-[gd_scene load_steps=60 format=3 uid="uid://pigfb45lfdm0"]
+[gd_scene load_steps=71 format=3 uid="uid://pigfb45lfdm0"]
 
 [ext_resource type="Script" uid="uid://com4mk7x4gvc1" path="res://camera.gd" id="1_g3mwp"]
 [ext_resource type="Script" uid="uid://ckjr1dj5iune1" path="res://game_manager.gd" id="1_lcwox"]
 [ext_resource type="Script" uid="uid://dwq40el1f4rml" path="res://toggle_light_left.gd" id="2_ei2s5"]
+[ext_resource type="AudioStream" uid="uid://cy7uy8kak58yj" path="res://sfx/creatorshome-keyboard-click-327728.mp3" id="2_g6veu"]
 [ext_resource type="Script" uid="uid://8st75x30xko4" path="res://toggle_door_left.gd" id="3_u8nhc"]
 [ext_resource type="Script" uid="uid://npb2r6scrfk8" path="res://toggle_light_right.gd" id="4_43ocd"]
+[ext_resource type="AudioStream" uid="uid://c0730xaaj4ron" path="res://sfx/emilianodleon-select-button-ui-395763.mp3" id="4_cu40l"]
 [ext_resource type="PackedScene" uid="uid://dq06oqegsrfbc" path="res://snoopy..glb" id="4_wruqr"]
 [ext_resource type="Script" uid="uid://b80qfredxfx21" path="res://toggle_door_right.gd" id="5_hsito"]
+[ext_resource type="AudioStream" uid="uid://cyyfqysvj6w1o" path="res://sfx/emilianodleon-violent-door-slam-395764.mp3" id="6_qt548"]
+[ext_resource type="AudioStream" uid="uid://bipj506xcw6hl" path="res://sfx/shortened_whirr.mp3" id="7_5c3wu"]
 [ext_resource type="PackedScene" uid="uid://b3fv7mgwvg4fn" path="res://coffee_mug_-_caneca_de_cafe.glb" id="7_lcwox"]
 [ext_resource type="PackedScene" uid="uid://djsf5lgkf53t" path="res://desktop.glb" id="8_wruqr"]
 [ext_resource type="Script" uid="uid://cv66srj7sm6pl" path="res://usage_bar_manager.gd" id="10_3xqf3"]
 [ext_resource type="Shader" uid="uid://dbw7ee1mfkjiq" path="res://vhs_filter.gdshader" id="10_4hetp"]
+[ext_resource type="AudioStream" uid="uid://b8sulg1xi6f4m" path="res://sfx/freesound_community-roomtone-bedroom-small-quiet-6754.mp3" id="10_5bs7n"]
 [ext_resource type="Script" uid="uid://cxsjhfxfaqu23" path="res://switch_cam.gd" id="10_s0aar"]
 [ext_resource type="PackedScene" uid="uid://cv6pc1vgfsp5o" path="res://room1.tscn" id="11_70x1r"]
 [ext_resource type="PackedScene" uid="uid://cgljixvdoo0dp" path="res://classroom_d.tscn" id="11_n1y4y"]
@@ -18,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://d35p0oq65ok55" path="res://classroom_e.tscn" id="14_gxl1f"]
 [ext_resource type="PackedScene" uid="uid://dli1ehr8cyxna" path="res://lobby.tscn" id="15_2uxut"]
 [ext_resource type="PackedScene" uid="uid://bd5k6a7ubc04r" path="res://tardy_office.tscn" id="16_m8tx5"]
+[ext_resource type="AudioStream" uid="uid://dw3ljv2y4d3pp" path="res://sfx/kauasilbershlachparodes-chutter-click-494024.mp3" id="16_xemgy"]
 [ext_resource type="Texture2D" uid="uid://cdokjwgh7pvhw" path="res://characters/fang/fang_placeholder.png" id="19_o3cd7"]
 [ext_resource type="Script" uid="uid://8jmd2pn0eldo" path="res://fang_ai.gd" id="20_8qan1"]
 [ext_resource type="PackedScene" uid="uid://c50wego03luu6" path="res://hallway_1.tscn" id="21_jktts"]
@@ -34,6 +40,11 @@
 [ext_resource type="Texture2D" uid="uid://cufm08r3hyodq" path="res://characters/idk2/placeholder_2.png" id="32_6jtqa"]
 [ext_resource type="Texture2D" uid="uid://y5pssijf81xb" path="res://characters/tardyman/tardy_guy_ykw.png" id="33_nl0r1"]
 [ext_resource type="Script" uid="uid://c1obg0xcmsubc" path="res://tardy_guy_ai.gd" id="34_26ul0"]
+[ext_resource type="AudioStream" uid="uid://kod658io4yud" path="res://sfx/mwehehehehe.mp3" id="34_4360s"]
+[ext_resource type="AudioStream" uid="uid://65meahi8c6vi" path="res://sfx/footsteps.mp3" id="39_g68bc"]
+[ext_resource type="AudioStream" uid="uid://d3ymapquhe1ef" path="res://sfx/ding-sound-effect_1.mp3" id="40_1g0dp"]
+[ext_resource type="AudioStream" uid="uid://ygdjy7o8jkce" path="res://sfx/very_fast_footsteps.mp3" id="41_4360s"]
+[ext_resource type="AudioStream" uid="uid://bvllr0g3iyfo8" path="res://sfx/thud.mp3" id="43_a0t2l"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g3mwp"]
 albedo_color = Color(0.37036502, 0.37036428, 0.37036443, 1)
@@ -154,6 +165,10 @@ autostart = true
 [node name="power" type="Timer" parent="game_manager"]
 autostart = true
 
+[node name="open_cam" type="AudioStreamPlayer" parent="game_manager"]
+stream = ExtResource("2_g6veu")
+volume_db = -5.0
+
 [node name="camera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.9982129, 0.059759356, 0, -0.059759356, 0.9982129, 1.1559151, 1.118759, 1.857029)
 script = ExtResource("1_g3mwp")
@@ -198,6 +213,9 @@ skeleton = NodePath("../..")
 transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0.10937548, -0.08373976, 0.04464674)
 shape = SubResource("BoxShape3D_u8nhc")
 
+[node name="click" type="AudioStreamPlayer" parent="wall_left/toggle_light"]
+stream = ExtResource("4_cu40l")
+
 [node name="toggle_door" type="StaticBody3D" parent="wall_left"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.246, 1.084, 1.489)
 script = ExtResource("3_u8nhc")
@@ -211,6 +229,13 @@ skeleton = NodePath("../..")
 [node name="collision" type="CollisionShape3D" parent="wall_left/toggle_door"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.022277832, 0.012207031, -0.0033035278)
 shape = SubResource("BoxShape3D_ei2s5")
+
+[node name="slam" type="AudioStreamPlayer" parent="wall_left/toggle_door"]
+stream = ExtResource("6_qt548")
+volume_db = -8.0
+
+[node name="whirr" type="AudioStreamPlayer" parent="wall_left/toggle_door"]
+stream = ExtResource("7_5c3wu")
 
 [node name="right_window" type="MeshInstance3D" parent="wall_left"]
 transform = Transform3D(0.44784677, 0, 0, 0, 15.790982, 0, 0, 0, 1.5178366, 4.880362, -0.14659977, -1.809499)
@@ -253,6 +278,9 @@ skeleton = NodePath("../..")
 transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, -0.265625, -0.08373976, 0.04464674)
 shape = SubResource("BoxShape3D_u8nhc")
 
+[node name="click" type="AudioStreamPlayer" parent="wall_right/toggle_light"]
+stream = ExtResource("4_cu40l")
+
 [node name="toggle_door" type="StaticBody3D" parent="wall_right"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.780608, 1.084, 1.489)
 script = ExtResource("5_hsito")
@@ -266,6 +294,13 @@ skeleton = NodePath("../..")
 [node name="collision" type="CollisionShape3D" parent="wall_right/toggle_door"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.022277832, 0.012207031, -0.0033035278)
 shape = SubResource("BoxShape3D_ei2s5")
+
+[node name="slam" type="AudioStreamPlayer" parent="wall_right/toggle_door"]
+stream = ExtResource("6_qt548")
+volume_db = -8.0
+
+[node name="whirr" type="AudioStreamPlayer" parent="wall_right/toggle_door"]
+stream = ExtResource("7_5c3wu")
 
 [node name="left_of_door" type="MeshInstance3D" parent="wall_right"]
 transform = Transform3D(0.44784677, 0, 0, 0, 15.790982, 0, 0, 0, 1.5178366, 5.0669947, -0.14659977, 1.149101)
@@ -327,6 +362,11 @@ transform = Transform3D(1.1451198, 0, -0.35874915, 0, 1.1999999, 0, 0.35874915, 
 
 [node name="snoopy" parent="desk" instance=ExtResource("4_wruqr")]
 transform = Transform3D(5.9534984, 0, -0.7455581, 0, 5.9999995, 0, 0.7455581, 0, 5.9534984, -20.809834, 88.373665, -58.41413)
+
+[node name="ambience" type="AudioStreamPlayer" parent="desk"]
+stream = ExtResource("10_5bs7n")
+volume_db = 10.0
+autoplay = true
 
 [node name="desk_light" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 1.123553, 3.4662106, 0)
@@ -643,6 +683,10 @@ offset_bottom = 532.0
 text = "Classroom A"
 horizontal_alignment = 1
 
+[node name="cam_switch" type="AudioStreamPlayer" parent="cameras"]
+stream = ExtResource("16_xemgy")
+volume_db = -7.0
+
 [node name="gui" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -822,12 +866,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.084614, 0, 32.599216)
 [node name="hallway_1" parent="." instance=ExtResource("21_jktts")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -111.82626, 0, -32.71004)
 
-[node name="fang" type="Sprite3D" parent="."]
-transform = Transform3D(-0.3, 0, -2.6226834e-08, 0, 0.3, 0, 2.6226834e-08, 0, -0.3, -48.523514, 0, 0)
-shaded = true
-texture = ExtResource("19_o3cd7")
-script = ExtResource("20_8qan1")
-
 [node name="spawns_e" type="Node3D" parent="."]
 
 [node name="fang_spawn" type="MeshInstance3D" parent="spawns_e"]
@@ -986,7 +1024,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.95575, 0, 84.72188)
 [node name="fang_spawns" type="Node3D" parent="spawns_hallway_5a"]
 
 [node name="spawn_1" type="MeshInstance3D" parent="spawns_hallway_5a/fang_spawns"]
-transform = Transform3D(0.9995453, 0, -0.030154675, 0, 1, 0, 0.030154675, 0, 0.9995453, 35.55922, 1.465, 85.11389)
+transform = Transform3D(-0.000628287, 0, -0.9999998, 0, 1, 0, 0.9999998, 0, -0.000628287, 35.55922, 1.465, 85.11389)
 visible = false
 mesh = SubResource("BoxMesh_o3cd7")
 skeleton = NodePath("../../../classroom_e")
@@ -1112,17 +1150,33 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_hblr6")
 theme_override_styles/hover = SubResource("StyleBoxFlat_46so7")
 text = "try again"
 
+[node name="fang" type="Sprite3D" parent="."]
+transform = Transform3D(-0.3, 0, -2.6226834e-08, 0, 0.3, 0, 2.6226834e-08, 0, -0.3, -48.523514, 0, 0)
+shaded = true
+texture = ExtResource("19_o3cd7")
+script = ExtResource("20_8qan1")
+
+[node name="hehehehe" type="AudioStreamPlayer" parent="fang"]
+stream = ExtResource("34_4360s")
+volume_db = -5.0
+
 [node name="fang2" type="Sprite3D" parent="."]
 transform = Transform3D(-0.3, 0, -2.6226834e-08, 0, 0.3, 0, 2.6226834e-08, 0, -0.3, -45.794167, 0, 0)
 shaded = true
 texture = ExtResource("30_bveom")
 script = ExtResource("31_6jtqa")
 
+[node name="footsteps" type="AudioStreamPlayer" parent="fang2"]
+stream = ExtResource("39_g68bc")
+
 [node name="fang3" type="Sprite3D" parent="."]
 transform = Transform3D(-0.3, 0, -4.5298744e-08, 0, 0.3, 0, 4.5298744e-08, 0, -0.3, -43.229023, 0, 0)
 shaded = true
 texture = ExtResource("32_6jtqa")
 script = ExtResource("31_6jtqa")
+
+[node name="footsteps" type="AudioStreamPlayer" parent="fang3"]
+stream = ExtResource("39_g68bc")
 
 [node name="tardy_guy" type="Sprite3D" parent="."]
 transform = Transform3D(-0.3, 0, -4.5298744e-08, 0, 0.3, 0, 4.5298744e-08, 0, -0.3, -40.77518, 0, 0)
@@ -1139,6 +1193,16 @@ one_shot = true
 [node name="grace" type="Timer" parent="tardy_guy"]
 wait_time = 5.0
 one_shot = true
+
+[node name="ding" type="AudioStreamPlayer" parent="tardy_guy"]
+stream = ExtResource("40_1g0dp")
+volume_db = -5.0
+
+[node name="running_rapidly" type="AudioStreamPlayer" parent="tardy_guy"]
+stream = ExtResource("41_4360s")
+
+[node name="thud" type="AudioStreamPlayer" parent="tardy_guy"]
+stream = ExtResource("43_a0t2l")
 
 [node name="tardy_hall_spawn" type="Node3D" parent="."]
 

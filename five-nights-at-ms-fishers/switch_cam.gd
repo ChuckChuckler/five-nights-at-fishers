@@ -13,4 +13,5 @@ func _process(_delta: float) -> void:
 
 
 func _switch_to_this_cam() -> void:
+	$"../../cam_switch".play()
 	$"../../../game_manager".switch_cams(get_meta("index"), get_meta("name"))
