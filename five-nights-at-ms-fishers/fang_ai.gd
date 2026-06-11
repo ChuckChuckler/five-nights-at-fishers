@@ -1,8 +1,8 @@
 extends Sprite3D
 
 @onready var spawn_e = $"../spawns_e/fang_spawn"
-var level:float=15
-var time_wait:float=-0.368421*level+12.36842
+var level:float
+var time_wait:float
 
 var time_passed:int=0
 var compare_time:int=0
@@ -122,6 +122,7 @@ var game_stopped=false
 	]
 }
 func _ready() -> void:
+	time_wait=-0.368421*level+12.36842
 	$".".position=Vector3(spawn_e.position.x, spawn_e.position.y, spawn_e.position.z)
 	compare_time=Time.get_ticks_msec()
 

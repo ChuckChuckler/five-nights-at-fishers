@@ -116,3 +116,8 @@ transform = Transform3D(-1.9, 0, -1.6610328e-07, 0, 1.9, 0, 1.6610328e-07, 0, -1
 
 [node name="Sketchfab_Scene7" parent="." instance=ExtResource("11_up7ya")]
 transform = Transform3D(-1.9, 0, -1.6610328e-07, 0, 1.9, 0, 1.6610328e-07, 0, -1.9, 7.849415, 0, 1.8776054)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5066385, -0.18953395)
+light_energy = 0.1
+omni_range = 10.0

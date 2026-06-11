@@ -26,7 +26,6 @@
 [ext_resource type="PackedScene" uid="uid://dli1ehr8cyxna" path="res://lobby.tscn" id="15_2uxut"]
 [ext_resource type="PackedScene" uid="uid://bd5k6a7ubc04r" path="res://tardy_office.tscn" id="16_m8tx5"]
 [ext_resource type="AudioStream" uid="uid://dw3ljv2y4d3pp" path="res://sfx/kauasilbershlachparodes-chutter-click-494024.mp3" id="16_xemgy"]
-[ext_resource type="Texture2D" uid="uid://cdokjwgh7pvhw" path="res://characters/fang/fang_placeholder.png" id="19_o3cd7"]
 [ext_resource type="Script" uid="uid://8jmd2pn0eldo" path="res://fang_ai.gd" id="20_8qan1"]
 [ext_resource type="PackedScene" uid="uid://c50wego03luu6" path="res://hallway_1.tscn" id="21_jktts"]
 [ext_resource type="PackedScene" uid="uid://cv7icyxhwrp8t" path="res://hallway_2.tscn" id="22_25m5p"]
@@ -37,17 +36,18 @@
 [ext_resource type="PackedScene" uid="uid://yhno67fypbaw" path="res://hallway_5b.tscn" id="27_2uru3"]
 [ext_resource type="PackedScene" uid="uid://fqgn8f007va" path="res://hallway_5c.tscn" id="28_ekubs"]
 [ext_resource type="PackedScene" uid="uid://u3v6dsydutdi" path="res://hallway_6.tscn" id="29_hblr6"]
-[ext_resource type="Texture2D" uid="uid://yv7x314yqmvr" path="res://characters/idk/placeholder_1.png" id="30_bveom"]
 [ext_resource type="Script" uid="uid://qvc8jshd41vr" path="res://person_ai.gd" id="31_6jtqa"]
-[ext_resource type="Texture2D" uid="uid://cufm08r3hyodq" path="res://characters/idk2/placeholder_2.png" id="32_6jtqa"]
-[ext_resource type="Texture2D" uid="uid://y5pssijf81xb" path="res://characters/tardyman/tardy_guy_ykw.png" id="33_nl0r1"]
 [ext_resource type="Script" uid="uid://c1obg0xcmsubc" path="res://tardy_guy_ai.gd" id="34_26ul0"]
 [ext_resource type="AudioStream" uid="uid://kod658io4yud" path="res://sfx/mwehehehehe.mp3" id="34_4360s"]
+[ext_resource type="Texture2D" uid="uid://bslf25fbki256" path="res://characters/fang/fang.png" id="36_8ovme"]
+[ext_resource type="Texture2D" uid="uid://bho44qpx1tdov" path="res://characters/idk/guy.png" id="39_8ovme"]
 [ext_resource type="AudioStream" uid="uid://65meahi8c6vi" path="res://sfx/footsteps.mp3" id="39_g68bc"]
 [ext_resource type="AudioStream" uid="uid://d3ymapquhe1ef" path="res://sfx/ding-sound-effect_1.mp3" id="40_1g0dp"]
 [ext_resource type="AudioStream" uid="uid://ygdjy7o8jkce" path="res://sfx/very_fast_footsteps.mp3" id="41_4360s"]
 [ext_resource type="AudioStream" uid="uid://bvug75r35mdvx" path="res://sfx/animatronic-in-door.mp3" id="42_8ovme"]
+[ext_resource type="Texture2D" uid="uid://3t16fc1xypnp" path="res://characters/idk2/mims.png" id="43_8ovme"]
 [ext_resource type="AudioStream" uid="uid://bvllr0g3iyfo8" path="res://sfx/thud.mp3" id="43_a0t2l"]
+[ext_resource type="Texture2D" uid="uid://dudjio6q7kyc8" path="res://characters/tardyman/tardy_guy.png" id="44_8ovme"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g3mwp"]
 albedo_color = Color(0.37036502, 0.37036428, 0.37036443, 1)
@@ -1127,7 +1127,7 @@ skeleton = NodePath("../../../classroom_e")
 [node name="fang" type="Sprite3D" parent="."]
 transform = Transform3D(-0.3, 0, -2.6226834e-08, 0, 0.3, 0, 2.6226834e-08, 0, -0.3, -48.523514, 0, 0)
 shaded = true
-texture = ExtResource("19_o3cd7")
+texture = ExtResource("36_8ovme")
 script = ExtResource("20_8qan1")
 
 [node name="hehehehe" type="AudioStreamPlayer" parent="fang"]
@@ -1135,9 +1135,9 @@ stream = ExtResource("34_4360s")
 volume_db = -5.0
 
 [node name="fang2" type="Sprite3D" parent="."]
-transform = Transform3D(-0.3, 0, -2.6226834e-08, 0, 0.3, 0, 2.6226834e-08, 0, -0.3, -45.794167, 0, 0)
+transform = Transform3D(-0.3, 0, -4.5298744e-08, 0, 0.3, 0, 4.5298744e-08, 0, -0.3, -45.794167, 0, 0)
 shaded = true
-texture = ExtResource("30_bveom")
+texture = ExtResource("39_8ovme")
 script = ExtResource("31_6jtqa")
 metadata/type = 2
 
@@ -1151,7 +1151,7 @@ volume_db = -3.0
 [node name="fang3" type="Sprite3D" parent="."]
 transform = Transform3D(-0.3, 0, -4.5298744e-08, 0, 0.3, 0, 4.5298744e-08, 0, -0.3, -43.229023, 0, 0)
 shaded = true
-texture = ExtResource("32_6jtqa")
+texture = ExtResource("43_8ovme")
 script = ExtResource("31_6jtqa")
 metadata/type = 3
 
@@ -1163,9 +1163,9 @@ stream = ExtResource("42_8ovme")
 volume_db = -3.0
 
 [node name="tardy_guy" type="Sprite3D" parent="."]
-transform = Transform3D(-0.3, 0, -4.5298744e-08, 0, 0.3, 0, 4.5298744e-08, 0, -0.3, -40.77518, 0, 0)
+transform = Transform3D(-0.07, 0, -1.0569706e-08, 0, 0.07, 0, 1.0569706e-08, 0, -0.07, -40.77518, 0, 0)
 shaded = true
-texture = ExtResource("33_nl0r1")
+texture = ExtResource("44_8ovme")
 script = ExtResource("34_26ul0")
 
 [node name="appearance" type="Timer" parent="tardy_guy"]
@@ -1293,3 +1293,4 @@ text = "play again"
 [connection signal="timeout" from="tardy_guy/kill" to="tardy_guy" method="_trigger_grace_period"]
 [connection signal="timeout" from="tardy_guy/grace" to="tardy_guy" method="_on_kill_timeout"]
 [connection signal="pressed" from="game_over/bg/Button" to="game_manager" method="_restart_game"]
+[connection signal="pressed" from="game_win/bg/Button" to="game_manager" method="_restart_game"]

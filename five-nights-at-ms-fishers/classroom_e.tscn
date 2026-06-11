@@ -89,3 +89,7 @@ metadata/TAR_2 = -189.4
 transform = Transform3D(8.668518, 0, 0, 0, -0.020028353, 0, 0, 0, 7.846375, 0, 5.2108994, 0)
 cast_shadow = 0
 mesh = SubResource("BoxMesh_vpdrw")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8166075, -0.18953395)
+light_energy = 0.2

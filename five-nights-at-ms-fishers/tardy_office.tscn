@@ -101,3 +101,7 @@ transform = Transform3D(-0.11495445, 0, 0.9933708, 0, 1, 0, -0.9933708, 0, -0.11
 script = ExtResource("10_5bhog")
 metadata/TAR_1 = 112.0
 metadata/TAR_2 = 91.1
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8593102, -1.1793518)
+light_energy = 0.1

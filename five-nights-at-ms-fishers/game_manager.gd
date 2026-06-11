@@ -15,6 +15,10 @@ var current_room=0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	cam_display.texture=cams[current_room].get_texture()
+	$"../fang".level=LevelManager.fang_level
+	$"../fang2".level=LevelManager.person1_level
+	$"../fang3".level=LevelManager.person2_level
+	$"../tardy_guy".difficulty=LevelManager.banajit_level
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -37,7 +41,7 @@ func _next_hour() -> void:
 
 
 func _timeout_counter() -> void:
-	current_power-=$"../gui/usage_bar_container".power_sources*1.6
+	current_power-=$"../gui/usage_bar_container".power_sources*2.5
 	$"../gui/power_left".text="Power left: " + str(int(current_power/START_POWER*100)) + " %"
 
 
@@ -66,4 +70,4 @@ func trigger_game_over():
 
 
 func _restart_game() -> void:
-	get_tree().reload_current_scene()
+	get_tree().change_scene_to_file("res://opening_screen.tscn")

@@ -1,0 +1,531 @@
+[gd_scene load_steps=15 format=3 uid="uid://clvr8o18wtksa"]
+
+[ext_resource type="Script" uid="uid://du73hq1jc5kdy" path="res://opening_screen.gd" id="1_hdnta"]
+[ext_resource type="FontFile" uid="uid://dtkfx3g8l6518" path="res://fonts/PixelifySans-SemiBold.ttf" id="1_pdbg4"]
+[ext_resource type="FontFile" uid="uid://np1xrny0p2b2" path="res://fonts/PixelifySans-Regular.ttf" id="2_hdnta"]
+[ext_resource type="Texture2D" uid="uid://dguyyxh78d28l" path="res://cornball/minion2.jpg" id="3_t8s8l"]
+[ext_resource type="Script" uid="uid://d2p3qu285q2o7" path="res://open_customization.gd" id="4_ikthu"]
+[ext_resource type="Script" uid="uid://caapwj5evo2lg" path="res://set_max_min.gd" id="6_ikthu"]
+[ext_resource type="Script" uid="uid://brqhc1cu4ihi5" path="res://level_manager.gd" id="6_t8s8l"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5k5uf"]
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ptvnx"]
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hxulw"]
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e3qwk"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6au1q"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_50xep"]
+bg_color = Color(0.34033912, 0.3403394, 0.34033918, 1)
+border_width_left = 10
+border_color = Color(0.34, 0.34, 0.34, 0)
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u54cb"]
+bg_color = Color(0.654232, 0.6542321, 0.65423197, 1)
+expand_margin_left = 10.0
+
+[node name="opening_screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hdnta")
+
+[node name="screen" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 1154.0
+offset_bottom = 653.0
+
+[node name="black_bg" type="ColorRect" parent="screen"]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.103743516, 0.10374353, 0.103743516, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="screen/black_bg"]
+layout_mode = 0
+offset_left = 81.0
+offset_top = 59.0
+offset_right = 1064.0
+offset_bottom = 192.0
+theme_override_fonts/normal_font = ExtResource("1_pdbg4")
+theme_override_font_sizes/normal_font_size = 80
+text = "One Night at Fang's
+"
+
+[node name="start" type="Button" parent="screen/black_bg"]
+layout_mode = 0
+offset_left = 107.0
+offset_top = 192.0
+offset_right = 748.0
+offset_bottom = 291.0
+theme_override_fonts/font = ExtResource("2_hdnta")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_5k5uf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ptvnx")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hxulw")
+text = "Start"
+alignment = 0
+
+[node name="customize" type="Button" parent="screen/black_bg"]
+layout_mode = 0
+offset_left = 109.0
+offset_top = 304.0
+offset_right = 750.0
+offset_bottom = 403.0
+theme_override_fonts/font = ExtResource("2_hdnta")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_5k5uf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ptvnx")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hxulw")
+text = "Customize difficulty"
+alignment = 0
+
+[node name="black_overlay" type="ColorRect" parent="screen"]
+visible = false
+layout_mode = 0
+offset_right = 1163.0
+offset_bottom = 661.0
+color = Color(0.03, 0.03, 0.03, 0)
+
+[node name="start" type="Timer" parent="screen"]
+wait_time = 3.0
+one_shot = true
+
+[node name="customize" type="ColorRect" parent="screen"]
+visible = false
+layout_mode = 0
+offset_right = 1151.0
+offset_bottom = 653.0
+color = Color(0.101960786, 0.101960786, 0.101960786, 1)
+
+[node name="header" type="RichTextLabel" parent="screen/customize"]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 68.0
+offset_right = 1065.0
+offset_bottom = 201.0
+theme_override_fonts/normal_font = ExtResource("1_pdbg4")
+theme_override_font_sizes/normal_font_size = 50
+text = "Customize"
+horizontal_alignment = 1
+
+[node name="fang_mugshot" type="TextureRect" parent="screen/customize"]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 192.0
+offset_right = 298.0
+offset_bottom = 380.0
+texture = ExtResource("3_t8s8l")
+expand_mode = 2
+
+[node name="name" type="RichTextLabel" parent="screen/customize/fang_mugshot"]
+layout_mode = 0
+offset_left = -7.0
+offset_top = 193.0
+offset_right = 191.0
+offset_bottom = 280.0
+theme_override_fonts/normal_font = ExtResource("2_hdnta")
+theme_override_font_sizes/normal_font_size = 25
+text = "Pang"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="screen/customize/fang_mugshot"]
+layout_mode = 0
+offset_left = -3.0
+offset_top = -1.0
+offset_right = 192.0
+offset_bottom = 188.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_e3qwk")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6au1q")
+script = ExtResource("4_ikthu")
+metadata/index = 0
+
+[node name="TextureRect2" type="TextureRect" parent="screen/customize"]
+layout_mode = 0
+offset_left = 363.0
+offset_top = 198.0
+offset_right = 551.0
+offset_bottom = 386.0
+texture = ExtResource("3_t8s8l")
+expand_mode = 2
+
+[node name="Button" type="Button" parent="screen/customize/TextureRect2"]
+layout_mode = 0
+offset_left = -3.0
+offset_top = -1.0
+offset_right = 192.0
+offset_bottom = 188.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_e3qwk")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6au1q")
+script = ExtResource("4_ikthu")
+metadata/index = 1
+
+[node name="TextureRect3" type="TextureRect" parent="screen/customize"]
+layout_mode = 0
+offset_left = 603.0
+offset_top = 193.0
+offset_right = 791.0
+offset_bottom = 381.0
+texture = ExtResource("3_t8s8l")
+expand_mode = 2
+
+[node name="Button" type="Button" parent="screen/customize/TextureRect3"]
+layout_mode = 0
+offset_left = -3.0
+offset_top = -1.0
+offset_right = 192.0
+offset_bottom = 188.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_e3qwk")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6au1q")
+script = ExtResource("4_ikthu")
+metadata/index = 2
+
+[node name="banajit" type="TextureRect" parent="screen/customize"]
+layout_mode = 0
+offset_left = 848.0
+offset_top = 190.0
+offset_right = 1036.0
+offset_bottom = 378.0
+texture = ExtResource("3_t8s8l")
+expand_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="screen/customize/banajit"]
+layout_mode = 0
+offset_left = -7.0
+offset_top = 193.0
+offset_right = 191.0
+offset_bottom = 280.0
+theme_override_fonts/normal_font = ExtResource("2_hdnta")
+theme_override_font_sizes/normal_font_size = 25
+text = "Banajit"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="screen/customize/banajit"]
+layout_mode = 0
+offset_left = -3.0
+offset_top = -1.0
+offset_right = 192.0
+offset_bottom = 188.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_e3qwk")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6au1q")
+script = ExtResource("4_ikthu")
+metadata/index = 3
+
+[node name="exit" type="Button" parent="screen/customize"]
+layout_mode = 0
+offset_right = 133.0
+offset_bottom = 50.0
+text = "<<back"
+
+[node name="fang_info" type="ColorRect" parent="screen/customize"]
+visible = false
+layout_mode = 0
+offset_right = 1161.0
+offset_bottom = 656.0
+color = Color(0.043039158, 0.04303915, 0.04303915, 1)
+
+[node name="description" type="RichTextLabel" parent="screen/customize/fang_info"]
+layout_mode = 0
+offset_left = 470.0
+offset_top = 199.0
+offset_right = 1006.0
+offset_bottom = 492.0
+theme_override_font_sizes/normal_font_size = 30
+text = "He starts in his favorite room (Classroom E). Keep checking him on the cameras. If you don't look at him for too long, he'll move. Once he gets to your office, it's instant game over."
+
+[node name="pang_mugshot" type="TextureRect" parent="screen/customize/fang_info"]
+layout_mode = 0
+offset_left = 117.0
+offset_top = 198.0
+offset_right = 419.0
+offset_bottom = 500.0
+texture = ExtResource("3_t8s8l")
+expand_mode = 2
+
+[node name="name" type="RichTextLabel" parent="screen/customize/fang_info"]
+layout_mode = 0
+offset_top = 26.0
+offset_right = 1151.0
+offset_bottom = 166.0
+theme_override_fonts/normal_font = ExtResource("2_hdnta")
+theme_override_font_sizes/normal_font_size = 50
+text = "Fang
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="difficulty_label" type="RichTextLabel" parent="screen/customize/fang_info"]
+layout_mode = 0
+offset_left = 418.0
+offset_top = 560.0
+offset_right = 1085.0
+offset_bottom = 651.0
+theme_override_fonts/normal_font = ExtResource("2_hdnta")
+theme_override_font_sizes/normal_font_size = 35
+text = "Difficulty (1-20):"
+
+[node name="fang_difficulty" type="TextEdit" parent="screen/customize/fang_info"]
+layout_mode = 0
+offset_left = 694.0
+offset_top = 558.0
+offset_right = 803.0
+offset_bottom = 604.0
+theme_override_colors/search_result_color = Color(0.28485027, 0.28485027, 0.2848502, 1)
+theme_override_colors/caret_color = Color(0.8603689, 0.86036927, 0.8603691, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_50xep")
+theme_override_styles/focus = SubResource("StyleBoxFlat_u54cb")
+text = "5"
+script = ExtResource("6_ikthu")
+
+[node name="back" type="Button" parent="screen/customize/fang_info"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 7.0
+offset_right = 113.0
+offset_bottom = 82.0
+text = "<< back"
+
+[node name="idk_info" type="ColorRect" parent="screen/customize"]
+visible = false
+layout_mode = 0
+offset_right = 1161.0
+offset_bottom = 656.0
+color = Color(0.043039158, 0.04303915, 0.04303915, 1)
+
+[node name="description" type="RichTextLabel" parent="screen/customize/idk_info"]
+layout_mode = 0
+offset_left = 470.0
+offset_top = 199.0
+offset_right = 1006.0
+offset_bottom = 492.0
+theme_override_font_sizes/normal_font_size = 30
+text = "He will traverse the halls freely and make his way to your office. Listen for footsteps. When he is outside your office, close the door and keep it closed until he leaves."
+
+[node name="other_guy_mugshot" type="TextureRect" parent="screen/customize/idk_info"]
+layout_mode = 0
+offset_left = 117.0
+offset_top = 198.0
+offset_right = 419.0
+offset_bottom = 500.0
+texture = ExtResource("3_t8s8l")
+expand_mode = 2
+
+[node name="name" type="RichTextLabel" parent="screen/customize/idk_info"]
+layout_mode = 0
+offset_top = 26.0
+offset_right = 1151.0
+offset_bottom = 166.0
+theme_override_fonts/normal_font = ExtResource("2_hdnta")
+theme_override_font_sizes/normal_font_size = 50
+text = "?
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="difficulty_label" type="RichTextLabel" parent="screen/customize/idk_info"]
+layout_mode = 0
+offset_left = 418.0
+offset_top = 560.0
+offset_right = 1085.0
+offset_bottom = 651.0
+theme_override_fonts/normal_font = ExtResource("2_hdnta")
+theme_override_font_sizes/normal_font_size = 35
+text = "Difficulty (1-20):"
+
+[node name="person1_difficulty" type="TextEdit" parent="screen/customize/idk_info"]
+layout_mode = 0
+offset_left = 694.0
+offset_top = 558.0
+offset_right = 803.0
+offset_bottom = 604.0
+theme_override_colors/search_result_color = Color(0.28485027, 0.28485027, 0.2848502, 1)
+theme_override_colors/caret_color = Color(0.8603689, 0.86036927, 0.8603691, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_50xep")
+theme_override_styles/focus = SubResource("StyleBoxFlat_u54cb")
+text = "5"
+script = ExtResource("6_ikthu")
+
+[node name="back" type="Button" parent="screen/customize/idk_info"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 7.0
+offset_right = 113.0
+offset_bottom = 82.0
+text = "<< back"
+
+[node name="idk_info2" type="ColorRect" parent="screen/customize"]
+visible = false
+layout_mode = 0
+offset_right = 1161.0
+offset_bottom = 656.0
+color = Color(0.043039158, 0.04303915, 0.04303915, 1)
+
+[node name="description" type="RichTextLabel" parent="screen/customize/idk_info2"]
+layout_mode = 0
+offset_left = 470.0
+offset_top = 199.0
+offset_right = 1006.0
+offset_bottom = 492.0
+theme_override_font_sizes/normal_font_size = 30
+text = "He will traverse the halls freely and make his way to your office. Listen for footsteps. When he is outside your office, close the door and keep it closed until he leaves."
+
+[node name="other_guy_mugshot" type="TextureRect" parent="screen/customize/idk_info2"]
+layout_mode = 0
+offset_left = 117.0
+offset_top = 198.0
+offset_right = 419.0
+offset_bottom = 500.0
+texture = ExtResource("3_t8s8l")
+expand_mode = 2
+
+[node name="name" type="RichTextLabel" parent="screen/customize/idk_info2"]
+layout_mode = 0
+offset_top = 26.0
+offset_right = 1151.0
+offset_bottom = 166.0
+theme_override_fonts/normal_font = ExtResource("2_hdnta")
+theme_override_font_sizes/normal_font_size = 50
+text = "?
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="difficulty_label" type="RichTextLabel" parent="screen/customize/idk_info2"]
+layout_mode = 0
+offset_left = 418.0
+offset_top = 560.0
+offset_right = 1085.0
+offset_bottom = 651.0
+theme_override_fonts/normal_font = ExtResource("2_hdnta")
+theme_override_font_sizes/normal_font_size = 35
+text = "Difficulty (1-20):"
+
+[node name="person2_difficulty" type="TextEdit" parent="screen/customize/idk_info2"]
+layout_mode = 0
+offset_left = 694.0
+offset_top = 558.0
+offset_right = 803.0
+offset_bottom = 604.0
+theme_override_colors/search_result_color = Color(0.28485027, 0.28485027, 0.2848502, 1)
+theme_override_colors/caret_color = Color(0.8603689, 0.86036927, 0.8603691, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_50xep")
+theme_override_styles/focus = SubResource("StyleBoxFlat_u54cb")
+text = "5"
+script = ExtResource("6_ikthu")
+
+[node name="back" type="Button" parent="screen/customize/idk_info2"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 7.0
+offset_right = 113.0
+offset_bottom = 82.0
+text = "<< back"
+
+[node name="banajit_info" type="ColorRect" parent="screen/customize"]
+visible = false
+layout_mode = 0
+offset_right = 1161.0
+offset_bottom = 656.0
+color = Color(0.043039158, 0.04303915, 0.04303915, 1)
+
+[node name="description" type="RichTextLabel" parent="screen/customize/banajit_info"]
+layout_mode = 0
+offset_left = 470.0
+offset_top = 199.0
+offset_right = 1006.0
+offset_bottom = 492.0
+theme_override_font_sizes/normal_font_size = 30
+text = "Check the tardy office periodically. He will sometimes show up, waiting for a tardy pass. Quickly close the right door when he leaves so he can't come in."
+
+[node name="banajit_mugshot" type="TextureRect" parent="screen/customize/banajit_info"]
+layout_mode = 0
+offset_left = 117.0
+offset_top = 198.0
+offset_right = 419.0
+offset_bottom = 500.0
+texture = ExtResource("3_t8s8l")
+expand_mode = 2
+
+[node name="name" type="RichTextLabel" parent="screen/customize/banajit_info"]
+layout_mode = 0
+offset_top = 26.0
+offset_right = 1151.0
+offset_bottom = 166.0
+theme_override_fonts/normal_font = ExtResource("2_hdnta")
+theme_override_font_sizes/normal_font_size = 50
+text = "Banajit"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="difficulty_label" type="RichTextLabel" parent="screen/customize/banajit_info"]
+layout_mode = 0
+offset_left = 418.0
+offset_top = 560.0
+offset_right = 1085.0
+offset_bottom = 651.0
+theme_override_fonts/normal_font = ExtResource("2_hdnta")
+theme_override_font_sizes/normal_font_size = 35
+text = "Difficulty (1-20):"
+
+[node name="banajit_difficulty" type="TextEdit" parent="screen/customize/banajit_info"]
+layout_mode = 0
+offset_left = 694.0
+offset_top = 558.0
+offset_right = 803.0
+offset_bottom = 604.0
+theme_override_colors/search_result_color = Color(0.28485027, 0.28485027, 0.2848502, 1)
+theme_override_colors/caret_color = Color(0.8603689, 0.86036927, 0.8603691, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_50xep")
+theme_override_styles/focus = SubResource("StyleBoxFlat_u54cb")
+text = "5"
+script = ExtResource("6_ikthu")
+
+[node name="back" type="Button" parent="screen/customize/banajit_info"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 7.0
+offset_right = 113.0
+offset_bottom = 82.0
+text = "<< back"
+
+[node name="level_manager" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("6_t8s8l")
+
+[connection signal="pressed" from="screen/black_bg/start" to="." method="_start"]
+[connection signal="pressed" from="screen/black_bg/customize" to="." method="_on_customize_pressed"]
+[connection signal="timeout" from="screen/start" to="." method="_on_start_timeout"]
+[connection signal="pressed" from="screen/customize/fang_mugshot/Button" to="screen/customize/fang_mugshot/Button" method="_open_screen"]
+[connection signal="pressed" from="screen/customize/TextureRect2/Button" to="screen/customize/TextureRect2/Button" method="_open_screen"]
+[connection signal="pressed" from="screen/customize/TextureRect3/Button" to="screen/customize/TextureRect3/Button" method="_open_screen"]
+[connection signal="pressed" from="screen/customize/banajit/Button" to="screen/customize/banajit/Button" method="_open_screen"]
+[connection signal="pressed" from="screen/customize/exit" to="." method="_on_exit_pressed"]
+[connection signal="text_changed" from="screen/customize/fang_info/fang_difficulty" to="screen/customize/fang_info/fang_difficulty" method="_on_text_changed"]
+[connection signal="pressed" from="screen/customize/fang_info/back" to="screen/customize/fang_mugshot/Button" method="_on_back_pressed"]
+[connection signal="text_changed" from="screen/customize/idk_info/person1_difficulty" to="screen/customize/idk_info/person1_difficulty" method="_on_text_changed"]
+[connection signal="pressed" from="screen/customize/idk_info/back" to="screen/customize/TextureRect2/Button" method="_on_back_pressed"]
+[connection signal="text_changed" from="screen/customize/idk_info2/person2_difficulty" to="screen/customize/idk_info2/person2_difficulty" method="_on_text_changed"]
+[connection signal="pressed" from="screen/customize/idk_info2/back" to="screen/customize/TextureRect3/Button" method="_on_back_pressed"]
+[connection signal="text_changed" from="screen/customize/banajit_info/banajit_difficulty" to="screen/customize/banajit_info/banajit_difficulty" method="_on_text_changed"]
+[connection signal="text_set" from="screen/customize/banajit_info/banajit_difficulty" to="screen/customize/banajit_info/banajit_difficulty" method="_on_text_set"]
+[connection signal="pressed" from="screen/customize/banajit_info/back" to="screen/customize/banajit/Button" method="_on_back_pressed"]

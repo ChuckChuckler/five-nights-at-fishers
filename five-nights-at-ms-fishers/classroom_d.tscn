@@ -195,3 +195,7 @@ texture = ExtResource("12_tn181")
 transform = Transform3D(-0.4, 0, -3.4969112e-08, 0, 0.4, 0, 3.4969112e-08, 0, -0.4, -2.7385914, 2.8627825, 3.3299813)
 shaded = true
 texture = ExtResource("13_tp7ka")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5066385, -0.18953395)
+light_energy = 0.1

@@ -1,8 +1,8 @@
 extends Sprite3D
 
 var level:float=15
-var time_wait:float=(-0.32*level)+8.31
-var time_before_disappear:float=0.368421*level+2.63158
+var time_wait:float
+var time_before_disappear:float
 
 var time_passed:int=0
 var compare_time:int=0
@@ -130,6 +130,8 @@ var first_sound_played_3=false
 	]
 }
 func _ready() -> void:
+	time_wait=(-0.32*level)+8.31
+	time_before_disappear=0.368421*level+2.63158
 	var randindex = randi_range(0,potential_spawnpoints_names.size()-1)
 	while potential_spawnpoints_names[randindex]==$"../fang".current_area || potential_spawnpoints_names[randindex]==$"../fang2".current_area || potential_spawnpoints_names[randindex]==$"../fang3".current_area:
 		randindex=randi_range(0,potential_spawnpoints_names.size()-1)

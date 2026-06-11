@@ -173,3 +173,11 @@ texture = ExtResource("11_3e48k")
 
 [node name="door" parent="." instance=ExtResource("12_uqw6m")]
 transform = Transform3D(1.9, 0, 0, 0, 1.9, 0, 0, 0, 1.9, 0.9661827, -0.26256418, -0.7044474)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5066385, -0.18953395)
+light_energy = 0.1
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5066385, -0.18953395)
+light_energy = 0.1
