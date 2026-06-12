@@ -70,12 +70,18 @@ func switch_cams(index:int, room_name:String)->void:
 	$"../cameras/place_name".text=room_name
 
 func trigger_game_over():
+	$"../jumps care".visible=false
+	$"../jumps care/fang".visible=false
+	$"../jumps care/deffs".visible=false
+	$"../jumps care/mims".visible=false
+	$"../jumps care/tardy".visible=false
 	$"../game_over".visible=true
 	$"../desk/ambience".stop()
 	$"../fang".game_stopped=true
 	$"../fang2".game_stopped=true
 	$"../fang3".game_stopped=true
 	$"../tardy_guy".game_stopped=true
+	$"../game_over/sad_spunch".play()
 
 
 func _restart_game() -> void:
@@ -84,3 +90,7 @@ func _restart_game() -> void:
 
 func _on_video_stream_player_finished() -> void:
 	$"../game_over".visible=true
+
+
+func _on_jumps_care_timer_timeout() -> void:
+	trigger_game_over()

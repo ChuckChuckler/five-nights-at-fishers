@@ -12,8 +12,10 @@ func _process(delta: float) -> void:
 
 
 func _open_screen() -> void:
+	$"../../../click".play()
 	customize_screens[$".".get_meta("index")].visible=true
 
 
 func _on_back_pressed() -> void:
+	$"../../../click".play()
 	customize_screens[$".".get_meta("index")].visible=false

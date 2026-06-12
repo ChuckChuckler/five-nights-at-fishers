@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://clvr8o18wtksa"]
+[gd_scene load_steps=18 format=3 uid="uid://clvr8o18wtksa"]
 
 [ext_resource type="Script" uid="uid://du73hq1jc5kdy" path="res://opening_screen.gd" id="1_hdnta"]
 [ext_resource type="FontFile" uid="uid://dtkfx3g8l6518" path="res://fonts/PixelifySans-SemiBold.ttf" id="1_pdbg4"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://d2p3qu285q2o7" path="res://open_customization.gd" id="4_ikthu"]
 [ext_resource type="Script" uid="uid://caapwj5evo2lg" path="res://set_max_min.gd" id="6_ikthu"]
 [ext_resource type="Script" uid="uid://brqhc1cu4ihi5" path="res://level_manager.gd" id="6_t8s8l"]
+[ext_resource type="AudioStream" uid="uid://dw3ljv2y4d3pp" path="res://sfx/kauasilbershlachparodes-chutter-click-494024.mp3" id="7_hxulw"]
 [ext_resource type="AudioStream" uid="uid://tqw8w475sffk" path="res://sfx/call-me-maybe-sped-up.mp3" id="8_5k5uf"]
 [ext_resource type="AudioStream" uid="uid://dd2nspkruxn3l" path="res://sfx/fnaf-meme-har-har.mp3" id="9_ptvnx"]
 
@@ -527,6 +528,9 @@ offset_top = 7.0
 offset_right = 113.0
 offset_bottom = 82.0
 text = "<< back"
+
+[node name="click" type="AudioStreamPlayer" parent="screen"]
+stream = ExtResource("7_hxulw")
 
 [node name="level_manager" type="Control" parent="."]
 anchors_preset = 0

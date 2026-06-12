@@ -43,8 +43,13 @@ func _on_kill_timeout() -> void:
 	if !game_stopped:
 		$running_rapidly.volume_db=-80
 		if !$"../wall_right/toggle_door".door_down:
-			$"../game_manager".trigger_game_over()
-			game_stopped=true
+			if !$"../jumps care".visible:
+				$"../cameras".visible=false
+				$"../jumps care".visible=true
+				$"../jumps care/tardy".visible=true
+				$"../jumps care/boom".play()
+				$"../jumps care/jumps care timer".start()
+				game_stopped=true
 		else:
 			$thud.play()
 			$".".position=Vector3(-40.77,0,0)

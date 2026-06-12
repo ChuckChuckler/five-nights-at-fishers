@@ -22,10 +22,10 @@ func _on_start_timeout() -> void:
 
 
 func _on_customize_pressed() -> void:
-	$har_har_har.play()
 	$screen/customize.visible=true
+	$screen/click.play()
 
 
 func _on_exit_pressed() -> void:
 	$screen/customize.visible=false
-	$har_har_har.play()
+	$screen/click.play()

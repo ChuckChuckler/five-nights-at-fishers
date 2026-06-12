@@ -198,8 +198,17 @@ func _process(delta: float) -> void:
 					compare_time=Time.get_ticks_msec()
 					time_passed=0
 					time_wait=-1
-					$"../game_manager".trigger_game_over()
-					game_stopped=true
+					if !$"../jumps care".visible:
+						$"../cameras".visible=false
+						$"../jumps care".visible=true
+						if $".".get_meta("type")==2:
+							$"../jumps care/deffs".visible=true
+						elif $".".get_meta("type")==3:
+							$"../jumps care/mims".visible=true
+						$"../jumps care/boom".play()
+						$"../jumps care/jumps care timer".start()
+						
+						game_stopped=true
 
 func door_triggered():
 	compare_time=Time.get_ticks_msec()

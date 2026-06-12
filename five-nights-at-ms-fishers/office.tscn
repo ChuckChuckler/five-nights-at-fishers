@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://pigfb45lfdm0"]
+[gd_scene load_steps=87 format=3 uid="uid://pigfb45lfdm0"]
 
 [ext_resource type="Script" uid="uid://com4mk7x4gvc1" path="res://camera.gd" id="1_g3mwp"]
 [ext_resource type="Script" uid="uid://ckjr1dj5iune1" path="res://game_manager.gd" id="1_lcwox"]
@@ -49,6 +49,18 @@
 [ext_resource type="AudioStream" uid="uid://bvllr0g3iyfo8" path="res://sfx/thud.mp3" id="43_a0t2l"]
 [ext_resource type="Texture2D" uid="uid://dudjio6q7kyc8" path="res://characters/tardyman/tardy_guy.png" id="44_8ovme"]
 [ext_resource type="VideoStream" uid="uid://ciux8i413rknn" path="res://foxy.ogv" id="49_vb8hc"]
+[ext_resource type="Texture2D" uid="uid://6560ilq0fy0d" path="res://characters/fang/jumps care/fjumpscare1.png" id="50_rwrx0"]
+[ext_resource type="Texture2D" uid="uid://cldtdhngkr8b7" path="res://characters/fang/jumps care/flefthand.png" id="51_c3g7g"]
+[ext_resource type="Texture2D" uid="uid://sbvvk3u1xcy7" path="res://characters/fang/jumps care/frighthand.png" id="52_xeg8r"]
+[ext_resource type="Texture2D" uid="uid://do0nj0aeerni8" path="res://characters/idk/jumpscare/defferyjumpscare1.png" id="53_ihndh"]
+[ext_resource type="Texture2D" uid="uid://dr2ouocboq1op" path="res://characters/idk/jumpscare/djumpscare2.png" id="54_fh040"]
+[ext_resource type="Texture2D" uid="uid://loqygy117nlx" path="res://characters/idk2/jumps care/mimsjumpsare.png" id="55_jtjic"]
+[ext_resource type="Texture2D" uid="uid://co0g504yh7n5" path="res://characters/idk2/jumps care/lollipop.png" id="56_dd4l1"]
+[ext_resource type="Texture2D" uid="uid://cp0p1yeobgbin" path="res://characters/tardyman/jumps care/bjumpscare.png" id="57_xbu8t"]
+[ext_resource type="Texture2D" uid="uid://b5pmwkmqr83vf" path="res://characters/tardyman/jumps care/pointinghand.png" id="58_f5d21"]
+[ext_resource type="Texture2D" uid="uid://bjq62dewgr8lq" path="res://characters/tardyman/jumps care/tardyhand.png" id="59_pulq8"]
+[ext_resource type="AudioStream" uid="uid://dq4nsr1cmpyej" path="res://sfx/vine-boom-sound-effect_KT89XIq.mp3" id="60_c3g7g"]
+[ext_resource type="AudioStream" uid="uid://djl3tw7daqck4" path="res://sfx/spongebob-sad-song.mp3" id="61_xeg8r"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g3mwp"]
 albedo_color = Color(0.37036502, 0.37036428, 0.37036443, 1)
@@ -1206,6 +1218,83 @@ offset_bottom = 720.0
 layout_mode = 2
 stream = ExtResource("49_vb8hc")
 
+[node name="jumps care" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="fang" type="Control" parent="jumps care"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Fjumpscare1" type="Sprite2D" parent="jumps care/fang"]
+position = Vector2(575, 321)
+texture = ExtResource("50_rwrx0")
+
+[node name="Flefthand" type="Sprite2D" parent="jumps care/fang"]
+position = Vector2(640, 327)
+texture = ExtResource("51_c3g7g")
+
+[node name="Frighthand" type="Sprite2D" parent="jumps care/fang"]
+position = Vector2(529, 328)
+texture = ExtResource("52_xeg8r")
+
+[node name="deffs" type="Control" parent="jumps care"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Defferyjumpscare1" type="Sprite2D" parent="jumps care/deffs"]
+position = Vector2(574, 323)
+texture = ExtResource("53_ihndh")
+
+[node name="Djumpscare2" type="Sprite2D" parent="jumps care/deffs"]
+position = Vector2(529, 317)
+texture = ExtResource("54_fh040")
+
+[node name="mims" type="Control" parent="jumps care"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Mimsjumpsare" type="Sprite2D" parent="jumps care/mims"]
+position = Vector2(575, 323)
+texture = ExtResource("55_jtjic")
+
+[node name="Lollipop" type="Sprite2D" parent="jumps care/mims"]
+position = Vector2(237, 621)
+texture = ExtResource("56_dd4l1")
+
+[node name="tardy" type="Control" parent="jumps care"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Bjumpscare" type="Sprite2D" parent="jumps care/tardy"]
+position = Vector2(576, 322)
+texture = ExtResource("57_xbu8t")
+
+[node name="Pointinghand" type="Sprite2D" parent="jumps care/tardy"]
+position = Vector2(724, 317)
+texture = ExtResource("58_f5d21")
+
+[node name="Tardyhand" type="Sprite2D" parent="jumps care/tardy"]
+position = Vector2(639, 383)
+texture = ExtResource("59_pulq8")
+
+[node name="jumps care timer" type="Timer" parent="jumps care"]
+one_shot = true
+
+[node name="boom" type="AudioStreamPlayer" parent="jumps care"]
+stream = ExtResource("60_c3g7g")
+
 [node name="game_over" type="Control" parent="."]
 visible = false
 layout_mode = 3
@@ -1241,6 +1330,9 @@ offset_bottom = 392.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_hblr6")
 theme_override_styles/hover = SubResource("StyleBoxFlat_46so7")
 text = "try again"
+
+[node name="sad_spunch" type="AudioStreamPlayer" parent="game_over"]
+stream = ExtResource("61_xeg8r")
 
 [node name="game_win" type="Control" parent="."]
 visible = false
@@ -1303,5 +1395,6 @@ text = "play again"
 [connection signal="timeout" from="tardy_guy/kill" to="tardy_guy" method="_trigger_grace_period"]
 [connection signal="timeout" from="tardy_guy/grace" to="tardy_guy" method="_on_kill_timeout"]
 [connection signal="finished" from="foxy_jumpscare/VideoStreamPlayer" to="game_manager" method="_on_video_stream_player_finished"]
+[connection signal="timeout" from="jumps care/jumps care timer" to="game_manager" method="_on_jumps_care_timer_timeout"]
 [connection signal="pressed" from="game_over/bg/Button" to="game_manager" method="_restart_game"]
 [connection signal="pressed" from="game_win/bg/Button" to="game_manager" method="_restart_game"]

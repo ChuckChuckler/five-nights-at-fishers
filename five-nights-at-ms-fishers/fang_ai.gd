@@ -148,7 +148,11 @@ func _process(delta: float) -> void:
 		else:
 			if time_passed/1000.0 >= (time_wait*2)-0.5 and time_passed/1000.0<=(time_wait*2)+0.5:
 				compare_time=Time.get_ticks_msec()
-				print_debug("YOU ARE DEAD ELELELE")
 				time_wait=-1
-				$"../game_manager".trigger_game_over()
-				game_stopped=true
+				if !$"../jumps care".visible:
+					$"../cameras".visible=false
+					$"../jumps care".visible=true
+					$"../jumps care/fang".visible=true
+					$"../jumps care/boom".play()
+					$"../jumps care/jumps care timer".start()
+					game_stopped=true
