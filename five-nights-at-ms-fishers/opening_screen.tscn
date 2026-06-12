@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://clvr8o18wtksa"]
+[gd_scene load_steps=17 format=3 uid="uid://clvr8o18wtksa"]
 
 [ext_resource type="Script" uid="uid://du73hq1jc5kdy" path="res://opening_screen.gd" id="1_hdnta"]
 [ext_resource type="FontFile" uid="uid://dtkfx3g8l6518" path="res://fonts/PixelifySans-SemiBold.ttf" id="1_pdbg4"]
@@ -7,6 +7,8 @@
 [ext_resource type="Script" uid="uid://d2p3qu285q2o7" path="res://open_customization.gd" id="4_ikthu"]
 [ext_resource type="Script" uid="uid://caapwj5evo2lg" path="res://set_max_min.gd" id="6_ikthu"]
 [ext_resource type="Script" uid="uid://brqhc1cu4ihi5" path="res://level_manager.gd" id="6_t8s8l"]
+[ext_resource type="AudioStream" uid="uid://tqw8w475sffk" path="res://sfx/call-me-maybe-sped-up.mp3" id="8_5k5uf"]
+[ext_resource type="AudioStream" uid="uid://dd2nspkruxn3l" path="res://sfx/fnaf-meme-har-har.mp3" id="9_ptvnx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5k5uf"]
 bg_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
@@ -140,7 +142,7 @@ offset_right = 191.0
 offset_bottom = 280.0
 theme_override_fonts/normal_font = ExtResource("2_hdnta")
 theme_override_font_sizes/normal_font_size = 25
-text = "Pang"
+text = "Fang"
 horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="screen/customize/fang_mugshot"]
@@ -174,6 +176,17 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_6au1q")
 script = ExtResource("4_ikthu")
 metadata/index = 1
 
+[node name="name" type="RichTextLabel" parent="screen/customize/TextureRect2"]
+layout_mode = 0
+offset_left = -7.0
+offset_top = 193.0
+offset_right = 191.0
+offset_bottom = 280.0
+theme_override_fonts/normal_font = ExtResource("2_hdnta")
+theme_override_font_sizes/normal_font_size = 25
+text = "Mims"
+horizontal_alignment = 1
+
 [node name="TextureRect3" type="TextureRect" parent="screen/customize"]
 layout_mode = 0
 offset_left = 603.0
@@ -193,6 +206,17 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_e3qwk")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_6au1q")
 script = ExtResource("4_ikthu")
 metadata/index = 2
+
+[node name="name" type="RichTextLabel" parent="screen/customize/TextureRect3"]
+layout_mode = 0
+offset_left = -7.0
+offset_top = 193.0
+offset_right = 191.0
+offset_bottom = 280.0
+theme_override_fonts/normal_font = ExtResource("2_hdnta")
+theme_override_font_sizes/normal_font_size = 25
+text = "Shawnk"
+horizontal_alignment = 1
 
 [node name="banajit" type="TextureRect" parent="screen/customize"]
 layout_mode = 0
@@ -314,7 +338,7 @@ offset_top = 199.0
 offset_right = 1006.0
 offset_bottom = 492.0
 theme_override_font_sizes/normal_font_size = 30
-text = "He will traverse the halls freely and make his way to your office. Listen for footsteps. When he is outside your office, close the door and keep it closed until he leaves."
+text = "She will traverse the halls freely and make her way to your office. Listen for footsteps. When she is outside your office, close the door and keep it closed until she leaves."
 
 [node name="other_guy_mugshot" type="TextureRect" parent="screen/customize/idk_info"]
 layout_mode = 0
@@ -332,8 +356,7 @@ offset_right = 1151.0
 offset_bottom = 166.0
 theme_override_fonts/normal_font = ExtResource("2_hdnta")
 theme_override_font_sizes/normal_font_size = 50
-text = "?
-"
+text = "Mims"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -401,8 +424,7 @@ offset_right = 1151.0
 offset_bottom = 166.0
 theme_override_fonts/normal_font = ExtResource("2_hdnta")
 theme_override_font_sizes/normal_font_size = 50
-text = "?
-"
+text = "Shawnk"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -511,6 +533,12 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("6_t8s8l")
+
+[node name="bgm" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_5k5uf")
+
+[node name="har_har_har" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_ptvnx")
 
 [connection signal="pressed" from="screen/black_bg/start" to="." method="_start"]
 [connection signal="pressed" from="screen/black_bg/customize" to="." method="_on_customize_pressed"]

@@ -2,8 +2,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
+	$bgm.play()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -23,8 +22,10 @@ func _on_start_timeout() -> void:
 
 
 func _on_customize_pressed() -> void:
+	$har_har_har.play()
 	$screen/customize.visible=true
 
 
 func _on_exit_pressed() -> void:
 	$screen/customize.visible=false
+	$har_har_har.play()

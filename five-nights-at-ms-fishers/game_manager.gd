@@ -43,7 +43,16 @@ func _next_hour() -> void:
 func _timeout_counter() -> void:
 	current_power-=$"../gui/usage_bar_container".power_sources*2.5
 	$"../gui/power_left".text="Power left: " + str(int(current_power/START_POWER*100)) + " %"
-
+	if current_power<0:
+		$power.stop()
+		$"../foxy_jumpscare".visible=true
+		$"../foxy_jumpscare/VideoStreamPlayer".play()
+		$"../desk/ambience".stop()
+		$"../fang".game_stopped=true
+		$"../fang2".game_stopped=true
+		$"../fang3".game_stopped=true
+		$"../tardy_guy".game_stopped=true
+		
 
 func _open_camera() -> void:
 	$open_cam.play()
@@ -71,3 +80,7 @@ func trigger_game_over():
 
 func _restart_game() -> void:
 	get_tree().change_scene_to_file("res://opening_screen.tscn")
+
+
+func _on_video_stream_player_finished() -> void:
+	$"../game_over".visible=true
