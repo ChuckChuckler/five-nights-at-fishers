@@ -1,14 +1,17 @@
-[gd_scene load_steps=18 format=3 uid="uid://clvr8o18wtksa"]
+[gd_scene load_steps=21 format=3 uid="uid://clvr8o18wtksa"]
 
 [ext_resource type="Script" uid="uid://du73hq1jc5kdy" path="res://opening_screen.gd" id="1_hdnta"]
 [ext_resource type="FontFile" uid="uid://dtkfx3g8l6518" path="res://fonts/PixelifySans-SemiBold.ttf" id="1_pdbg4"]
 [ext_resource type="FontFile" uid="uid://np1xrny0p2b2" path="res://fonts/PixelifySans-Regular.ttf" id="2_hdnta"]
-[ext_resource type="Texture2D" uid="uid://dguyyxh78d28l" path="res://cornball/minion2.jpg" id="3_t8s8l"]
 [ext_resource type="Script" uid="uid://d2p3qu285q2o7" path="res://open_customization.gd" id="4_ikthu"]
+[ext_resource type="Texture2D" uid="uid://4mb57ggr6gmp" path="res://characters/fang/fang_pfp.png" id="4_u54cb"]
 [ext_resource type="Script" uid="uid://caapwj5evo2lg" path="res://set_max_min.gd" id="6_ikthu"]
+[ext_resource type="Texture2D" uid="uid://0u8niw6oyo6i" path="res://characters/idk2/mims_pfp.png" id="6_qncfg"]
 [ext_resource type="Script" uid="uid://brqhc1cu4ihi5" path="res://level_manager.gd" id="6_t8s8l"]
+[ext_resource type="Texture2D" uid="uid://c1rg8lub0d3eq" path="res://characters/idk/deffs_pfp.png" id="7_fbeqk"]
 [ext_resource type="AudioStream" uid="uid://dw3ljv2y4d3pp" path="res://sfx/kauasilbershlachparodes-chutter-click-494024.mp3" id="7_hxulw"]
 [ext_resource type="AudioStream" uid="uid://tqw8w475sffk" path="res://sfx/call-me-maybe-sped-up.mp3" id="8_5k5uf"]
+[ext_resource type="Texture2D" uid="uid://duoygvpe1brfn" path="res://characters/tardyman/tardy_pfp.png" id="8_iltba"]
 [ext_resource type="AudioStream" uid="uid://dd2nspkruxn3l" path="res://sfx/fnaf-meme-har-har.mp3" id="9_ptvnx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5k5uf"]
@@ -66,8 +69,7 @@ offset_right = 1064.0
 offset_bottom = 192.0
 theme_override_fonts/normal_font = ExtResource("1_pdbg4")
 theme_override_font_sizes/normal_font_size = 80
-text = "One Night at Fang's
-"
+text = "One Night at Fisher's"
 
 [node name="start" type="Button" parent="screen/black_bg"]
 layout_mode = 0
@@ -132,7 +134,7 @@ offset_left = 110.0
 offset_top = 192.0
 offset_right = 298.0
 offset_bottom = 380.0
-texture = ExtResource("3_t8s8l")
+texture = ExtResource("4_u54cb")
 expand_mode = 2
 
 [node name="name" type="RichTextLabel" parent="screen/customize/fang_mugshot"]
@@ -163,7 +165,7 @@ offset_left = 363.0
 offset_top = 198.0
 offset_right = 551.0
 offset_bottom = 386.0
-texture = ExtResource("3_t8s8l")
+texture = ExtResource("6_qncfg")
 expand_mode = 2
 
 [node name="Button" type="Button" parent="screen/customize/TextureRect2"]
@@ -194,7 +196,7 @@ offset_left = 603.0
 offset_top = 193.0
 offset_right = 791.0
 offset_bottom = 381.0
-texture = ExtResource("3_t8s8l")
+texture = ExtResource("7_fbeqk")
 expand_mode = 2
 
 [node name="Button" type="Button" parent="screen/customize/TextureRect3"]
@@ -216,7 +218,7 @@ offset_right = 191.0
 offset_bottom = 280.0
 theme_override_fonts/normal_font = ExtResource("2_hdnta")
 theme_override_font_sizes/normal_font_size = 25
-text = "Shawnk"
+text = "Deffery"
 horizontal_alignment = 1
 
 [node name="banajit" type="TextureRect" parent="screen/customize"]
@@ -225,7 +227,7 @@ offset_left = 848.0
 offset_top = 190.0
 offset_right = 1036.0
 offset_bottom = 378.0
-texture = ExtResource("3_t8s8l")
+texture = ExtResource("8_iltba")
 expand_mode = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="screen/customize/banajit"]
@@ -278,7 +280,7 @@ offset_left = 117.0
 offset_top = 198.0
 offset_right = 419.0
 offset_bottom = 500.0
-texture = ExtResource("3_t8s8l")
+texture = ExtResource("4_u54cb")
 expand_mode = 2
 
 [node name="name" type="RichTextLabel" parent="screen/customize/fang_info"]
@@ -347,7 +349,7 @@ offset_left = 117.0
 offset_top = 198.0
 offset_right = 419.0
 offset_bottom = 500.0
-texture = ExtResource("3_t8s8l")
+texture = ExtResource("6_qncfg")
 expand_mode = 2
 
 [node name="name" type="RichTextLabel" parent="screen/customize/idk_info"]
@@ -415,7 +417,7 @@ offset_left = 117.0
 offset_top = 198.0
 offset_right = 419.0
 offset_bottom = 500.0
-texture = ExtResource("3_t8s8l")
+texture = ExtResource("7_fbeqk")
 expand_mode = 2
 
 [node name="name" type="RichTextLabel" parent="screen/customize/idk_info2"]
@@ -425,7 +427,7 @@ offset_right = 1151.0
 offset_bottom = 166.0
 theme_override_fonts/normal_font = ExtResource("2_hdnta")
 theme_override_font_sizes/normal_font_size = 50
-text = "Shawnk"
+text = "Deffery"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -483,7 +485,7 @@ offset_left = 117.0
 offset_top = 198.0
 offset_right = 419.0
 offset_bottom = 500.0
-texture = ExtResource("3_t8s8l")
+texture = ExtResource("8_iltba")
 expand_mode = 2
 
 [node name="name" type="RichTextLabel" parent="screen/customize/banajit_info"]
@@ -528,6 +530,18 @@ offset_top = 7.0
 offset_right = 113.0
 offset_bottom = 82.0
 text = "<< back"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="screen/customize"]
+visible = false
+layout_mode = 0
+offset_left = 418.0
+offset_top = 520.0
+offset_right = 743.0
+offset_bottom = 566.0
+theme_override_fonts/normal_font = ExtResource("1_pdbg4")
+theme_override_font_sizes/normal_font_size = 30
+text = "Score: 200"
+horizontal_alignment = 1
 
 [node name="click" type="AudioStreamPlayer" parent="screen"]
 stream = ExtResource("7_hxulw")

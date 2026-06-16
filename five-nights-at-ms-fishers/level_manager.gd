@@ -1,5 +1,6 @@
 extends Control
 
+var score=200
 var fang_level:int = 0
 var person1_level:int=0
 var person2_level:int=0

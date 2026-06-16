@@ -12,12 +12,14 @@ var current_power:float=1000.0
 
 var current_room=0
 
+var game_over=false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	cam_display.texture=cams[current_room].get_texture()
 	$"../fang".level=LevelManager.fang_level
-	$"../fang2".level=LevelManager.person1_level
-	$"../fang3".level=LevelManager.person2_level
+	$"../fang2".level=LevelManager.person2_level
+	$"../fang3".level=LevelManager.person1_level
 	$"../tardy_guy".difficulty=LevelManager.banajit_level
 
 
@@ -29,7 +31,7 @@ func _process(delta: float) -> void:
 func _next_hour() -> void:
 	current_hour+=1
 	$"../gui/time".text=str(current_hour)+" AM"
-	if current_hour==6:
+	if current_hour==6 and !game_over:
 		$hooray.play()
 		$"../game_win".visible=true
 		$"../desk/ambience".stop()
@@ -41,7 +43,7 @@ func _next_hour() -> void:
 
 
 func _timeout_counter() -> void:
-	current_power-=$"../gui/usage_bar_container".power_sources*2.5
+	current_power-=$"../gui/usage_bar_container".power_sources*2.3
 	$"../gui/power_left".text="Power left: " + str(int(current_power/START_POWER*100)) + " %"
 	if current_power<0:
 		$power.stop()
@@ -70,6 +72,7 @@ func switch_cams(index:int, room_name:String)->void:
 	$"../cameras/place_name".text=room_name
 
 func trigger_game_over():
+	game_over=true
 	$"../jumps care".visible=false
 	$"../jumps care/fang".visible=false
 	$"../jumps care/deffs".visible=false
@@ -82,6 +85,7 @@ func trigger_game_over():
 	$"../fang3".game_stopped=true
 	$"../tardy_guy".game_stopped=true
 	$"../game_over/sad_spunch".play()
+	
 
 
 func _restart_game() -> void:
