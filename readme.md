@@ -10,6 +10,8 @@ This is a full-fledged FNaF fan game inspired by my own AP CompSci class. 35 hou
 - Working code for all scenarios-- getting annoyed by a student (jumps care oh no), running out of power, or winning the game
 - Cool SFX, atmosphere, and jumpscares!!!
 
+![The office of the game, where you play.](https://img.itch.zone/aW1hZ2UvNDY4NjkwMi8yNzkzMTg3OC5wbmc=/original/hHM6Qm.png)
+
 ## How to play:
 Check your cameras regularly. Make sure you know where the students are. There are blind spots right outside your doors-- use the lights to check them. Close your doors to block students from entering your office!
 
