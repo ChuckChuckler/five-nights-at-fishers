@@ -11,6 +11,8 @@ This is a full-fledged FNaF fan game inspired by my own AP CompSci class. 35 hou
 - Cool SFX, atmosphere, and jumpscares!!!
 
 ![The office of the game, where you play.](https://img.itch.zone/aW1hZ2UvNDY4NjkwMi8yNzkzMTg3OC5wbmc=/original/hHM6Qm.png)
+![Fang in Classroom E.](https://img.itch.zone/aW1hZ2UvNDY4NjkwMi8yNzkzMTg3OS5wbmc=/original/7Wdfz8.png)
+![Mims jumspcaring you!](https://img.itch.zone/aW1hZ2UvNDY4NjkwMi8yNzkzMTg4Mi5wbmc=/original/WowdrP.png)
 
 ## How to play:
 Check your cameras regularly. Make sure you know where the students are. There are blind spots right outside your doors-- use the lights to check them. Close your doors to block students from entering your office!
