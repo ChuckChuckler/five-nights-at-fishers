@@ -32,3 +32,11 @@ You can customize difficulty through the "Customize" button on the opening scree
 - Cursor on brownish rectangle at bottom of screen --> open camera
 
 # Can *you* make it to 6AM without getting annoyed...or running out of power...?
+
+## Technical information...
+To open the project in your Godot, follow these steps (Windows only):
+1. Open Powershell or other terminal
+2. Cd to a location you'll remember
+3. Clone this repo with `git clone https://github.com/ChuckChuckler/five-nights-at-fishers`
+4. Open Godot and click "Import" at the top of the screen
+5. Find the repo and import the "five-nights-at-ms-fishers" folder as a project
