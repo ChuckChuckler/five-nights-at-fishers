@@ -10,9 +10,10 @@ config_version=5
 
 [application]
 
-config/name="five nights at ms fishers"
+config/name="one night at ms fisher's"
+run/main_scene="uid://clvr8o18wtksa"
 config/features=PackedStringArray("4.5", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://clbysctiyjt0m"
 
 [autoload]
 
