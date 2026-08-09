@@ -40,3 +40,5 @@ To open the project in your Godot, follow these steps (Windows only):
 3. Clone this repo with `git clone https://github.com/ChuckChuckler/five-nights-at-fishers`
 4. Open Godot and click "Import" at the top of the screen
 5. Find the repo and import the "five-nights-at-ms-fishers" folder as a project
+
+This game is not playable on web! This is because the game uses Forward+ as its rendering engine, which is not compatible with web players. Switching to a web-compatible render engine (e.g. mobile) simply makes the game both visually bad and borderline unplayable. Please download the game, or feel free to request a demo video.
